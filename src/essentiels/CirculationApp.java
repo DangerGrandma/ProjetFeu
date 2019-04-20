@@ -28,7 +28,7 @@ public class CirculationApp {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				
-				new Chronometre();
+				new MainFrame();
 			}
 			
 		});
