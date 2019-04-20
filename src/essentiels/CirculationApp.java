@@ -22,8 +22,6 @@ import java.awt.Color;
 
 public class CirculationApp {
 	
-	public static Chronometre test = new Chronometre();
-
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
