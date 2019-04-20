@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 public class PaneauFeu extends JPanel {
 
 	private static boolean clrFeu = false;
+	private static int statusRoad = 0;
 	/**
 	 * Create the panel.
 	 */

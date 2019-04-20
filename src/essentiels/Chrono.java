@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import java.awt.Color;
 
 public class Chrono extends JPanel {
 
@@ -26,17 +27,20 @@ public class Chrono extends JPanel {
 		
 		setLayout(null);
 
-		JLabel Bt_Mins = new JLabel("00 :");
+		JLabel Bt_Mins = new JLabel("0 :");
+		Bt_Mins.setForeground(Color.BLACK);
 		Bt_Mins.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		Bt_Mins.setBounds(20, 11, 46, 14);
 		add(Bt_Mins);
 		
-		JLabel Bt_Secs = new JLabel("00 :");
+		JLabel Bt_Secs = new JLabel("0 :");
+		Bt_Secs.setForeground(Color.BLACK);
 		Bt_Secs.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		Bt_Secs.setBounds(60, 11, 46, 14);
 		add(Bt_Secs);
 
-		JLabel Bt_Millis = new JLabel("0000");
+		JLabel Bt_Millis = new JLabel("0");
+		Bt_Millis.setForeground(Color.BLACK);
 		Bt_Millis.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		Bt_Millis.setBounds(100, 11, 46, 14);
 		add(Bt_Millis);

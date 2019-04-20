@@ -24,35 +24,47 @@ public class MainFrame extends JFrame {
 	public MainFrame() {
 		
 		super("Feu Intelligent");
+		setResizable(false);
 		getContentPane().setEnabled(false);
 		getContentPane().setLayout(null);
 		
 		PaneauFeu test = new PaneauFeu();
-		test.setBounds(10, 48, 58, 89);
+		test.setBackground(new Color(47, 79, 79));
+		test.setBounds(677, 20, 58, 89);
 		
 		Container c = getContentPane();
 		c.add(test);
 		
+		JLabel lblChronomtre = new JLabel("Chronom\u00E8tre");
+		lblChronomtre.setForeground(Color.BLACK);
+		lblChronomtre.setBounds(784, 0, 120, 52);
+		getContentPane().add(lblChronomtre);
+		lblChronomtre.setFont(new Font("Vivaldi", Font.BOLD | Font.ITALIC, 25));
+		
 		Chrono caca = new Chrono();
-		caca.setBounds(285, 48, 170, 124);
+		caca.setBackground(new Color(47, 79, 79));
+		caca.setBounds(764, 28, 170, 81);
 		getContentPane().add(caca);
 		
 		JLabel lblNewLabel = new JLabel("Menu");
-		lblNewLabel.setFont(new Font("Vivaldi", Font.BOLD | Font.ITALIC, 25));
-		lblNewLabel.setBounds(0, 0, 74, 60);
+		lblNewLabel.setForeground(Color.BLACK);
+		lblNewLabel.setFont(new Font("Vivaldi", Font.BOLD | Font.ITALIC, 34));
+		lblNewLabel.setBounds(24, 28, 99, 60);
 		getContentPane().add(lblNewLabel);
 		
-		JLabel lblChronomtre = new JLabel("Chronom\u00E8tre");
-		lblChronomtre.setFont(new Font("Vivaldi", Font.BOLD | Font.ITALIC, 25));
-		lblChronomtre.setBounds(309, 4, 120, 52);
-		getContentPane().add(lblChronomtre);
-		
 		JEditorPane editorPane = new JEditorPane();
+		editorPane.setEditable(false);
+		editorPane.setEnabled(false);
 		editorPane.setBackground(new Color(47, 79, 79));
-		editorPane.setBounds(0, 0, 584, 90);
+		editorPane.setBounds(0, 0, 944, 116);
 		getContentPane().add(editorPane);
 		
-		setSize(600, 500);
+		JEditorPane editorPane_1 = new JEditorPane();
+		editorPane_1.setBackground(new Color(95, 158, 160));
+		editorPane_1.setBounds(0, 88, 154, 583);
+		getContentPane().add(editorPane_1);
+		
+		setSize(950, 700);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 	}
