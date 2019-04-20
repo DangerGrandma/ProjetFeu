@@ -1,78 +1,45 @@
 package essentiels;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.GridBagLayout;
-import javax.swing.JButton;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.BoxLayout;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import java.awt.Font;
 import javax.swing.Timer;
-import java.awt.Color;
 
-public class Chronometre extends JFrame {
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-	private JPanel contentPane;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
+public class Chrono extends JPanel {
+
     private static int secondes = 0;
     private static int minutes = 0;
     private static int millisecondes = 0;
 
 	/**
-	 * Launch the application.
+	 * Create the panel.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Chronometre frame = new Chronometre();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+    
+    
+	public Chrono() {
+		
+		setLayout(null);
 
-	/**
-	 * Create the frame.
-	 */
-	public Chronometre() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 868, 491);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		
-		JPanel panelChrono = new JPanel();
-		panelChrono.setBackground(Color.MAGENTA);
-		panelChrono.setBounds(264, 79, 168, 95);
-		contentPane.add(panelChrono);
-		panelChrono.setLayout(null);
-		
 		JLabel Bt_Mins = new JLabel("00 :");
 		Bt_Mins.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		Bt_Mins.setBounds(20, 11, 46, 14);
-		panelChrono.add(Bt_Mins);
+		add(Bt_Mins);
 		
 		JLabel Bt_Secs = new JLabel("00 :");
 		Bt_Secs.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		Bt_Secs.setBounds(60, 11, 46, 14);
-		panelChrono.add(Bt_Secs);
-		
+		add(Bt_Secs);
+
 		JLabel Bt_Millis = new JLabel("0000");
 		Bt_Millis.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		Bt_Millis.setBounds(100, 11, 46, 14);
-		panelChrono.add(Bt_Millis);
+		add(Bt_Millis);
 		
 		Timer T = new Timer(8, new ActionListener()
 	    {
@@ -100,28 +67,18 @@ public class Chronometre extends JFrame {
 	    });
 		
 		JButton Btn_Start = new JButton("Lancer");
+		Btn_Start.setFont(new Font("Tahoma", Font.PLAIN, 9));
+		Btn_Start.setBounds(10, 36, 63, 18);
 		Btn_Start.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 T.start();
 			}
 		});
-
-		Btn_Start.setFont(new Font("Tahoma", Font.PLAIN, 9));
-		Btn_Start.setBounds(10, 36, 63, 23);
-		panelChrono.add(Btn_Start);
-		
-		JButton Btn_Stop = new JButton("Arr\u00EAter");
-		Btn_Stop.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				  T.stop();
-			}
-		});
-		Btn_Stop.setFont(new Font("Tahoma", Font.PLAIN, 9));
-		Btn_Stop.setBounds(80, 36, 63, 23);
-		panelChrono.add(Btn_Stop);
+		add(Btn_Start);
 		
 		JButton Btn_Reset = new JButton("Recommencer");
 		Btn_Reset.setFont(new Font("Tahoma", Font.PLAIN, 9));
+		Btn_Reset.setBounds(24, 58, 107, 18);
 		Btn_Reset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				T.stop();
@@ -133,14 +90,16 @@ public class Chronometre extends JFrame {
 		        Bt_Secs.setText(""+secondes+" :");
 			}
 		});
-		Btn_Reset.setBounds(24, 61, 107, 23);
-		panelChrono.add(Btn_Reset);
+		add(Btn_Reset);
 		
-		
-
-		
-		
+		JButton Btn_Stop = new JButton("Arreter");
+		Btn_Stop.setFont(new Font("Tahoma", Font.PLAIN, 9));
+		Btn_Stop.setBounds(80, 36, 63, 18);
+		Btn_Stop.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				  T.stop();
+			}
+		});
+		add(Btn_Stop);
 	}
-
 }
-
