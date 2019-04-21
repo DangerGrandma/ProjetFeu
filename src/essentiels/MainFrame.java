@@ -17,11 +17,15 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JEditorPane;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
+import essentiels.elementsRoute.Bretelle;
+import essentiels.elementsRoute.Rondpoint;
+import essentiels.elementsRoute.Troncon1;
+import essentiels.elementsRoute.Troncon2;
+import essentiels.elementsRoute.Troncon3;
 
 public class MainFrame extends JFrame {
-	
-	
-	protected static JLabel lblNewLabel_1 = new JLabel(""+Chrono.secondes);
 
 
 	public MainFrame() {
@@ -34,6 +38,8 @@ public class MainFrame extends JFrame {
 		PaneauFeu test = new PaneauFeu();
 		test.setBackground(new Color(47, 79, 79));
 		test.setBounds(677, 20, 58, 89);
+		
+	
 		
 		ComboBoxTrafic menuTrafic = new ComboBoxTrafic();
 		menuTrafic.setBackground(new Color(47, 79, 79));
@@ -54,19 +60,63 @@ public class MainFrame extends JFrame {
 		caca.setBounds(764, 28, 170, 81);
 		getContentPane().add(caca);
 		
+		PaneauEtat status = new PaneauEtat();
+		status.setBounds(652, 127, 270, 237);
+		c.add(status);
+		
+		Bretelle bretelle = new Bretelle();
+		bretelle.VtrsBretelle.setText("Voitures sur la bretelle : ");
+		bretelle.setBackground(Color.LIGHT_GRAY);
+		bretelle.setSize(163, 40);
+		bretelle.setLocation(188, 412);
+		bretelle.VtrsBretelle.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		bretelle.VtrsBretelle.setHorizontalAlignment(SwingConstants.CENTER);
+		bretelle.VtrsBretelle.setBounds(11, 11, 140, 14);
+		c.add(bretelle);
+		
 		Rondpoint rondpoint = new Rondpoint();
+		rondpoint.VtrsRondpoint.setText("Voitures sur le rondpoint : ");
+		rondpoint.VtrsRondpoint.setLocation(11, 11);
 		rondpoint.setBackground(Color.LIGHT_GRAY);
-		rondpoint.setBounds(209, 148, 163, 40);
+		rondpoint.setBounds(188, 157, 163, 40);
 		getContentPane().add(rondpoint);
+		
+		Troncon1 Tr1 = new Troncon1();
+		Tr1.VtrsTroncon.setText("Voitures sur le troncon1 : ");
+		Tr1.setBackground(Color.LIGHT_GRAY);
+		Tr1.setSize(163, 40);
+		Tr1.setLocation(188, 223);
+		Tr1.VtrsTroncon.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		Tr1.VtrsTroncon.setHorizontalAlignment(SwingConstants.CENTER);
+		Tr1.VtrsTroncon.setBounds(11, 11, 140, 14);
+		c.add(Tr1);
+		
+		Troncon2 Tr2 = new Troncon2();
+		Tr2.VtrsTroncon.setText("Voitures sur le troncon2 : ");
+		Tr2.setBackground(Color.LIGHT_GRAY);
+		Tr2.setSize(163, 40);
+		Tr2.setLocation(188, 284);
+		Tr2.VtrsTroncon.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		Tr2.VtrsTroncon.setHorizontalAlignment(SwingConstants.CENTER);
+		Tr2.VtrsTroncon.setBounds(10, 11, 140, 14);
+		c.add(Tr2);
+		
+		Troncon3 Tr3 = new Troncon3();
+		Tr3.VtrsTroncon.setText("Voitures sur le troncon3 : ");
+		Tr3.setBackground(Color.LIGHT_GRAY);
+		Tr3.setSize(163, 40);
+		Tr3.setLocation(188, 348);
+		Tr3.VtrsTroncon.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		Tr3.VtrsTroncon.setHorizontalAlignment(SwingConstants.CENTER);
+		Tr3.VtrsTroncon.setBounds(10, 11, 140, 14);
+		c.add(Tr3);
+		
 		
 		JLabel lblNewLabel = new JLabel("Menu");
 		lblNewLabel.setForeground(Color.BLACK);
 		lblNewLabel.setFont(new Font("Vivaldi", Font.BOLD | Font.ITALIC, 34));
 		lblNewLabel.setBounds(24, 28, 99, 60);
 		getContentPane().add(lblNewLabel);
-		
-		lblNewLabel_1.setBounds(455, 148, 46, 14);
-		getContentPane().add(lblNewLabel_1);
 		
 		JEditorPane editorPane = new JEditorPane();
 		editorPane.setEditable(false);

@@ -3,10 +3,17 @@ package essentiels;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import essentiels.elementsRoute.Bretelle;
+import essentiels.elementsRoute.Rondpoint;
+import essentiels.elementsRoute.Troncon1;
+import essentiels.elementsRoute.Troncon2;
+import essentiels.elementsRoute.Troncon3;
+
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.concurrent.ThreadLocalRandom;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -58,7 +65,16 @@ public class Chrono extends JPanel {
 	                        Bt_Millis.setText(""+0);
 	                        secondes++;
 	                        Bt_Secs.setText(""+ secondes+"s :");
-	                        MainFrame.lblNewLabel_1.setText(""+ secondes);
+	                        Rondpoint.modVoitures+= ThreadLocalRandom.current().nextInt(-2, 3);
+	                        Rondpoint.VtrsRondpoint.setText("Voitures sur le rondpoint : "+ (Rondpoint.Voitures + Rondpoint.modVoitures));
+	                        Bretelle.modVoitures+= ThreadLocalRandom.current().nextInt(-2, 3);
+	                        Bretelle.VtrsBretelle.setText("Voitures sur la bretelle : "+ (Bretelle.Voitures + Bretelle.modVoitures));
+	                        Troncon1.modVoitures+= ThreadLocalRandom.current().nextInt(-2, 3);
+	                        Troncon1.VtrsTroncon.setText("Voitures sur le troncon : "+ (Troncon1.Voitures + Troncon1.modVoitures));
+	                        Troncon2.modVoitures+= ThreadLocalRandom.current().nextInt(-2, 3);
+	                        Troncon2.VtrsTroncon.setText("Voitures sur le troncon : "+ (Troncon2.Voitures + Troncon2.modVoitures));
+	                        Troncon3.modVoitures+= ThreadLocalRandom.current().nextInt(-2, 3);
+	                        Troncon3.VtrsTroncon.setText("Voitures sur le troncon : "+ (Troncon3.Voitures + Troncon3.modVoitures));
 	                     
 	                    }
 	                    if(secondes>=60) //Une minute écoulée
@@ -77,6 +93,7 @@ public class Chrono extends JPanel {
 		Btn_Start.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 T.start();
+
 			}
 		});
 		add(Btn_Start);
@@ -87,6 +104,18 @@ public class Chrono extends JPanel {
 		Btn_Reset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				T.stop();
+				Rondpoint.VtrsRondpoint.setText("Voitures sur le rondpoint : ");
+				Rondpoint.modVoitures = ThreadLocalRandom.current().nextInt(3, 11);
+                Bretelle.VtrsBretelle.setText("Voitures sur la bretelle : ");
+                Bretelle.modVoitures = ThreadLocalRandom.current().nextInt(3, 11);
+                Troncon1.VtrsTroncon.setText("Voitures sur le troncon1 : ");
+                Troncon1.modVoitures = ThreadLocalRandom.current().nextInt(3, 11);
+                Troncon2.VtrsTroncon.setText("Voitures sur le troncon2 : ");
+                Troncon2.modVoitures = ThreadLocalRandom.current().nextInt(3, 11);
+                Troncon3.VtrsTroncon.setText("Voitures sur le troncon3 : ");
+                Troncon3.modVoitures = ThreadLocalRandom.current().nextInt(3, 11);
+                
+				
 		        millisecondes = 0;
 		        minutes = 0;
 		        secondes = 0;
@@ -103,6 +132,7 @@ public class Chrono extends JPanel {
 		Btn_Stop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				  T.stop();
+				  
 			}
 		});
 		add(Btn_Stop);
