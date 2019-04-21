@@ -14,9 +14,9 @@ import java.awt.Color;
 
 public class Chrono extends JPanel {
 
-    private static int secondes = 0;
-    private static int minutes = 0;
-    private static int millisecondes = 0;
+	protected static int secondes = 0;
+	protected static int minutes = 0;
+	protected static int millisecondes = 0;
 
 	/**
 	 * Create the panel.
@@ -58,6 +58,7 @@ public class Chrono extends JPanel {
 	                        Bt_Millis.setText(""+0);
 	                        secondes++;
 	                        Bt_Secs.setText(""+ secondes+"s :");
+	                        MainFrame.lblNewLabel_1.setText(""+ secondes);
 	                     
 	                    }
 	                    if(secondes>=60) //Une minute écoulée

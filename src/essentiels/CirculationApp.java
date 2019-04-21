@@ -24,11 +24,9 @@ public class CirculationApp {
 	
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				
+			public void run() {			
 				new MainFrame();
 			}
-	
 		});
 		
 	}

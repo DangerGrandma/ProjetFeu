@@ -21,6 +21,9 @@ import javax.swing.JTextField;
 public class MainFrame extends JFrame {
 	
 	
+	protected static JLabel lblNewLabel_1 = new JLabel(""+Chrono.secondes);
+
+
 	public MainFrame() {
 		
 		super("Feu Intelligent");
@@ -51,11 +54,19 @@ public class MainFrame extends JFrame {
 		caca.setBounds(764, 28, 170, 81);
 		getContentPane().add(caca);
 		
+		Rondpoint rondpoint = new Rondpoint();
+		rondpoint.setBackground(Color.LIGHT_GRAY);
+		rondpoint.setBounds(209, 148, 163, 40);
+		getContentPane().add(rondpoint);
+		
 		JLabel lblNewLabel = new JLabel("Menu");
 		lblNewLabel.setForeground(Color.BLACK);
 		lblNewLabel.setFont(new Font("Vivaldi", Font.BOLD | Font.ITALIC, 34));
 		lblNewLabel.setBounds(24, 28, 99, 60);
 		getContentPane().add(lblNewLabel);
+		
+		lblNewLabel_1.setBounds(455, 148, 46, 14);
+		getContentPane().add(lblNewLabel_1);
 		
 		JEditorPane editorPane = new JEditorPane();
 		editorPane.setEditable(false);
@@ -68,6 +79,8 @@ public class MainFrame extends JFrame {
 		editorPane_1.setBackground(new Color(95, 158, 160));
 		editorPane_1.setBounds(0, 114, 154, 557);
 		getContentPane().add(editorPane_1);
+		
+
 		
 		setSize(950, 700);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
