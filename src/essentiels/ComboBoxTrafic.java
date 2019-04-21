@@ -11,10 +11,11 @@ public class ComboBoxTrafic extends JPanel implements ActionListener {
 	String[] messageStrings = {"Heure de pointe", "Milieu de journée", "Soir et nuit"};
 	JComboBox menuList;
 	
-	int maxTron = 6; // Nombre maximum de voitures aux tronçons du rond-point
-	int minTron = 4; // Nombre minimum de voitures aux tronçons du rond-point
-	int maxAut = 20; // Nombre maximjm de voitures provenant de l'autoroute
-	int minAuto = 15; // Nombre minimum de voitures provenant de l'autoroute
+	int maxTron = 1; // Nombre maximum de voitures ajoutées aux tronçons du rond-point
+	int minTron = 0; // Nombre minimum de voitures ajoutées aux tronçons du rond-point
+	int maxAut = 3; // Nombre maximum de voitures provenant de l'autoroute ajoutées à la bretelle
+	int minAuto = 1; // Nombre minimum de voitures provenant de l'autoroute ajoutées à la bretelle
+	int temps = 1;  // Temps avant d'ajouter d'autres voitures
 	
 	public int getMaxTron() {
 		return maxTron;
@@ -28,10 +29,14 @@ public class ComboBoxTrafic extends JPanel implements ActionListener {
 		return maxAut;
 	}
 
+
 	public int getMinAuto() {
 		return minAuto;
 	}
-	
+		public int getTemps() {
+		return temps;
+	}
+
 	public ComboBoxTrafic() {
 		
 		menuList = new JComboBox(messageStrings);
@@ -52,22 +57,25 @@ public class ComboBoxTrafic extends JPanel implements ActionListener {
 			String msg = (String) cb.getSelectedItem();
 			switch (msg) {
 			case "Heure de pointe": 
-				maxTron = 6;
-				minTron = 4;
-				maxAut = 20;
-				minAuto = 15;
+				maxTron = 1;
+				minTron = 0;
+				maxAut = 3;
+				minAuto = 1;
+				temps = 1;
 				break;
 			case "Milieu de journée": 
-				maxTron = 4;
-				minTron = 1;
-				maxAut = 10;
-				minAuto = 5;
+				maxTron = 1;
+				minTron = 0;
+				maxAut = 2;
+				minAuto = 1;
+				temps = 4;
 				break;
 			case "Soir et nuit":
-				maxTron = 2;
+				maxTron = 1;
 				minTron = 0;
-				maxAut = 5;
+				maxAut = 2;
 				minAuto = 0;
+				temps = 8;
 				break;
 			}
 		}
