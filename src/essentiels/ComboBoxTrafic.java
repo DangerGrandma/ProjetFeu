@@ -33,7 +33,8 @@ public class ComboBoxTrafic extends JPanel implements ActionListener {
 	public int getMinAuto() {
 		return minAuto;
 	}
-		public int getTemps() {
+	
+	public int getTemps() {
 		return temps;
 	}
 

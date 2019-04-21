@@ -1,22 +1,18 @@
 package essentiels;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
-
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Font;
 import java.awt.Color;
-import javax.swing.JLabel;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JEditorPane;
-import javax.swing.JTextField;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import essentiels.elementsRoute.Bretelle;
@@ -44,13 +40,13 @@ public class MainFrame extends JFrame {
 		
 		PaneauFeu test = new PaneauFeu();
 		test.setBackground(new Color(47, 79, 79));
-		test.setBounds(677, 20, 58, 89);
+		test.setBounds(748, 221, 58, 89);
 		
 		// Initialisation du menu du moment du jour
 		
 		ComboBoxTrafic menuTrafic = new ComboBoxTrafic();
 		menuTrafic.setBackground(new Color(47, 79, 79));
-		menuTrafic.setBounds(514, 12, 133, 40);
+		menuTrafic.setBounds(601, 12, 133, 40);
 		getContentPane().add(menuTrafic);
 		
 		// Initialisation du conteneur des composantes visuelles
@@ -76,7 +72,7 @@ public class MainFrame extends JFrame {
 		// Initialisation du panneau d'état des routes
 		
 		PaneauEtat status = new PaneauEtat();
-		status.setBounds(652, 127, 270, 237);
+		status.setBounds(673, 488, 271, 183);
 		c.add(status);
 		
 		// Initialisation de la brettelle qui connecte l'autoroute au rondpoint
@@ -85,7 +81,7 @@ public class MainFrame extends JFrame {
 		bretelle.VtrsBretelle.setText("Voitures sur la bretelle : ");
 		bretelle.setBackground(Color.LIGHT_GRAY);
 		bretelle.setSize(163, 40);
-		bretelle.setLocation(188, 412);
+		bretelle.setLocation(533, 238);
 		bretelle.VtrsBretelle.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		bretelle.VtrsBretelle.setHorizontalAlignment(SwingConstants.CENTER);
 		bretelle.VtrsBretelle.setBounds(11, 11, 140, 14);
@@ -97,7 +93,7 @@ public class MainFrame extends JFrame {
 		rondpoint.VtrsRondpoint.setText("Voitures sur le rondpoint : ");
 		rondpoint.VtrsRondpoint.setLocation(11, 11);
 		rondpoint.setBackground(Color.LIGHT_GRAY);
-		rondpoint.setBounds(188, 157, 163, 40);
+		rondpoint.setBounds(212, 419, 163, 40);
 		getContentPane().add(rondpoint);
 		
 		// Initialisation du premier tronçon
@@ -106,10 +102,10 @@ public class MainFrame extends JFrame {
 		Tr1.VtrsTroncon.setText("Voitures sur le troncon1 : ");
 		Tr1.setBackground(Color.LIGHT_GRAY);
 		Tr1.setSize(163, 40);
-		Tr1.setLocation(188, 223);
+		Tr1.setLocation(227, 127);
 		Tr1.VtrsTroncon.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		Tr1.VtrsTroncon.setHorizontalAlignment(SwingConstants.CENTER);
-		Tr1.VtrsTroncon.setBounds(11, 11, 140, 14);
+		Tr1.VtrsTroncon.setBounds(10, 11, 140, 14);
 		c.add(Tr1);
 		
 		// Initialisation du second tronçon
@@ -118,7 +114,7 @@ public class MainFrame extends JFrame {
 		Tr2.VtrsTroncon.setText("Voitures sur le troncon2 : ");
 		Tr2.setBackground(Color.LIGHT_GRAY);
 		Tr2.setSize(163, 40);
-		Tr2.setLocation(188, 284);
+		Tr2.setLocation(177, 271);
 		Tr2.VtrsTroncon.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		Tr2.VtrsTroncon.setHorizontalAlignment(SwingConstants.CENTER);
 		Tr2.VtrsTroncon.setBounds(10, 11, 140, 14);
@@ -130,7 +126,7 @@ public class MainFrame extends JFrame {
 		Tr3.VtrsTroncon.setText("Voitures sur le troncon3 : ");
 		Tr3.setBackground(Color.LIGHT_GRAY);
 		Tr3.setSize(163, 40);
-		Tr3.setLocation(188, 348);
+		Tr3.setLocation(227, 532);
 		Tr3.VtrsTroncon.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		Tr3.VtrsTroncon.setHorizontalAlignment(SwingConstants.CENTER);
 		Tr3.VtrsTroncon.setBounds(10, 11, 140, 14);
@@ -157,8 +153,18 @@ public class MainFrame extends JFrame {
 		
 		JEditorPane editorPane_1 = new JEditorPane();
 		editorPane_1.setBackground(new Color(95, 158, 160));
-		editorPane_1.setBounds(0, 114, 154, 557);
+		editorPane_1.setBounds(0, 115, 154, 556);
 		getContentPane().add(editorPane_1);
+		
+		JLabel imgRondPoint = new JLabel("");
+		imgRondPoint.setBounds(152, 115, 792, 556);
+		getContentPane().add(imgRondPoint);
+		ImageIcon imageIcon = new ImageIcon(MainFrame.class.getResource("/essentiels/Rondpoint.PNG"));
+		Image img = imageIcon.getImage();
+		Image newImg = img.getScaledInstance(imgRondPoint.getWidth(), imgRondPoint.getHeight(), Image.SCALE_SMOOTH);
+		ImageIcon finalImage = new ImageIcon(newImg);
+		imgRondPoint.setIcon(finalImage);
+
 		
 		// Dimensions du JFrame
 		
