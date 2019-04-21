@@ -32,6 +32,11 @@ public class MainFrame extends JFrame {
 		test.setBackground(new Color(47, 79, 79));
 		test.setBounds(677, 20, 58, 89);
 		
+		ComboBoxTrafic menuTrafic = new ComboBoxTrafic();
+		menuTrafic.setBackground(new Color(47, 79, 79));
+		menuTrafic.setBounds(514, 12, 133, 40);
+		getContentPane().add(menuTrafic);
+		
 		Container c = getContentPane();
 		c.add(test);
 		
@@ -61,7 +66,7 @@ public class MainFrame extends JFrame {
 		
 		JEditorPane editorPane_1 = new JEditorPane();
 		editorPane_1.setBackground(new Color(95, 158, 160));
-		editorPane_1.setBounds(0, 88, 154, 583);
+		editorPane_1.setBounds(0, 114, 154, 557);
 		getContentPane().add(editorPane_1);
 		
 		setSize(950, 700);
