@@ -2,6 +2,13 @@ package essentiels.elementsRoute;
 
 public interface Route {
 	
-public void caca();
+public static void MAJVoitures() {
+	
+};	
+	
+public static void ResetVoitures() {
+	
+};
+
 
 }

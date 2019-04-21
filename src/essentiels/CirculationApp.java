@@ -20,6 +20,8 @@ import java.awt.Font;
 import javax.swing.Timer;
 import java.awt.Color;
 
+// L'application en tant que telle pour la simulation
+
 public class CirculationApp {
 	
 	public static void main(String[] args) {
