@@ -17,6 +17,11 @@ public class ComboBoxTrafic extends JPanel implements ActionListener {
 	int minAuto = 1; // Nombre minimum de voitures provenant de l'autoroute ajoutées à la bretelle
 	int temps = 1;  // Temps avant d'ajouter d'autres voitures
 	
+	int tronDebutMax = 6; // Nombre maximum de voitures au départ aux tronçons du rond-point
+	int tronDebutMin = 4; // Nombre minimum de voitures au départ aux tronçons du rond-point
+	int autDebutMax = 20; // Nombre maximum de voitures au début à la bretelle de l'autoroute
+	int autDebutMin = 15; // Nombre minimum de voitures au début à la bretelle de l'autoroute
+	
 	public int getMaxTron() {
 		return maxTron;
 	}
@@ -34,6 +39,22 @@ public class ComboBoxTrafic extends JPanel implements ActionListener {
 		return minAuto;
 	}
 	
+	public int getTronDebutMax() {
+		return tronDebutMax;
+	}
+
+	public int getTronDebutMin() {
+		return tronDebutMin;
+	}
+
+	public int getAutDebutMax() {
+		return autDebutMax;
+	}
+
+	public int getAutDebutMin() {
+		return autDebutMin;
+	}
+
 	public int getTemps() {
 		return temps;
 	}
@@ -63,6 +84,10 @@ public class ComboBoxTrafic extends JPanel implements ActionListener {
 				maxAut = 3;
 				minAuto = 1;
 				temps = 1;
+				tronDebutMax = 6;
+				tronDebutMin = 4;
+				autDebutMax = 20;
+				autDebutMin = 15;
 				break;
 			case "Milieu de journée": 
 				maxTron = 1;
@@ -70,6 +95,10 @@ public class ComboBoxTrafic extends JPanel implements ActionListener {
 				maxAut = 2;
 				minAuto = 1;
 				temps = 4;
+				tronDebutMax = 4;
+				tronDebutMin = 1;
+				autDebutMax = 10;
+				autDebutMin = 5;
 				break;
 			case "Soir et nuit":
 				maxTron = 1;
@@ -77,6 +106,10 @@ public class ComboBoxTrafic extends JPanel implements ActionListener {
 				maxAut = 2;
 				minAuto = 0;
 				temps = 8;
+				tronDebutMax = 2;
+				tronDebutMin = 0;
+				autDebutMax = 5;
+				autDebutMin = 0;
 				break;
 			}
 		}
