@@ -81,6 +81,16 @@ public class Chrono extends JPanel {
 	                        secondes++;
 	                        timestamp++;
 	                        Bt_Secs.setText(""+ secondes+"s :");
+	                        PaneauMoyennes.setMoyenneBretelle();
+	                        PaneauMoyennes.lblMoyBret.setText("Bretelle " + PaneauMoyennes.getMoyenneBretelle());
+	                        PaneauMoyennes.setMoyenneTron1();
+	                        PaneauMoyennes.lblMoyTron1.setText("Tronçon1 " + PaneauMoyennes.getMoyenneTron1());
+	                        PaneauMoyennes.setMoyenneTron2();
+	                        PaneauMoyennes.lblMoyTron2.setText("Tronçon2 " + PaneauMoyennes.getMoyenneTron2());
+	                        PaneauMoyennes.setMoyenneTron3();
+	                        PaneauMoyennes.lblMoyTron3.setText("Tronçon3 " + PaneauMoyennes.getMoyenneTron3());
+	                        PaneauMoyennes.setMoyenneRondpoint();
+	                        PaneauMoyennes.lblMoyRP.setText("Rondpoint " + PaneauMoyennes.getMoyenneRondpoint());
 	                        
 	                        // Mise à jour du nombre de voiture sur les éléments de la route
 	                       
@@ -136,6 +146,7 @@ public class Chrono extends JPanel {
 				Troncon1.resetVoitures();
 				Troncon2.resetVoitures();
                 Troncon3.resetVoitures();
+                PaneauMoyennes.resetValeurs();
                 
 				
 		        millisecondes = 0;

@@ -75,6 +75,10 @@ public class MainFrame extends JFrame {
 		status.setBounds(673, 488, 271, 183);
 		c.add(status);
 		
+		PaneauMoyennes panMoy = new PaneauMoyennes();
+		panMoy.setBounds(24, 127, 99, 519);
+		c.add(panMoy);
+		
 		// Initialisation de la brettelle qui connecte l'autoroute au rondpoint
 		
 		Bretelle bretelle = new Bretelle();
@@ -171,7 +175,6 @@ public class MainFrame extends JFrame {
 		Image newImg = img.getScaledInstance(imgRondPoint.getWidth(), imgRondPoint.getHeight(), Image.SCALE_SMOOTH);
 		ImageIcon finalImage = new ImageIcon(newImg);
 		imgRondPoint.setIcon(finalImage);
-
 		
 		// Dimensions du JFrame
 		
