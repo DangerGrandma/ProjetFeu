@@ -118,11 +118,47 @@ public class ChoixVoitures extends JPanel {
 		JButton modifierDonnees = new JButton("Modifier");
 		modifierDonnees.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				rondpointDebut = Integer.parseInt(jtRondpoint.getText());
-				tron1Debut = Integer.parseInt(jtTron1.getText());
-				tron2Debut = Integer.parseInt(jtTron2.getText());
-				tron3Debut = Integer.parseInt(jtTron3.getText());
-				bretelleDebut = Integer.parseInt(jtBretelle.getText());
+				
+				try {
+					rondpointDebut = Integer.parseInt(jtRondpoint.getText());
+				}
+				catch (Exception e1) {
+					rondpointDebut = 0;
+					jtRondpoint.setText("0");
+				}
+				
+				try {
+					tron1Debut = Integer.parseInt(jtTron1.getText());
+				}
+				catch (Exception e1) {
+					tron1Debut = 0;
+					jtTron1.setText("0");
+				}
+				
+				try {
+					tron2Debut = Integer.parseInt(jtTron2.getText());
+				}
+				catch (Exception e1) {
+					tron2Debut = 0;
+					jtTron2.setText("0");
+				}
+
+				try {
+					tron3Debut = Integer.parseInt(jtTron3.getText());
+				}
+				catch (Exception e1) {
+					tron3Debut = 0;
+					jtTron3.setText("0");
+				}
+				
+				try {
+					bretelleDebut = Integer.parseInt(jtBretelle.getText());
+				}
+				catch (Exception e1) {
+					bretelleDebut = 0;
+					jtBretelle.setText("0");
+				}
+				
 				JOptionPane.showMessageDialog(null, "Données de départ modifiée!");
 			}
 		});
