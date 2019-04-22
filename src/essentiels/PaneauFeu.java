@@ -23,7 +23,7 @@ public class PaneauFeu extends JPanel {
 	private static JLabel feuRouge;
 	private static Timer timerFeu = new Timer();  
 	private JButton switchMode; 
-	private static int nbAutoBretelle;
+	private static int nbAutoBretelle;	
 	private static int currentNbAuto = 0;
 	private static int timerTempsDepart = 0;
 
@@ -86,7 +86,7 @@ public class PaneauFeu extends JPanel {
 				else { 
 					switchMode.setText("Intelligent"); 
 					btnFeu.setBackground(Color.GRAY); 
-					startTimerFeuVert(); 
+					resumeTimer(); 
 				} 
 			} 
 		}); 
