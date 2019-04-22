@@ -1,5 +1,4 @@
 package essentiels;
-
 import javax.swing.JPanel;
 import essentiels.elementsRoute.*;
 import essentiels.elementsRoute.Route;
@@ -10,10 +9,13 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
 public class PaneauEtat extends JPanel implements Route {
+	
+	protected static JLabel labelneutre = new JLabel("");
+	
 	public PaneauEtat() {
 		setBackground(new Color(44, 44, 44));
 
-		JLabel labelneutre = new JLabel("");
+	
 		labelneutre.setIcon(new ImageIcon(getClass().getResource("/essentiels/images/etat_eneqiulibre.png")));
 		add(labelneutre);
 
@@ -23,19 +25,14 @@ public class PaneauEtat extends JPanel implements Route {
 		@Override
 		public void run() {
 			//print pour tester la fonction
-			//System.out.println(Bretelle.VtrBretelle.size());
-			
-			
-			/**
-			 * PROBLEME PCQ ON NE PEUT PAS ACCEDER A LABELNEUTRE DU CONSTRUCTOR
-			 */
-//			if (Bretelle.VtrBretelle.size() >= 0 && Bretelle.VtrBretelle.size() < 10) {
-//				labelneutre.setIcon(new ImageIcon(getClass().getResource("/essentiels/images/etat_eneqiulibre.png")));
-//			} else if (Bretelle.VtrBretelle.size() >= 10 && Bretelle.VtrBretelle.size() < 25) {
-//				labelneutre.setIcon(new ImageIcon(getClass().getResource("/essentiels/images/etat_risque.png")));
-//			} else {
-//				labelneutre.setIcon(new ImageIcon(getClass().getResource("/essentiels/images/etat_congestion.png")));
-//			}
+
+			if (Bretelle.VtrBretelle.size() >= 0 && Bretelle.VtrBretelle.size() < 10) {
+				labelneutre.setIcon(new ImageIcon(getClass().getResource("/essentiels/images/etat_eneqiulibre.png")));
+			} else if (Bretelle.VtrBretelle.size() >= 10 && Bretelle.VtrBretelle.size() < 25) {
+				labelneutre.setIcon(new ImageIcon(getClass().getResource("/essentiels/images/etat_risque.png")));
+			} else {
+				labelneutre.setIcon(new ImageIcon(getClass().getResource("/essentiels/images/etat_congestion.png")));
+			}
 		}
 
 		public static void timeEtat() {
@@ -48,10 +45,6 @@ public class PaneauEtat extends JPanel implements Route {
 		}
 
 	}
-	/*
-	 *ici le probleme, on ne veut pas utiliser ce labelneutre la
-	 */
-	protected static JLabel labelneutre;
-	static Timer timer;
 
+	static Timer timer;
 }
