@@ -52,7 +52,6 @@ public class Bretelle extends JPanel implements Route {
 			voituresMax = ComboBoxTrafic.getAutDebutMax();
 			Voitures = ThreadLocalRandom.current().nextInt(voituresMin, voituresMax+1);
 		}
-
 		for (int i = 1; i <= Voitures; i++) {
 			VtrBretelle.add(new Voiture());
 		};

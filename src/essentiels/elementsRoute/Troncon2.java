@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+import essentiels.ChoixVoitures;
 import essentiels.Chrono;
 import essentiels.ComboBoxTrafic;
 import essentiels.Voiture;
@@ -39,9 +40,18 @@ public class Troncon2 extends JPanel implements Route {
 	// Génération des voitures, de leur destination et de leur empreinte de temps d'apparition
 	
 	public static void genVoitures() {
-		int voituresMin = ComboBoxTrafic.getTronDebutMin();
-		int voituresMax = ComboBoxTrafic.getTronDebutMax();
-		Voitures = ThreadLocalRandom.current().nextInt(voituresMin, voituresMax+1);
+		int voituresMin;
+		int voituresMax;
+		if (ChoixVoitures.getTron2Debut() != 0) {
+			voituresMin = ChoixVoitures.getTron2Debut();
+			voituresMax = ChoixVoitures.getTron2Debut();
+			Voitures = ThreadLocalRandom.current().nextInt(voituresMin, voituresMax+1);
+		}
+		else {
+			voituresMin = ComboBoxTrafic.getTronDebutMin();
+			voituresMax = ComboBoxTrafic.getTronDebutMax();
+			Voitures = ThreadLocalRandom.current().nextInt(voituresMin, voituresMax+1);
+		}
 		for (int i = 1; i <= Voitures; i++) {
 			VtrTroncon2.add(new Voiture());
 		};

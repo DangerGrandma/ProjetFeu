@@ -1,10 +1,16 @@
 package essentiels;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.JButton;
 
 public class ChoixVoitures extends JPanel {
 	
@@ -14,6 +20,10 @@ public class ChoixVoitures extends JPanel {
 	static int bretelleDebut;
 	static int rondpointDebut;
 	
+	static int texteBretelle;
+	
+	
+	public static JTextField jtBretelle = new JTextField();
 	
 	
 	public static int getTron1Debut() {
@@ -35,6 +45,11 @@ public class ChoixVoitures extends JPanel {
 	public static int getRondpointDebut() {
 		return rondpointDebut;
 	}
+	
+
+	public static void setBretelleDebut(int bretelleDebut) {
+		ChoixVoitures.bretelleDebut = bretelleDebut;
+	}
 
 	public ChoixVoitures() {
 
@@ -45,7 +60,6 @@ public class ChoixVoitures extends JPanel {
 		jtRondpoint.setBounds(128, 5, 30, 20);
 		add(jtRondpoint);
 		jtRondpoint.setColumns(3);
-		rondpointDebut = Integer.parseInt(jtRondpoint.getText());
 		
 		JLabel lblDpartRondpoint = new JLabel("D\u00E9part Rondpoint");
 		lblDpartRondpoint.setForeground(Color.WHITE);
@@ -62,7 +76,6 @@ public class ChoixVoitures extends JPanel {
 		jtTron1.setBounds(296, 5, 30, 20);
 		add(jtTron1);
 		jtTron1.setColumns(10);
-		tron1Debut = Integer.parseInt(jtTron1.getText());
 		
 		JLabel lblDpartTronon = new JLabel("D\u00E9part Tron\u00E7on 1");
 		lblDpartTronon.setForeground(Color.WHITE);
@@ -74,7 +87,6 @@ public class ChoixVoitures extends JPanel {
 		jtTron2.setBounds(296, 30, 30, 20);
 		add(jtTron2);
 		jtTron2.setColumns(10);
-		tron2Debut = Integer.parseInt(jtTron2.getText());
 		
 		JLabel lblDpartTronon_1 = new JLabel("D\u00E9part Tron\u00E7on 2");
 		lblDpartTronon_1.setForeground(Color.WHITE);
@@ -86,14 +98,12 @@ public class ChoixVoitures extends JPanel {
 		jtTron3.setBounds(296, 57, 30, 20);
 		add(jtTron3);
 		jtTron3.setColumns(10);
-		tron3Debut = Integer.parseInt(jtTron3.getText());
 		
 		JTextField jtBretelle = new JTextField();
 		jtBretelle.setText("0");
 		jtBretelle.setBounds(128, 30, 30, 20);
 		add(jtBretelle);
 		jtBretelle.setColumns(10);
-		bretelleDebut = Integer.parseInt(jtBretelle.getText());
 		
 		JLabel lblDpartTronon_2 = new JLabel("D\u00E9part Tron\u00E7on 3");
 		lblDpartTronon_2.setForeground(Color.WHITE);
@@ -104,7 +114,22 @@ public class ChoixVoitures extends JPanel {
 		lblNewLabel_1.setForeground(Color.WHITE);
 		lblNewLabel_1.setBounds(10, 85, 276, 14);
 		add(lblNewLabel_1);
+		
+		JButton modifierDonnees = new JButton("Modifier");
+		modifierDonnees.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				rondpointDebut = Integer.parseInt(jtRondpoint.getText());
+				tron1Debut = Integer.parseInt(jtTron1.getText());
+				tron2Debut = Integer.parseInt(jtTron2.getText());
+				tron3Debut = Integer.parseInt(jtTron3.getText());
+				bretelleDebut = Integer.parseInt(jtBretelle.getText());
+				JOptionPane.showMessageDialog(null, "Données de départ modifiée!");
+			}
+		});
+		modifierDonnees.setBounds(351, 24, 89, 23);
+		add(modifierDonnees);
 	}
+	
 	
 	/*
 	 * Vérifie les valeurs de départ des voitures et modifies les données en conséquence
@@ -119,5 +144,4 @@ public class ChoixVoitures extends JPanel {
 			ComboBoxTrafic.setRondpointDebutMin(Integer.parseInt(text));
 		}
 	}
-	
 }

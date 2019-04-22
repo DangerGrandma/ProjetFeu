@@ -101,6 +101,7 @@ public class Chrono extends JPanel {
 					Troncon1.MAJVoitures();
 					Troncon2.MAJVoitures();
 					Troncon3.MAJVoitures();
+					
 				}
 				if (secondes >= 60) // Une minute écoulée
 				{
