@@ -70,18 +70,8 @@ public class PaneauFeu extends JPanel {
 		btnFeu.setBackground(Color.GRAY); 
 		add(btnFeu);
 		
-		// initialisation de la valeur de nbAutoBretelle avec une valeur minimum de 5 
-		 
-		if (Bretelle.getVoituresSize() < 5) { 
-			nbAutoBretelle = 5; 
-		} 
-		 
-		else { 
-			nbAutoBretelle = Bretelle.getVoituresSize(); 
-		} 
 		 
 	    // creation et ajustement du bouton pour alterner entre le mode manuel et automatique du feu 
-	     
 		
 		switchMode = new JButton("Intelligent"); 
 		switchMode.addActionListener(new ActionListener() { 
@@ -105,6 +95,7 @@ public class PaneauFeu extends JPanel {
 		add(switchMode); 
 		
 		//commence le timer du feu vert au debut du programme 
+		updateNbAutoBretelle();
 		startTimerFeuVert(); 
 
 	}
@@ -123,7 +114,7 @@ public class PaneauFeu extends JPanel {
 	        	 
 	        }  
 	    }; 
-		 
+	    updateNbAutoBretelle();
 		timerFeu = new Timer(); 
 		timerFeu.schedule(changeFeu, 2000 * nbAutoBretelle); 
 		System.out.println("il y a " + nbAutoBretelle + "auto dans la bretelle.");
@@ -156,5 +147,16 @@ public class PaneauFeu extends JPanel {
 	public boolean getEtatFeu() { 
 		return etatFeu; 
 	} 
+	
+	//ajuste la variable nbAutoBretelle au nombre actuelle d'auto dans la bretelle avec un minimum de 5
+	public void updateNbAutoBretelle() {
+		if (Bretelle.getVoituresSize() < 5) { 
+			nbAutoBretelle = 5; 
+		} 
+		 
+		else { 
+			nbAutoBretelle = Bretelle.getVoituresSize(); 
+		} 
+	}
 	 
 }
