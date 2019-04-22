@@ -85,8 +85,9 @@ public class PaneauFeu extends JPanel {
 				} 
 				else { 
 					switchMode.setText("Intelligent"); 
-					btnFeu.setBackground(Color.GRAY); 
-					resumeTimer(); 
+					btnFeu.setBackground(Color.GRAY);
+					currentNbAuto = 0;
+					timerTempsDepart = 0;					
 				} 
 			} 
 		}); 
