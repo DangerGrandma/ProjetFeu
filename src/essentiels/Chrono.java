@@ -84,15 +84,15 @@ public class Chrono extends JPanel {
 
 					// À chaque seconde, les paneaux d'affichage ont leur moyenne mise à jour
 					PaneauMoyennes.setMoyenneBretelle();
-					PaneauMoyennes.lblMoyBret.setText("Bretelle " + PaneauMoyennes.getMoyenneBretelle());
+					PaneauMoyennes.lblMoyBret.setText("Bretelle : " + String.format("%.0f", PaneauMoyennes.getMoyenneBretelle()));
 					PaneauMoyennes.setMoyenneTron1();
-					PaneauMoyennes.lblMoyTron1.setText("Tronçon1 " + PaneauMoyennes.getMoyenneTron1());
+					PaneauMoyennes.lblMoyTron1.setText("Tronçon1 : " + String.format("%.0f", PaneauMoyennes.getMoyenneTron1()));
 					PaneauMoyennes.setMoyenneTron2();
-					PaneauMoyennes.lblMoyTron2.setText("Tronçon2 " + PaneauMoyennes.getMoyenneTron2());
+					PaneauMoyennes.lblMoyTron2.setText("Tronçon2 : " + String.format("%.0f", PaneauMoyennes.getMoyenneTron2()));
 					PaneauMoyennes.setMoyenneTron3();
-					PaneauMoyennes.lblMoyTron3.setText("Tronçon3 " + PaneauMoyennes.getMoyenneTron3());
+					PaneauMoyennes.lblMoyTron3.setText("Tronçon3 : " + String.format("%.0f", PaneauMoyennes.getMoyenneTron3()));
 					PaneauMoyennes.setMoyenneRondpoint();
-					PaneauMoyennes.lblMoyRP.setText("Rondpoint " + PaneauMoyennes.getMoyenneRondpoint());
+					PaneauMoyennes.lblMoyRP.setText("Rondpoint : " + String.format("%.0f", PaneauMoyennes.getMoyenneRondpoint()));
 
 					// Mise à jour du nombre de voiture sur les éléments de la route
 

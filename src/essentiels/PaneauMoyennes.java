@@ -85,7 +85,7 @@ public class PaneauMoyennes extends JPanel {
 	};
 	
 	public static double getMoyenneBretelle() {
-		return MoyenneBretelle;
+		return (int) Math.round(MoyenneBretelle);
 	};
 	
 	public static void setMoyenneTron1() {
@@ -95,7 +95,7 @@ public class PaneauMoyennes extends JPanel {
 	};
 	
 	public static double getMoyenneTron1() {
-		return MoyenneTron1;
+		return (int) Math.round(MoyenneTron1);
 	};
 	
 	public static void setMoyenneTron2() {
@@ -105,7 +105,7 @@ public class PaneauMoyennes extends JPanel {
 	};
 	
 	public static double getMoyenneTron2() {
-		return MoyenneTron2;
+		return (int) Math.round(MoyenneTron2);
 	};
 	
 	public static void setMoyenneTron3() {
@@ -115,7 +115,7 @@ public class PaneauMoyennes extends JPanel {
 	};
 	
 	public static double getMoyenneTron3() {
-		return MoyenneTron3;
+		return (int) Math.round(MoyenneTron3);
 	};
 	
 	public static void setMoyenneRondpoint() {
@@ -125,7 +125,7 @@ public class PaneauMoyennes extends JPanel {
 	};
 	
 	public static double getMoyenneRondpoint() {
-		return MoyenneRondpoint;
+		return (int) Math.round(MoyenneRondpoint);
 	}
 	
 	// Méthode pour réinitialiser les valeurs des variables et des affichages
