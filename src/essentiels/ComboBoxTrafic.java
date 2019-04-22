@@ -65,6 +65,30 @@ public class ComboBoxTrafic extends JPanel implements ActionListener {
 	public static int getRondpointDebutMin() {
 		return rondpointDebutMin;
 	}
+	
+	public static void setTronDebutMax(int tronDebutMax) {
+		ComboBoxTrafic.tronDebutMax = tronDebutMax;
+	}
+
+	public static void setTronDebutMin(int tronDebutMin) {
+		ComboBoxTrafic.tronDebutMin = tronDebutMin;
+	}
+
+	public static void setAutDebutMax(int autDebutMax) {
+		ComboBoxTrafic.autDebutMax = autDebutMax;
+	}
+
+	public static void setAutDebutMin(int autDebutMin) {
+		ComboBoxTrafic.autDebutMin = autDebutMin;
+	}
+
+	public static void setRondpointDebutMax(int rondpointDebutMax) {
+		ComboBoxTrafic.rondpointDebutMax = rondpointDebutMax;
+	}
+
+	public static void setRondpointDebutMin(int rondpointDebutMin) {
+		ComboBoxTrafic.rondpointDebutMin = rondpointDebutMin;
+	}
 
 	public int getTemps() {
 		return temps;

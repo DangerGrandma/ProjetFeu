@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+import essentiels.ChoixVoitures;
 import essentiels.Chrono;
 import essentiels.ComboBoxTrafic;
 import essentiels.Voiture;
@@ -39,9 +40,18 @@ public class Bretelle extends JPanel implements Route {
 	// Génération des voitures, de leur destination et de leur empreinte de temps d'apparition
 	
 	public static void genVoitures() {
-		int voituresMin = ComboBoxTrafic.getAutDebutMin();
-		int voituresMax = ComboBoxTrafic.getAutDebutMax();
-		 Voitures = ThreadLocalRandom.current().nextInt(voituresMin, voituresMax+1);
+		int voituresMin;
+		int voituresMax;
+		if (ChoixVoitures.getBretelleDebut() != 0) {
+			voituresMin = ChoixVoitures.getBretelleDebut();
+			voituresMax = ChoixVoitures.getBretelleDebut();
+		}
+		else {
+			voituresMin = ComboBoxTrafic.getAutDebutMin();
+			voituresMax = ComboBoxTrafic.getAutDebutMax();
+		}
+
+		Voitures = ThreadLocalRandom.current().nextInt(voituresMin, voituresMax+1);
 		for (int i = 1; i <= Voitures; i++) {
 			VtrBretelle.add(new Voiture());
 
