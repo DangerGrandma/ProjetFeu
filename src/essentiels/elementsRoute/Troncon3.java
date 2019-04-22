@@ -22,7 +22,7 @@ public class Troncon3 extends JPanel implements Route {
 	private static int Voitures;
 	public static JLabel VtrsTroncon3 = new JLabel("Voitures sur le Troncon3 : " + Voitures);
 	
-	// @param VtrTroncon2 sert à contenir les voitures situées dans la ligne d'attente du tronçon2.
+	// @param VtrTroncon3 sert à contenir les voitures situées dans la ligne d'attente du tronçon2.
 
 	public static ArrayList<Voiture> VtrTroncon3 = new ArrayList<Voiture>();
 
@@ -46,6 +46,22 @@ public class Troncon3 extends JPanel implements Route {
 			VtrTroncon3.add(new Voiture());
 		};
 	}
+	
+	// Fonction qui ajoute une voiture au array de voitures
+	
+		public static void ajoutVoitures() {
+			VtrTroncon3.add(0, new Voiture());
+			VtrsTroncon3.setText("Voitures sur le Troncon3 : " + (VtrTroncon3.size()));
+		};
+		
+		// Fonction qui retire une voiture du array de voitures, si il y en a au moins une
+		
+		public static void retraitVoiture() {
+			if(VtrTroncon3.size() > 0) {
+			VtrTroncon3.remove(0);
+			VtrsTroncon3.setText("Voitures sur le Troncon3 : " + (VtrTroncon3.size()));
+			}
+		};
 	
 	// Ré-initialisation des voitures
 	

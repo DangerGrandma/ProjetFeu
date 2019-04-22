@@ -47,11 +47,27 @@ public class Troncon1 extends JPanel implements Route {
 		};
 	}
 	
+	// Fonction qui ajoute une voiture au array de voitures
+	
+		public static void ajoutVoitures() {
+			VtrTroncon1.add(0, new Voiture());
+			VtrsTroncon1.setText("Voitures sur la Troncon1 : " + (VtrTroncon1.size()));
+		};
+		
+		// Fonction qui retire une voiture du array de voitures, si il y en a au moins une
+		
+		public static void retraitVoiture() {
+			if(VtrTroncon1.size() > 0) {
+			VtrTroncon1.remove(0);
+			VtrsTroncon1.setText("Voitures sur la Troncon1 : " + (VtrTroncon1.size()));
+			}
+		};
+	
 	// Ré-initialisation des voitures
 	
 	public static void resetVoitures() {
 		VtrTroncon1.clear();
-		Troncon1.VtrsTroncon1.setText("Voitures sur le Troncon1 : ");
+		VtrsTroncon1.setText("Voitures sur le Troncon1 : ");
 	};
 	
 	// Fonction pour mettre à jour le nombre de voitures sur le Tronçon1. Ajustement au hasard, selon l'heure du jour.
