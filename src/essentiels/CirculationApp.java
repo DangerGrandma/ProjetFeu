@@ -29,35 +29,10 @@ import java.awt.Color;
 // L'application en tant que telle pour la simulation
 
 public class CirculationApp {
-		
+
 	public static void main(String[] args) {
- /*
-		
-	Rondpoint.genVoitures();
-	
-	
-	for(int i = 0; i < Rondpoint.getVoituresSize(); i++) {
-		System.out.println(""+Rondpoint.VtrRondpoint.get(i));
-	};
-	System.out.println("avant");
-	for(int i = 0; i < Rondpoint.getVoituresSize(); i++) {
-			System.out.println(i);	
-	};
-	
-	for(int i = 0; i < Rondpoint.getVoituresSize(); i++) {
-		Rondpoint.checkDest();	
-
-	};
-	System.out.println("apres");
-	for(int i = 0; i < Rondpoint.getVoituresSize(); i++) {
-		System.out.println(i);	
-};
-	System.out.println("temps = " + Chrono.getTimestamp());	
-		*/	
-	
-
 		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {			
+			public void run() {
 				new MainFrame();
 			}
 		});

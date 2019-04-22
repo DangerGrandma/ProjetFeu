@@ -22,7 +22,7 @@ public class Bretelle extends JPanel implements Route {
 	private static int Voitures;
 	public static JLabel VtrsBretelle = new JLabel("Voitures sur le Bretelle : " + Voitures);
 	
-	// Variable du nombre de voitures générées au lancement du programme, et un ArrayList pour les contenir
+	// @param VtrBretelle sert à contenir les voitures situées dans la ligne d'attente de la bretelle.
 
 	public static ArrayList<Voiture> VtrBretelle = new ArrayList<Voiture>();
 
@@ -44,8 +44,7 @@ public class Bretelle extends JPanel implements Route {
 		 Voitures = ThreadLocalRandom.current().nextInt(voituresMin, voituresMax+1);
 		for (int i = 1; i <= Voitures; i++) {
 			VtrBretelle.add(new Voiture());
-			VtrBretelle.get(i-1).setDestination();
-			VtrBretelle.get(i-1).setTimeStamp();
+
 		};
 	}
 	
@@ -53,10 +52,10 @@ public class Bretelle extends JPanel implements Route {
 	
 	public static void resetVoitures() {
 		VtrBretelle.clear();
-		Bretelle.VtrsBretelle.setText("Voitures sur le Bretelle : ");
+		Bretelle.VtrsBretelle.setText("Voitures sur la Bretelle : ");
 	};
 	
-	// Fonction pour mettre à jour le nombre de voitures sur le Bretelle. Ajustement au hasard, entre -2 voitures et + 2 voitures
+	// Fonction pour mettre à jour le nombre de voitures sur le Bretelle. Ajustement au hasard, selon l'heure du jour. 
 
 	public static void MAJVoitures() {
 		
@@ -64,8 +63,7 @@ public class Bretelle extends JPanel implements Route {
 		if (nvlVoitures != 0) {
 		for (int i = 1; i <= nvlVoitures; i++) {
 			VtrBretelle.add(0,new Voiture());
-			VtrBretelle.get(0).setDestination();
-			VtrBretelle.get(0).setTimeStamp();
+
 		};
 		}
 		Bretelle.VtrsBretelle.setText("Voitures sur le Bretelle : " + (VtrBretelle.size()));
@@ -84,20 +82,6 @@ public class Bretelle extends JPanel implements Route {
 			return VtrBretelle.get(i).getDestination();
 	};
 	
-	// Vérifie si le temps nécessaire pour une voiture de se rendre à destination est écoulé. Si oui, la voiture est retirée de son tableau
-	
-	public static void checkDest() {
-		for (int p = 0; p < VtrBretelle.size(); p++) {
-		int x = VtrBretelle.get(p).getDestination();
-		int y = Chrono.getTimestamp();
-		int z = VtrBretelle.get(p).getTimeStamp();
-		if(y-z >= x) {
-			VtrBretelle.remove(p);
-		};
-	}
-			
-	};
-	
 	/* Vérifie si le rondpoint est assez libre (moins de 30 voitures), si le Troncon1 peu y transférer une de ses voitures. Si oui, le listArray pour Troncon1
 	   est réduit de un, et le listeArray du rondpoint gagne une nouvelle voiture avec des attributs
 	*/
@@ -112,7 +96,7 @@ public static void checkRondpoint() {
 		};
 	};
 	
-	// Application de la destruction de voitures pour usage manuel	
+	// Application de la destruction de voitures.
 	
 	public static void destroyVoiture() {
 		VtrBretelle.remove(0);

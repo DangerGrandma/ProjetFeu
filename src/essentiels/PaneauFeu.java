@@ -8,39 +8,44 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+// Paneau du feu intelligent
+
 public class PaneauFeu extends JPanel {
 
 	private static boolean clrFeu = false;
 	private static int statusRoad = 0;
-	/**
-	 * Create the panel.
-	 */
+
 	public PaneauFeu() {
 		setLayout(null);
-		
-		JLabel feuRouge = new JLabel("");
-		if(clrFeu) {
-			feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/essentiels/feuvert.png")));
-		}
-		else {
-			feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/essentiels/feurouge.png")));
 
+		// Initialisation du paneau
+
+		JLabel feuRouge = new JLabel("");
+
+		// Changement de couleur du feu selon une valeur booléenne
+
+		if (clrFeu) {
+			feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/essentiels/images/feuvert.png")));
+		} else {
+			feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/essentiels/images/feurouge.png")));
 		}
 		feuRouge.setBounds(13, 0, 30, 65);
 		add(feuRouge);
-		
+
+		// Bouton pour ajuster manuellement la couleur du feu
+
 		JButton btnFeu = new JButton("Feu");
 		btnFeu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(clrFeu) {
+				if (clrFeu) {
 					clrFeu = false;
-					feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/essentiels/feurouge.png")));
+					feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/essentiels/images/feurouge.png")));
 				}
-				
+
 				else {
 					clrFeu = true;
-					feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/essentiels/feuvert.png")));
-					
+					feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/essentiels/images/feuvert.png")));
+
 				}
 			}
 		});

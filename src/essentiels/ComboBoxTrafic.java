@@ -70,8 +70,7 @@ public class ComboBoxTrafic extends JPanel implements ActionListener {
 		
 	}
 
-	// Chaque fois qu'on change le temps de la journée, les nombres sont mis à jour
-	// selon les données de simulation déterminées
+	// Chaque fois qu'on change le temps de la journée, les nombres sont mis à jour selon les données de simulation déterminées
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == menuList) {

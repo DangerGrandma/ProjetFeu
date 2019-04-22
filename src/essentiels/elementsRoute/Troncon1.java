@@ -22,7 +22,7 @@ public class Troncon1 extends JPanel implements Route {
 	private static int Voitures;
 	public static JLabel VtrsTroncon1 = new JLabel("Voitures sur le Troncon1 : " + Voitures);
 	
-	// Variable du nombre de voitures générées au lancement du programme, et un ArrayList pour les contenir
+	// @param VtrTroncon1 sert à contenir les voitures situées dans la ligne d'attente du tronçon1.
 
 	public static ArrayList<Voiture> VtrTroncon1 = new ArrayList<Voiture>();
 
@@ -44,8 +44,6 @@ public class Troncon1 extends JPanel implements Route {
 		Voitures = ThreadLocalRandom.current().nextInt(voituresMin, voituresMax+1);
 		for (int i = 1; i <= Voitures; i++) {
 			VtrTroncon1.add(new Voiture());
-			VtrTroncon1.get(i-1).setDestination();
-			VtrTroncon1.get(i-1).setTimeStamp();
 		};
 	}
 	
@@ -56,7 +54,7 @@ public class Troncon1 extends JPanel implements Route {
 		Troncon1.VtrsTroncon1.setText("Voitures sur le Troncon1 : ");
 	};
 	
-	// Fonction pour mettre à jour le nombre de voitures sur le Tronçon1. Ajustement au hasard, entre -2 voitures et + 2 voitures
+	// Fonction pour mettre à jour le nombre de voitures sur le Tronçon1. Ajustement au hasard, selon l'heure du jour.
 
 	public static void MAJVoitures() {
 		
@@ -64,8 +62,6 @@ public class Troncon1 extends JPanel implements Route {
 		if (nvlVoitures != 0) {
 		for (int i = 1; i <= nvlVoitures; i++) {
 			VtrTroncon1.add(0,new Voiture());
-			VtrTroncon1.get(0).setDestination();
-			VtrTroncon1.get(0).setTimeStamp();
 		};
 		}
 		
@@ -85,24 +81,10 @@ public class Troncon1 extends JPanel implements Route {
 			return VtrTroncon1.get(i).getDestination();
 	};
 	
-	// Vérifie si le temps nécessaire pour une voiture de se rendre à destination est écoulé. Si oui, la voiture est retirée de son tableau
-	
-	public static void checkDest() {
-		for (int p = 0; p < VtrTroncon1.size(); p++) {
-			int x = VtrTroncon1.get(p).getDestination();
-			int y = Chrono.getTimestamp();
-			int z = VtrTroncon1.get(p).getTimeStamp();
-			if (y - z >= x) {
-				VtrTroncon1.remove(p);
-			}
-			;
-		}
-
-	};
-	
 	/* Vérifie si le rondpoint est assez libre (moins de 30 voitures), si le Troncon1 peu y transférer une de ses voitures. Si oui, le listArray pour Troncon1
 	   est réduit de un, et le listeArray du rondpoint gagne une nouvelle voiture avec des attributs
 	*/
+	
 	public static void checkRondpoint() {
 		int totalRondpoint = Rondpoint.getVoituresSize();
 		if(totalRondpoint < 30 && VtrTroncon1.size() >= 1) {
@@ -114,7 +96,7 @@ public class Troncon1 extends JPanel implements Route {
 		};
 	};
 	
-	// Application de la destruction de voitures pour usage manuel	
+	// Application de la destruction de voitures.
 	public static void destroyVoiture() {
 		VtrTroncon1.remove(0);
 	

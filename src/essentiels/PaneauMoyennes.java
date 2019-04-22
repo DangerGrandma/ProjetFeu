@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 
 import essentiels.elementsRoute.Bretelle;
 import essentiels.elementsRoute.Rondpoint;
+import essentiels.elementsRoute.Troncon1;
 import essentiels.elementsRoute.Troncon2;
 import essentiels.elementsRoute.Troncon3;
 import javax.swing.JLabel;
@@ -11,7 +12,12 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.Color;
 
+// Paneau affichant la moyenne du nombre de voitures sur un élément de la route
+
 public class PaneauMoyennes extends JPanel {
+	
+// Initialisation des Jlabels sur lesquels les moyennes sont affichées	
+	
 	public static JLabel lblMoyBret = new JLabel("Bretelle : ");
 	public static JLabel lblMoyTron1 = new JLabel("Tronçon 1 : ");
 	public static JLabel lblMoyTron2 = new JLabel("Tronçon 2 : ");
@@ -22,6 +28,8 @@ public class PaneauMoyennes extends JPanel {
 		setBackground(new Color(95, 158, 160));
 		setLayout(null);
 
+		// Configuration des JLabels
+		
 		lblMoyBret.setFont(new Font("Tahoma", Font.PLAIN, 10));	
 		lblMoyBret.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMoyBret.setBounds(0, 0, 85, 43);
@@ -47,6 +55,10 @@ public class PaneauMoyennes extends JPanel {
 		lblMoyRP.setBounds(0, 220, 85, 43);
 		add(lblMoyRP);
 	}
+
+	/* Initialisation des variables d'éléments de la route : moyenne des voitures sur l'élément en question, total utilisé pour calculer la moyenne,
+	 * ainsi qu'un compteur également utiliser pour calculer les moyennes.
+	 */
 	
 	private static double MoyenneBretelle;
 	private static double totalBretelle;
@@ -78,7 +90,7 @@ public class PaneauMoyennes extends JPanel {
 	
 	public static void setMoyenneTron1() {
 		compteurTron1++;
-		totalTron1 = totalTron1 + Bretelle.getVoituresSize();
+		totalTron1 = totalTron1 + Troncon1.getVoituresSize();
 		MoyenneTron1 = totalTron1/compteurTron1;
 	};
 	
@@ -115,6 +127,8 @@ public class PaneauMoyennes extends JPanel {
 	public static double getMoyenneRondpoint() {
 		return MoyenneRondpoint;
 	}
+	
+	// Méthode pour réinitialiser les valeurs des variables et des affichages
 	
 	public static void resetValeurs() {
 		MoyenneBretelle = 0;
