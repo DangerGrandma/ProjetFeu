@@ -101,6 +101,7 @@ public class Chrono extends JPanel {
 					Troncon1.MAJVoitures();
 					Troncon2.MAJVoitures();
 					Troncon3.MAJVoitures();
+					PaneauFeu.checkTimer();
 					
 				}
 				if (secondes >= 60) // Une minute écoulée
@@ -120,12 +121,11 @@ public class Chrono extends JPanel {
 		Btn_Start.setBounds(10, 36, 63, 18);
 		Btn_Start.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				T.start();
-				PaneauFeu.resumeTimer();
+				T.start();;
 				if (chronoOff) {
 
 					// Génération au hasard des voitures sur les éléments de la route
-
+					PaneauFeu.startVert();
 					Rondpoint.genVoitures();
 					Bretelle.genVoitures();
 					Troncon1.genVoitures();
@@ -148,7 +148,6 @@ public class Chrono extends JPanel {
 		Btn_Reset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				T.stop();
-				PaneauFeu.resetTimer();
 
 				// Les voitures sur les éléments de la route sont aussi réinitialisées
 
@@ -182,8 +181,8 @@ public class Chrono extends JPanel {
 		Btn_Stop.setBounds(80, 36, 63, 18);
 		Btn_Stop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("Chronomètre arrêté");
 				T.stop();
-				PaneauFeu.pauseTimer();
 
 				// Termine la loop infinie de PanneauEtat
 				PaneauEtat.ImageChange.timeCancel();

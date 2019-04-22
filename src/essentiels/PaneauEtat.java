@@ -26,9 +26,9 @@ public class PaneauEtat extends JPanel implements Route {
 		public void run() {
 			//print pour tester la fonction
 
-			if (Bretelle.VtrBretelle.size() >= 0 && Bretelle.VtrBretelle.size() < 10) {
+			if (Rondpoint.VtrRondpoint.size() >= 0 && Rondpoint.VtrRondpoint.size() < 10) {
 				labelneutre.setIcon(new ImageIcon(getClass().getResource("/essentiels/images/etat_eneqiulibre.png")));
-			} else if (Bretelle.VtrBretelle.size() >= 10 && Bretelle.VtrBretelle.size() < 25) {
+			} else if (Rondpoint.VtrRondpoint.size() >= 10 && Rondpoint.VtrRondpoint.size() < 25) {
 				labelneutre.setIcon(new ImageIcon(getClass().getResource("/essentiels/images/etat_risque.png")));
 			} else {
 				labelneutre.setIcon(new ImageIcon(getClass().getResource("/essentiels/images/etat_congestion.png")));

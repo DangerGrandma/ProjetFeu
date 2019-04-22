@@ -10,6 +10,7 @@ import javax.swing.SwingConstants;
 import essentiels.ChoixVoitures;
 import essentiels.Chrono;
 import essentiels.ComboBoxTrafic;
+import essentiels.PaneauFeu;
 import essentiels.Voiture;
 
 import java.awt.Font;
@@ -111,6 +112,7 @@ public class Bretelle extends JPanel implements Route {
 	   est réduit de un, et le listeArray du rondpoint gagne une nouvelle voiture avec des attributs
 	*/
 public static void checkRondpoint() {
+	if(PaneauFeu.getEtatFeu()) {
 	int totalRondpoint = Rondpoint.getVoituresSize();
 	if(totalRondpoint < 30 && VtrBretelle.size() >= 1) {
 		destroyVoiture();
@@ -120,7 +122,7 @@ public static void checkRondpoint() {
 			
 		};
 	};
-	
+}
 	// Application de la destruction de voitures.
 	
 	public static void destroyVoiture() {
