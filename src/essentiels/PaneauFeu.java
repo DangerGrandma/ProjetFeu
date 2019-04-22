@@ -10,20 +10,24 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Insets; 
 import java.util.Timer; 
-import java.util.TimerTask; 
+import java.util.TimerTask;
+import essentiels.elementsRoute.Bretelle; 
+
 
 // Paneau du feu intelligent
 
 public class PaneauFeu extends JPanel {
 
-	private static boolean clrFeu = false;
+	private static boolean etatFeu = true;
 	private static int statusRoad = 0;
 	private JLabel feuRouge; 
 	private int dureeFeuVert = 1000 * 3; 
-	private Timer timerFeuVert; 
+	private Timer timerFeu = new Timer();  
 	private JButton switchMode; 
+	private int nbAutoBretelle; 
 
 	public PaneauFeu() {
+		
 		setLayout(null);
 
 		// Initialisation du paneau
@@ -32,7 +36,7 @@ public class PaneauFeu extends JPanel {
 
 		// Changement de couleur du feu selon une valeur booléenne
 
-		if (clrFeu) {
+		if (etatFeu) {
 			feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/essentiels/images/feuvert.png")));
 		} else {
 			feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/essentiels/images/feurouge.png")));
@@ -47,13 +51,13 @@ public class PaneauFeu extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				if (switchMode.getText().equals("Manuel")) { 
 
-					if (clrFeu) {
-						clrFeu = false;
+					if (etatFeu) {
+						etatFeu = false;
 						feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/essentiels/images/feurouge.png")));
 					}
 	
 					else {
-						clrFeu = true;
+						etatFeu = true;
 						feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/essentiels/images/feuvert.png")));
 	
 					}
@@ -66,16 +70,32 @@ public class PaneauFeu extends JPanel {
 		btnFeu.setBackground(Color.GRAY); 
 		add(btnFeu);
 		
+		// initialisation de la valeur de nbAutoBretelle 
+		 
+		if (Bretelle.getVoituresSize() < 5) { 
+			nbAutoBretelle = 5; 
+		} 
+		 
+		else { 
+			nbAutoBretelle = Bretelle.getVoituresSize(); 
+		} 
+		 
+	    // creation et ajustement du bouton pour alterner entre le mode manuel et automatique du feu 
+	     
+		
 		switchMode = new JButton("Intelligent"); 
 		switchMode.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent arg0) { 
 				if (switchMode.getText().equals("Intelligent")) { 
+					timerFeu.cancel(); 
+					timerFeu.purge(); 
 					switchMode.setText("Manuel"); 
 					btnFeu.setBackground(new JButton().getBackground()); 
 				} 
 				else { 
 					switchMode.setText("Intelligent"); 
 					btnFeu.setBackground(Color.GRAY); 
+					startTimerFeuVert(); 
 				} 
 			} 
 		}); 
@@ -83,6 +103,55 @@ public class PaneauFeu extends JPanel {
 		switchMode.setBounds(0, 88, 58, 20); 
 		switchMode.setMargin(new Insets(0, 0, 0, 0)); 
 		add(switchMode); 
+		
+		//commence le timer du feu vert au debut du programme 
+		startTimerFeuVert(); 
 
 	}
+	 
+	public void startTimerFeuVert() { 
+		 
+		TimerTask changeFeu = new TimerTask() {  
+	        public void run() {  
+	                    
+	        	etatFeu = false; 
+				feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/essentiels/images/feurouge.png"))); 
+				timerFeu.cancel(); 
+				timerFeu.purge(); 
+				startTimerFeuRouge(); 
+	        	 
+	        }  
+	    }; 
+		 
+		timerFeu = new Timer(); 
+		timerFeu.schedule(changeFeu, 2000 * nbAutoBretelle); 
+		System.out.println("Timer du feu vert parti pour " + 2 * nbAutoBretelle + " secondes"); 
+	} 
+	 
+	public void startTimerFeuRouge() { 
+		 
+		TimerTask changeFeu = new TimerTask() {  
+	        public void run() {  
+	                    
+	        	etatFeu = true; 
+				feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/essentiels/images/feuvert.png"))); 
+				timerFeu.cancel(); 
+				timerFeu.purge(); 
+				startTimerFeuVert(); 
+	        	 
+	        }  
+	    }; 
+		 
+		timerFeu = new Timer(); 
+		timerFeu.schedule(changeFeu, 5000); 
+		System.out.println("Timer du feu rouge parti pour " + 5 + " secondes"); 
+		 
+	} 
+	 
+	 
+	//retourne un boolean selon la couleur du feu: true veut dire que le feu est vert et false veut dire que le feu est rouge 
+	public boolean getEtatFeu() { 
+		return etatFeu; 
+	} 
+	 
 }
