@@ -19,7 +19,7 @@ public class Rondpoint extends JPanel implements Route {
 
 	// Objets voitures figurant sur le rondpoint, ajustement du nombre de voitures sur le rondpoint et JLabel qui affiche ce nombre de voitures
 
-	private static int Voitures;
+	private static int Voitures;;
 	public static JLabel VtrsRondpoint = new JLabel("Voitures sur le rondpoint : " + Voitures);
 	
 	// Variable du nombre de voitures générées au lancement du programme, et un ArrayList pour les contenir
@@ -59,6 +59,7 @@ public class Rondpoint extends JPanel implements Route {
 	// Fonction pour mettre à jour le nombre de voitures sur le rondpoint. Ajustement au hasard, entre -2 voitures et + 2 voitures
 
 	public static void MAJVoitures() {
+		
 		Rondpoint.VtrsRondpoint.setText("Voitures sur le rondpoint : " + (VtrRondpoint.size()));
 		destroyVoiture();
 	}	

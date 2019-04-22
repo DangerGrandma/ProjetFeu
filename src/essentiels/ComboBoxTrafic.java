@@ -17,8 +17,8 @@ public class ComboBoxTrafic extends JPanel implements ActionListener {
 	static int minAuto = 1; // Nombre minimum de voitures provenant de l'autoroute ajoutées à la bretelle
 	int temps = 1;  // Temps avant d'ajouter d'autres voitures
 	
-	int tronDebutMax = 6; // Nombre maximum de voitures au départ aux tronçons du rond-point
-	int tronDebutMin = 4; // Nombre minimum de voitures au départ aux tronçons du rond-point
+	static int tronDebutMax = 6; // Nombre maximum de voitures au départ aux tronçons du rond-point
+	static int tronDebutMin = 4; // Nombre minimum de voitures au départ aux tronçons du rond-point
 	static int autDebutMax = 20; // Nombre maximum de voitures au début à la bretelle de l'autoroute
 	static int autDebutMin = 15; // Nombre minimum de voitures au début à la bretelle de l'autoroute
 	
@@ -39,11 +39,11 @@ public class ComboBoxTrafic extends JPanel implements ActionListener {
 		return minAuto;
 	}
 	
-	public int getTronDebutMax() {
+	public static int getTronDebutMax() {
 		return tronDebutMax;
 	}
 
-	public int getTronDebutMin() {
+	public static int getTronDebutMin() {
 		return tronDebutMin;
 	}
 

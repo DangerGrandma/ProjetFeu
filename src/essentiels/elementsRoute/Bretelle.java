@@ -39,8 +39,8 @@ public class Bretelle extends JPanel implements Route {
 	// Génération des voitures, de leur destination et de leur empreinte de temps d'apparition
 	
 	public static void genVoitures() {
-		int voituresMin = ComboBoxTrafic.getMinAuto();
-		int voituresMax = ComboBoxTrafic.getMaxAuto();
+		int voituresMin = ComboBoxTrafic.getAutDebutMin();
+		int voituresMax = ComboBoxTrafic.getAutDebutMax();
 		 Voitures = ThreadLocalRandom.current().nextInt(voituresMin, voituresMax+1);
 		for (int i = 1; i <= Voitures; i++) {
 			VtrBretelle.add(new Voiture());
@@ -59,8 +59,17 @@ public class Bretelle extends JPanel implements Route {
 	// Fonction pour mettre à jour le nombre de voitures sur le Bretelle. Ajustement au hasard, entre -2 voitures et + 2 voitures
 
 	public static void MAJVoitures() {
+		
+		int nvlVoitures = ThreadLocalRandom.current().nextInt(ComboBoxTrafic.getMinAuto(), ComboBoxTrafic.getMaxAuto()+1);
+		if (nvlVoitures != 0) {
+		for (int i = 1; i <= nvlVoitures; i++) {
+			VtrBretelle.add(0,new Voiture());
+			VtrBretelle.get(0).setDestination();
+			VtrBretelle.get(0).setTimeStamp();
+		};
+		}
 		Bretelle.VtrsBretelle.setText("Voitures sur le Bretelle : " + (VtrBretelle.size()));
-		destroyVoiture();
+		checkRondpoint();
 	}	
 	
 	// Donne la grosseur de l'array de voitures
@@ -86,14 +95,27 @@ public class Bretelle extends JPanel implements Route {
 			VtrBretelle.remove(p);
 		};
 	}
+			
+	};
+	
+	/* Vérifie si le rondpoint est assez libre (moins de 30 voitures), si le Troncon1 peu y transférer une de ses voitures. Si oui, le listArray pour Troncon1
+	   est réduit de un, et le listeArray du rondpoint gagne une nouvelle voiture avec des attributs
+	*/
+public static void checkRondpoint() {
+	int totalRondpoint = Rondpoint.getVoituresSize();
+	if(totalRondpoint < 30 && VtrBretelle.size() >= 1) {
+		destroyVoiture();
+		Rondpoint.VtrRondpoint.add(0, new Voiture());
+		Rondpoint.VtrRondpoint.get(0).setDestination();
+		Rondpoint.VtrRondpoint.get(0).setTimeStamp();
+			
+		};
+	};
 	
 	// Application de la destruction de voitures pour usage manuel	
-		
-	};
+	
 	public static void destroyVoiture() {
-	for(int i = 0; i < Bretelle.getVoituresSize(); i++) {
-		Bretelle.checkDest();	
-	};
+		VtrBretelle.remove(0);
 	
   }
 }
