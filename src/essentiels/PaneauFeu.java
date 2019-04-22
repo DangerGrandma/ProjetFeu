@@ -70,7 +70,7 @@ public class PaneauFeu extends JPanel {
 		btnFeu.setBackground(Color.GRAY); 
 		add(btnFeu);
 		
-		// initialisation de la valeur de nbAutoBretelle 
+		// initialisation de la valeur de nbAutoBretelle avec une valeur minimum de 5 
 		 
 		if (Bretelle.getVoituresSize() < 5) { 
 			nbAutoBretelle = 5; 
@@ -109,6 +109,7 @@ public class PaneauFeu extends JPanel {
 
 	}
 	 
+	//commence le timer du feu vert et change le feu a rouge a la fin en plus de commencer le timer du feu rouge
 	public void startTimerFeuVert() { 
 		 
 		TimerTask changeFeu = new TimerTask() {  
@@ -125,9 +126,11 @@ public class PaneauFeu extends JPanel {
 		 
 		timerFeu = new Timer(); 
 		timerFeu.schedule(changeFeu, 2000 * nbAutoBretelle); 
+		System.out.println("il y a " + nbAutoBretelle + "auto dans la bretelle.");
 		System.out.println("Timer du feu vert parti pour " + 2 * nbAutoBretelle + " secondes"); 
 	} 
 	 
+	//commence le timer du feu rouge et change le feu a vert a la fin en plus de commencer le timer du feu vert
 	public void startTimerFeuRouge() { 
 		 
 		TimerTask changeFeu = new TimerTask() {  
