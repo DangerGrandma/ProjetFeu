@@ -14,17 +14,11 @@ import javax.swing.JButton;
 
 public class ChoixVoitures extends JPanel {
 	
-	static int tron1Debut;
-	static int tron2Debut;
-	static int tron3Debut;
-	static int bretelleDebut;
-	static int rondpointDebut;
-	
-	static int texteBretelle;
-	
-	
-	public static JTextField jtBretelle = new JTextField();
-	
+	private static int tron1Debut;
+	private static int tron2Debut;
+	private static int tron3Debut;
+	private static int bretelleDebut;
+	private static int rondpointDebut;
 	
 	public static int getTron1Debut() {
 		return tron1Debut;
