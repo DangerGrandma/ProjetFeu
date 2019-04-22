@@ -87,7 +87,8 @@ public class PaneauFeu extends JPanel {
 					switchMode.setText("Intelligent"); 
 					btnFeu.setBackground(Color.GRAY);
 					currentNbAuto = 0;
-					timerTempsDepart = 0;					
+					timerTempsDepart = 0;
+					resumeTimer();
 				} 
 			} 
 		}); 
@@ -148,7 +149,7 @@ public class PaneauFeu extends JPanel {
 		 
 		timerFeu = new Timer(); 
 		timerFeu.schedule(changeFeu, 0, 1); 
-		System.out.println("Timer du feu rouge parti pour " + 5 + " secondes"); 
+		System.out.println("Timer du feu rouge parti pour 5 secondes"); 
 		 
 	} 
 	 
