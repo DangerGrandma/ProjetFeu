@@ -38,9 +38,9 @@ public class MainFrame extends JFrame {
 		
 		// Initialisation du paneau du feu intelligent
 		
-		PaneauFeu test = new PaneauFeu();
-		test.setBackground(new Color(47, 79, 79));
-		test.setBounds(748, 221, 58, 89);
+		PaneauFeu PanFeu = new PaneauFeu();
+		PanFeu.setBackground(new Color(47, 79, 79));
+		PanFeu.setBounds(748, 221, 58, 89);
 		
 		// Initialisation du menu du moment du jour
 		
@@ -52,7 +52,7 @@ public class MainFrame extends JFrame {
 		// Initialisation du conteneur des composantes visuelles
 		
 		Container c = getContentPane();
-		c.add(test);
+		c.add(PanFeu);
 		
 		// JLabel ayant pour texte "Chronomètre"
 		
@@ -64,10 +64,10 @@ public class MainFrame extends JFrame {
 		
 		// Initialisation du chronomètre
 		
-		Chrono caca = new Chrono();
-		caca.setBackground(new Color(47, 79, 79));
-		caca.setBounds(764, 28, 170, 81);
-		getContentPane().add(caca);
+		Chrono stopwatch = new Chrono();
+		stopwatch.setBackground(new Color(47, 79, 79));
+		stopwatch.setBounds(764, 28, 170, 81);
+		getContentPane().add(stopwatch);
 		
 		// Initialisation du panneau d'état des routes
 		
@@ -81,7 +81,7 @@ public class MainFrame extends JFrame {
 		bretelle.VtrsBretelle.setText("Voitures sur la bretelle : ");
 		bretelle.setBackground(Color.LIGHT_GRAY);
 		bretelle.setSize(163, 40);
-		bretelle.setLocation(533, 238);
+		bretelle.setLocation(748, 361);
 		bretelle.VtrsBretelle.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		bretelle.VtrsBretelle.setHorizontalAlignment(SwingConstants.CENTER);
 		bretelle.VtrsBretelle.setBounds(11, 11, 140, 14);
@@ -91,9 +91,9 @@ public class MainFrame extends JFrame {
 		
 		Rondpoint rondpoint = new Rondpoint();
 		rondpoint.VtrsRondpoint.setText("Voitures sur le rondpoint : ");
-		rondpoint.VtrsRondpoint.setLocation(11, 11);
+		rondpoint.VtrsRondpoint.setLocation(10, 11);
 		rondpoint.setBackground(Color.LIGHT_GRAY);
-		rondpoint.setBounds(212, 419, 163, 40);
+		rondpoint.setBounds(359, 361, 163, 40);
 		getContentPane().add(rondpoint);
 		
 		// Initialisation du premier tronçon
@@ -103,15 +103,11 @@ public class MainFrame extends JFrame {
 		Tr1.setBackground(Color.LIGHT_GRAY);
 		Tr1.setSize(163, 40);
 
-		Tr1.setLocation(227, 127);
-		Tr1.VtrsTroncon1.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		Tr1.VtrsTroncon1.setHorizontalAlignment(SwingConstants.CENTER);
-		Tr1.VtrsTroncon1.setBounds(10, 11, 140, 14);
-
-		Tr1.setLocation(188, 223);
+		Tr1.setLocation(359, 590);
 		Tr1.VtrsTroncon1.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		Tr1.VtrsTroncon1.setHorizontalAlignment(SwingConstants.CENTER);
 		Tr1.VtrsTroncon1.setBounds(11, 11, 140, 14);
+
 
 		c.add(Tr1);
 		
@@ -122,12 +118,7 @@ public class MainFrame extends JFrame {
 		Tr2.setBackground(Color.LIGHT_GRAY);
 		Tr2.setSize(163, 40);
 
-		Tr2.setLocation(177, 271);
-		Tr2.VtrsTroncon2.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		Tr2.VtrsTroncon2.setHorizontalAlignment(SwingConstants.CENTER);
-		Tr2.VtrsTroncon2.setBounds(10, 11, 140, 14);
-
-		Tr2.setLocation(188, 284);
+		Tr2.setLocation(157, 373);
 		Tr2.VtrsTroncon2.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		Tr2.VtrsTroncon2.setHorizontalAlignment(SwingConstants.CENTER);
 		Tr2.VtrsTroncon2.setBounds(10, 11, 140, 14);
@@ -141,12 +132,7 @@ public class MainFrame extends JFrame {
 		Tr3.setBackground(Color.LIGHT_GRAY);
 		Tr3.setSize(163, 40);
 
-		Tr3.setLocation(227, 532);
-		Tr3.VtrsTroncon3.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		Tr3.VtrsTroncon3.setHorizontalAlignment(SwingConstants.CENTER);
-		Tr3.VtrsTroncon3.setBounds(10, 11, 140, 14);
-
-		Tr3.setLocation(188, 348);
+		Tr3.setLocation(359, 144);
 		Tr3.VtrsTroncon3.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		Tr3.VtrsTroncon3.setHorizontalAlignment(SwingConstants.CENTER);
 		Tr3.VtrsTroncon3.setBounds(10, 11, 140, 14);

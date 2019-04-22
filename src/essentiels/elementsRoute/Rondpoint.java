@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import essentiels.Chrono;
+import essentiels.ComboBoxTrafic;
 import essentiels.Voiture;
 
 import java.awt.Font;
@@ -35,10 +36,12 @@ public class Rondpoint extends JPanel implements Route {
 		add(VtrsRondpoint);
 	}
 
-	// Génération des voitures, de leur destination et de leur empreinte de temps d'apparition
+	// Génération des voitures, de leur destination et de leur empreinte de temps d'apparition. Les intervalles de création dépendent du moment du jour
 	
 	public static void genVoitures() {
-		 Voitures = ThreadLocalRandom.current().nextInt(1, 6);
+		int voituresMin = ComboBoxTrafic.getAutDebutMin();
+		int voituresMax = ComboBoxTrafic.getAutDebutMax();
+		 Voitures = ThreadLocalRandom.current().nextInt(voituresMin, voituresMax+1);
 		for (int i = 1; i <= Voitures; i++) {
 			VtrRondpoint.add(new Voiture());
 			VtrRondpoint.get(i-1).setDestination();

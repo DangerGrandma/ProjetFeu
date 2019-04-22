@@ -11,31 +11,31 @@ public class ComboBoxTrafic extends JPanel implements ActionListener {
 	String[] messageStrings = {"Heure de pointe", "Milieu de journée", "Soir et nuit"};
 	JComboBox menuList;
 	
-	int maxTron = 1; // Nombre maximum de voitures ajoutées aux tronçons du rond-point
-	int minTron = 0; // Nombre minimum de voitures ajoutées aux tronçons du rond-point
-	int maxAut = 3; // Nombre maximum de voitures provenant de l'autoroute ajoutées à la bretelle
-	int minAuto = 1; // Nombre minimum de voitures provenant de l'autoroute ajoutées à la bretelle
+	static int maxTron = 1; // Nombre maximum de voitures ajoutées aux tronçons du rond-point
+	static int minTron = 0; // Nombre minimum de voitures ajoutées aux tronçons du rond-point
+	static int maxAut = 3; // Nombre maximum de voitures provenant de l'autoroute ajoutées à la bretelle
+	static int minAuto = 1; // Nombre minimum de voitures provenant de l'autoroute ajoutées à la bretelle
 	int temps = 1;  // Temps avant d'ajouter d'autres voitures
 	
 	int tronDebutMax = 6; // Nombre maximum de voitures au départ aux tronçons du rond-point
 	int tronDebutMin = 4; // Nombre minimum de voitures au départ aux tronçons du rond-point
-	int autDebutMax = 20; // Nombre maximum de voitures au début à la bretelle de l'autoroute
-	int autDebutMin = 15; // Nombre minimum de voitures au début à la bretelle de l'autoroute
+	static int autDebutMax = 20; // Nombre maximum de voitures au début à la bretelle de l'autoroute
+	static int autDebutMin = 15; // Nombre minimum de voitures au début à la bretelle de l'autoroute
 	
-	public int getMaxTron() {
+	public static int getMaxTron() {
 		return maxTron;
 	}
 
-	public int getMinTron() {
+	public static int getMinTron() {
 		return minTron;
 	}
 
-	public int getMaxAut() {
+	public static int getMaxAuto() {
 		return maxAut;
 	}
 
 
-	public int getMinAuto() {
+	public static int getMinAuto() {
 		return minAuto;
 	}
 	
@@ -47,11 +47,11 @@ public class ComboBoxTrafic extends JPanel implements ActionListener {
 		return tronDebutMin;
 	}
 
-	public int getAutDebutMax() {
+	public static int getAutDebutMax() {
 		return autDebutMax;
 	}
 
-	public int getAutDebutMin() {
+	public static int getAutDebutMin() {
 		return autDebutMin;
 	}
 
