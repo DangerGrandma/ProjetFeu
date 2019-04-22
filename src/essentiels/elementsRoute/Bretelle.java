@@ -58,6 +58,22 @@ public class Bretelle extends JPanel implements Route {
 		};
 	}
 	
+	// Fonction qui ajoute une voiture au array de voitures
+	
+	public static void ajoutVoitures() {
+		Bretelle.VtrBretelle.add(0, new Voiture());
+		Bretelle.VtrsBretelle.setText("Voitures sur la Bretelle : " + (VtrBretelle.size()));
+	};
+	
+	// Fonction qui retire une voiture du array de voitures, si il y en a au moins une
+	
+	public static void retraitVoiture() {
+		if(VtrBretelle.size() > 0) {
+		Bretelle.VtrBretelle.remove(0);
+		Bretelle.VtrsBretelle.setText("Voitures sur la Bretelle : " + (VtrBretelle.size()));
+		}
+	};
+	
 	// Ré-initialisation des voitures
 	
 	public static void resetVoitures() {

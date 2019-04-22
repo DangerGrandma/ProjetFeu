@@ -47,6 +47,22 @@ public class Troncon2 extends JPanel implements Route {
 		};
 	}
 	
+	// Fonction qui ajoute une voiture au array de voitures
+	
+	public static void ajoutVoitures() {
+		VtrTroncon2.add(0, new Voiture());
+		VtrsTroncon2.setText("Voitures sur le Troncon2 : " + (VtrTroncon2.size()));
+	};
+	
+	// Fonction qui retire une voiture du array de voitures, si il y en a au moins une
+	
+	public static void retraitVoiture() {
+		if(VtrTroncon2.size() > 0) {
+		VtrTroncon2.remove(0);
+		VtrsTroncon2.setText("Voitures sur le Troncon2 : " + (VtrTroncon2.size()));
+		}
+	};
+	
 	// Ré-initialisation des voitures
 	
 	public static void resetVoitures() {

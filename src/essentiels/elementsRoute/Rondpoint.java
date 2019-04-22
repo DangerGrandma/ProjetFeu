@@ -49,6 +49,28 @@ public class Rondpoint extends JPanel implements Route {
 		};
 	}
 	
+	// Fonction qui ajoute une voiture au array de voitures
+	
+		public static void ajoutVoitures() {
+			VtrRondpoint.add(0, new Voiture());
+			VtrRondpoint.get(0).setDestination();
+			VtrRondpoint.get(0).setTimeStamp();
+			checkDest();
+			VtrsRondpoint.setText("Voitures sur le Rondpoint : " + (VtrRondpoint.size()));
+			
+		};
+		
+		// Fonction qui retire une voiture du array de voitures, si il y en a au moins une
+		
+		public static void retraitVoiture() {
+			if(VtrRondpoint.size() > 0) {
+			VtrRondpoint.remove(0);
+			checkDest();
+			VtrsRondpoint.setText("Voitures sur le Rondpoint : " + (VtrRondpoint.size()));
+			
+			}
+		};
+	
 	// Ré-initialisation des voitures
 	
 	public static void resetVoitures() {

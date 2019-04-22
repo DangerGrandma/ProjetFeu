@@ -90,18 +90,10 @@ public class MainFrame extends JFrame {
 		// Initialisation du paneau affichant les moyennes de voitures aux éléments de la route
 
 		PaneauMoyennes panMoy = new PaneauMoyennes();
-		panMoy.lblMoyRP.setLocation(0, 280);
-		panMoy.lblMoyTron3.setLocation(0, 230);
-		panMoy.lblMoyTron2.setLocation(0, 180);
-		panMoy.lblMoyTron1.setLocation(0, 130);
-		panMoy.lblMoyBret.setLocation(0, 80);
 		panMoy.setBounds(10, 135, 132, 511);
 		c.add(panMoy);
 		
-		JLabel lblMoyennes = new JLabel("<html>" + "Moyennes des voitures" + "<br>" +  "<span>" + "sur l'élément :" + "</html>");
-		lblMoyennes.setBounds(10, 0, 161, 73);
-		panMoy.add(lblMoyennes);
-		lblMoyennes.setFont(new Font("Tahoma", Font.PLAIN, 10));
+
 
 		// Initialisation de la brettelle qui connecte l'autoroute au rondpoint
 
