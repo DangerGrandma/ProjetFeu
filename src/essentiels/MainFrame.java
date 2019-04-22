@@ -20,8 +20,15 @@ import essentiels.elementsRoute.Rondpoint;
 import essentiels.elementsRoute.Troncon1;
 import essentiels.elementsRoute.Troncon2;
 import essentiels.elementsRoute.Troncon3;
+import javax.swing.JTextField;
 
 public class MainFrame extends JFrame {
+	private JTextField textField;
+	private JTextField jtRondpoint;
+	private JTextField jtBretelle;
+	private JTextField jtTron1;
+	private JTextField jtTron2;
+	private JTextField jtTron3;
 
 	// Frame sur lequel toutes les composantes graphiques sont affichées pour l'application
 
@@ -151,6 +158,66 @@ public class MainFrame extends JFrame {
 		lblNewLabel.setFont(new Font("Vivaldi", Font.BOLD | Font.ITALIC, 34));
 		lblNewLabel.setBounds(24, 28, 99, 60);
 		getContentPane().add(lblNewLabel);
+		
+		jtRondpoint = new JTextField();
+		jtRondpoint.setText("0");
+		jtRondpoint.setBounds(301, 20, 33, 20);
+		getContentPane().add(jtRondpoint);
+		jtRondpoint.setColumns(3);
+		
+		JLabel lblDpartRondpoint = new JLabel("D\u00E9part Rondpoint");
+		lblDpartRondpoint.setForeground(Color.WHITE);
+		lblDpartRondpoint.setBounds(189, 23, 102, 14);
+		getContentPane().add(lblDpartRondpoint);
+		
+		jtBretelle = new JTextField();
+		jtBretelle.setText("0");
+		jtBretelle.setBounds(301, 54, 33, 20);
+		getContentPane().add(jtBretelle);
+		jtBretelle.setColumns(10);
+		
+		JLabel lblDpartBretelle = new JLabel("D\u00E9part Bretelle");
+		lblDpartBretelle.setForeground(Color.WHITE);
+		lblDpartBretelle.setBounds(189, 57, 102, 14);
+		getContentPane().add(lblDpartBretelle);
+		
+		jtTron1 = new JTextField();
+		jtTron1.setText("0");
+		jtTron1.setBounds(478, 12, 33, 20);
+		getContentPane().add(jtTron1);
+		jtTron1.setColumns(10);
+		
+		JLabel lblDpartTronon = new JLabel("D\u00E9part Tron\u00E7on 1");
+		lblDpartTronon.setForeground(Color.WHITE);
+		lblDpartTronon.setBounds(359, 12, 109, 20);
+		getContentPane().add(lblDpartTronon);
+		
+		jtTron2 = new JTextField();
+		jtTron2.setText("0");
+		jtTron2.setBounds(478, 43, 33, 20);
+		getContentPane().add(jtTron2);
+		jtTron2.setColumns(10);
+		
+		JLabel lblDpartTronon_1 = new JLabel("D\u00E9part Tron\u00E7on 2");
+		lblDpartTronon_1.setForeground(Color.WHITE);
+		lblDpartTronon_1.setBounds(359, 43, 109, 14);
+		getContentPane().add(lblDpartTronon_1);
+		
+		jtTron3 = new JTextField();
+		jtTron3.setText("0");
+		jtTron3.setBounds(478, 74, 33, 20);
+		getContentPane().add(jtTron3);
+		jtTron3.setColumns(10);
+		
+		JLabel lblDpartTronon_2 = new JLabel("D\u00E9part Tron\u00E7on 3");
+		lblDpartTronon_2.setForeground(Color.WHITE);
+		lblDpartTronon_2.setBounds(359, 74, 109, 14);
+		getContentPane().add(lblDpartTronon_2);
+		
+		JLabel lblNewLabel_1 = new JLabel("Choisir un nombre de voiture au d\u00E9part. \r\n\u00C0 0, le programme utilise des valeurs al\u00E9atoires.");
+		lblNewLabel_1.setForeground(Color.WHITE);
+		lblNewLabel_1.setBounds(84, 70, 310, 39);
+		getContentPane().add(lblNewLabel_1);
 
 		// Banière turquoise foncée
 
@@ -178,7 +245,9 @@ public class MainFrame extends JFrame {
 		Image newImg = img.getScaledInstance(imgRondPoint.getWidth(), imgRondPoint.getHeight(), Image.SCALE_SMOOTH);
 		ImageIcon finalImage = new ImageIcon(newImg);
 		imgRondPoint.setIcon(finalImage);
-
+		
+		
+		
 		// Dimensions du JFrame
 
 		setSize(950, 700);

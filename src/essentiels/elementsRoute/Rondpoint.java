@@ -39,8 +39,8 @@ public class Rondpoint extends JPanel implements Route {
 	// Génération des voitures, de leur destination et de leur empreinte de temps d'apparition. Les intervalles de création dépendent du moment du jour
 	
 	public static void genVoitures() {
-		int voituresMin = ComboBoxTrafic.getAutDebutMin();
-		int voituresMax = ComboBoxTrafic.getAutDebutMax();
+		int voituresMin = ComboBoxTrafic.getRondpointDebutMin();
+		int voituresMax = ComboBoxTrafic.getRondpointDebutMax();
 		 Voitures = ThreadLocalRandom.current().nextInt(voituresMin, voituresMax+1);
 		for (int i = 1; i <= Voitures; i++) {
 			VtrRondpoint.add(new Voiture());
