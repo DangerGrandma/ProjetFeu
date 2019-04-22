@@ -8,22 +8,22 @@ import javax.swing.JPanel;
 
 public class ComboBoxTrafic extends JPanel implements ActionListener {
 	
-	String[] messageStrings = {"Heure de pointe", "Milieu de journée", "Soir et nuit"};
-	JComboBox menuList;
+	private String[] messageStrings = {"Heure de pointe", "Milieu de journée", "Soir et nuit"};
+	private JComboBox menuList;
 	
-	static int maxTron = 1; // Nombre maximum de voitures ajoutées aux tronçons du rond-point
-	static int minTron = 0; // Nombre minimum de voitures ajoutées aux tronçons du rond-point
-	static int maxAut = 2; // Nombre maximum de voitures provenant de l'autoroute ajoutées à la bretelle
-	static int minAuto = 0; // Nombre minimum de voitures provenant de l'autoroute ajoutées à la bretelle
-	int temps = 1;  // Temps avant d'ajouter d'autres voitures
+	private static int maxTron = 1; // Nombre maximum de voitures ajoutées aux tronçons du rond-point
+	private static int minTron = 0; // Nombre minimum de voitures ajoutées aux tronçons du rond-point
+	private static int maxAut = 2; // Nombre maximum de voitures provenant de l'autoroute ajoutées à la bretelle
+	private static int minAuto = 0; // Nombre minimum de voitures provenant de l'autoroute ajoutées à la bretelle
+	private int temps = 1;  // Temps avant d'ajouter d'autres voitures
 	
-	static int tronDebutMax = 6; // Nombre maximum de voitures au départ aux tronçons du rond-point
-	static int tronDebutMin = 4; // Nombre minimum de voitures au départ aux tronçons du rond-point
-	static int autDebutMax = 20; // Nombre maximum de voitures au début à la bretelle de l'autoroute
-	static int autDebutMin = 15; // Nombre minimum de voitures au début à la bretelle de l'autoroute
+	private static int tronDebutMax = 6; // Nombre maximum de voitures au départ aux tronçons du rond-point
+	private static int tronDebutMin = 4; // Nombre minimum de voitures au départ aux tronçons du rond-point
+	private static int autDebutMax = 20; // Nombre maximum de voitures au début à la bretelle de l'autoroute
+	private static int autDebutMin = 15; // Nombre minimum de voitures au début à la bretelle de l'autoroute
 	
-	static int rondpointDebutMax = 8;
-	static int rondpointDebutMin = 4;
+	private static int rondpointDebutMax = 8;
+	private static int rondpointDebutMin = 4;
 	
 	
 	public static int getMaxTron() {
