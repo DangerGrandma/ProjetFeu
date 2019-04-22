@@ -28,6 +28,7 @@ public class Chrono extends JPanel {
 	protected static int millisecondes = 0;
 	protected static int timestamp = 0;
 	protected boolean chronoOff = true;
+	protected boolean firstIteration = true;
 
 	// Le chronomètre est un objet JPanel à placer sur un interface graphique
 
@@ -63,6 +64,15 @@ public class Chrono extends JPanel {
 
 		Timer T = new Timer(8, new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				if (firstIteration) {
+					Bretelle.getVoitureDebut();
+					Rondpoint.getVoitureDebut();
+					Troncon1.getVoitureDebut();
+					Troncon2.getVoitureDebut();
+					Troncon3.getVoitureDebut();
+					firstIteration = false;
+				}
 
 				// 8 millisecondes sont ajoutées à l'entier @param millisecondes, à toutes les 8
 				// millisecondes
@@ -94,13 +104,16 @@ public class Chrono extends JPanel {
 					PaneauMoyennes.setMoyenneRondpoint();
 					PaneauMoyennes.lblMoyRP.setText("Rondpoint : " + String.format("%.0f", PaneauMoyennes.getMoyenneRondpoint()));
 
-					// Mise à jour du nombre de voiture sur les éléments de la route
+					if (timestamp % ComboBoxTrafic.getTemps() == 0) {
+						// Mise à jour du nombre de voiture sur les éléments de la route en fonction du moment de la journée
 
-					Bretelle.MAJVoitures();
-					Rondpoint.MAJVoitures();
-					Troncon1.MAJVoitures();
-					Troncon2.MAJVoitures();
-					Troncon3.MAJVoitures();
+						Bretelle.MAJVoitures();
+						Rondpoint.MAJVoitures();
+						Troncon1.MAJVoitures();
+						Troncon2.MAJVoitures();
+						Troncon3.MAJVoitures();
+					}
+					
 					PaneauFeu.checkTimer();
 					
 				}
@@ -111,6 +124,7 @@ public class Chrono extends JPanel {
 					minutes++;
 					Bt_Mins.setText("" + minutes + "m :");
 				}
+				
 			}
 		});
 
@@ -161,7 +175,8 @@ public class Chrono extends JPanel {
 				PaneauEtat.ImageChange.timeCancel();
 
 				PaneauMoyennes.resetValeurs();
-
+				
+				firstIteration = true;
 				millisecondes = 0;
 				minutes = 0;
 				secondes = 0;

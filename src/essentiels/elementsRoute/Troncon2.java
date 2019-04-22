@@ -93,7 +93,13 @@ public class Troncon2 extends JPanel implements Route {
 		
 		Troncon2.VtrsTroncon2.setText("Voitures sur le Troncon2 : " + (VtrTroncon2.size()));
 		checkRondpoint();
-	}	
+	}
+	
+	// Établit le nombre de voiture au démarrage du chrono
+	
+	public static void getVoitureDebut() {
+		Troncon2.VtrsTroncon2.setText("Voitures sur le Troncon2 : " + getVoituresSize());
+	}
 	
 	// Donne la grosseur de l'array de voitures
 	

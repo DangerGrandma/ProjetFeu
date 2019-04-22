@@ -10,20 +10,14 @@ import javax.swing.JPanel;
 
 public class ComboBoxTrafic extends JPanel implements ActionListener {
 	
-<<<<<<< Updated upstream
 	private String[] messageStrings = {"Heure de pointe", "Milieu de journée", "Soir et nuit"};
 	private JComboBox menuList;
-=======
-	String[] messageStrings = {"Heure de pointe", "Milieu de journée", "Soir et nuit"};
-	
-	JComboBox menuList; // Composante visuelle
->>>>>>> Stashed changes
 	
 	private static int maxTron = 1; // Nombre maximum de voitures ajoutées aux tronçons du rond-point
 	private static int minTron = 0; // Nombre minimum de voitures ajoutées aux tronçons du rond-point
 	private static int maxAut = 2; // Nombre maximum de voitures provenant de l'autoroute ajoutées à la bretelle
 	private static int minAuto = 0; // Nombre minimum de voitures provenant de l'autoroute ajoutées à la bretelle
-	private int temps = 1;  // Temps avant d'ajouter d'autres voitures
+	private static int temps = 1;  // Temps avant d'ajouter d'autres voitures
 	
 	private static int tronDebutMax = 6; // Nombre maximum de voitures au départ aux tronçons du rond-point
 	private static int tronDebutMin = 4; // Nombre minimum de voitures au départ aux tronçons du rond-point
@@ -75,7 +69,7 @@ public class ComboBoxTrafic extends JPanel implements ActionListener {
 		return rondpointDebutMin;
 	}
 	
-	public int getTemps() {
+	public static int getTemps() {
 		return temps;
 	}
 	
@@ -134,17 +128,17 @@ public class ComboBoxTrafic extends JPanel implements ActionListener {
 				tronDebutMax = 6;
 				tronDebutMin = 4;
 				autDebutMax = 20;
-				autDebutMin = 15;
+				autDebutMin = 10;
 				rondpointDebutMax = 8;
 				rondpointDebutMin = 4;
 				break;
 				
 			case "Milieu de journée": 
-				maxTron = 1;
+				maxTron = 3;
 				minTron = 0;
 				maxAut = 2;
 				minAuto = 1;
-				temps = 4;
+				temps = 3;
 				tronDebutMax = 4;
 				tronDebutMin = 1;
 				autDebutMax = 10;
@@ -154,11 +148,11 @@ public class ComboBoxTrafic extends JPanel implements ActionListener {
 				break;
 				
 			case "Soir et nuit":
-				maxTron = 1;
+				maxTron = 3;
 				minTron = 0;
 				maxAut = 2;
 				minAuto = 0;
-				temps = 8;
+				temps = 5;
 				tronDebutMax = 2;
 				tronDebutMin = 0;
 				autDebutMax = 5;

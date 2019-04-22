@@ -98,7 +98,13 @@ public class Bretelle extends JPanel implements Route {
 		
 		Bretelle.VtrsBretelle.setText("Voitures sur la bretelle : " + (VtrBretelle.size()));
 		checkRondpoint();
-	}	
+	}
+	
+	// Établit le nombre de voiture au démarrage du chrono
+	
+	public static void getVoitureDebut() {
+		Bretelle.VtrsBretelle.setText("Voitures sur la Bretelle : " + VtrBretelle.size());
+	}
 	
 	// Donne la grosseur de l'array de voitures
 	

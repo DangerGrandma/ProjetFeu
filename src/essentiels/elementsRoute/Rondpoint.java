@@ -97,6 +97,12 @@ public class Rondpoint extends JPanel implements Route {
 		destroyVoiture();
 	}	
 	
+	// Établit le nombre de voiture au démarrage du chrono
+	
+	public static void getVoitureDebut() {
+		Rondpoint.VtrsRondpoint.setText("Voitures sur la rondpoint : " + getVoituresSize());
+	}
+	
 	// Donne la grosseur de l'array de voitures
 	
 	public static int getVoituresSize() {
