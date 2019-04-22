@@ -1,3 +1,5 @@
+// Classe PaneauMoyenne, version 1.5.2, 22 avril 2019
+
 package essentiels;
 
 import javax.swing.JPanel;
@@ -27,6 +29,59 @@ public class PaneauMoyennes extends JPanel {
 	public static JLabel lblMoyTron3 = new JLabel("Tronçon 3 : ");
 	public static JLabel lblMoyRP = new JLabel("Rondpoint : ");
 	public static JLabel lblMoyennes = new JLabel("<html>" + "Moyennes des voitures" + "<br>" +  "<span>" + "sur l'élément :" + "</html>");
+	
+	// Setters et getters
+	
+	public static void setMoyenneBretelle() {
+		compteurBretelle++;
+		totalBretelle = totalBretelle + Bretelle.getVoituresSize();
+		MoyenneBretelle = totalBretelle/compteurBretelle;
+	};
+	
+	public static double getMoyenneBretelle() {
+		return (int) Math.round(MoyenneBretelle);
+	};
+	
+	public static void setMoyenneTron1() {
+		compteurTron1++;
+		totalTron1 = totalTron1 + Troncon1.getVoituresSize();
+		MoyenneTron1 = totalTron1/compteurTron1;
+	};
+	
+	public static double getMoyenneTron1() {
+		return (int) Math.round(MoyenneTron1);
+	};
+	
+	public static void setMoyenneTron2() {
+		compteurTron2++;
+		totalTron2 = totalTron2 + Troncon2.getVoituresSize();
+		MoyenneTron2 = totalTron2/compteurTron2;
+	};
+	
+	public static double getMoyenneTron2() {
+		return (int) Math.round(MoyenneTron2);
+	};
+	
+	public static void setMoyenneTron3() {
+		compteurTron3++;
+		totalTron3 = totalTron3 + Troncon3.getVoituresSize();
+		MoyenneTron3 = totalTron3/compteurTron3;
+	};
+	
+	public static double getMoyenneTron3() {
+		return (int) Math.round(MoyenneTron3);
+	};
+	
+	public static void setMoyenneRondpoint() {
+		compteurRondpoint++;
+		totalRondpoint = totalRondpoint + Rondpoint.getVoituresSize();
+		MoyenneRondpoint = totalRondpoint/compteurRondpoint;
+	};
+	
+	public static double getMoyenneRondpoint() {
+		return (int) Math.round(MoyenneRondpoint);
+	}
+	
 	public PaneauMoyennes() {
 		setBackground(new Color(95, 158, 160));
 		setLayout(null);
@@ -39,6 +94,7 @@ public class PaneauMoyennes extends JPanel {
 				Bretelle.ajoutVoitures();
 			}
 		});
+		
 		PlusBret.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		PlusBret.setBounds(20, 85, 41, 18);
 		add(PlusBret);
@@ -49,6 +105,7 @@ public class PaneauMoyennes extends JPanel {
 				Bretelle.retraitVoiture();
 			}	
 		});
+		
 		MoinsBret.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		MoinsBret.setBounds(69, 85, 41, 18);
 		add(MoinsBret);
@@ -60,6 +117,7 @@ public class PaneauMoyennes extends JPanel {
 				Troncon1.ajoutVoitures();
 			}
 		});
+		
 		PlusTron1.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		PlusTron1.setBounds(20, 141, 41, 18);
 		add(PlusTron1);
@@ -70,10 +128,10 @@ public class PaneauMoyennes extends JPanel {
 				Troncon1.retraitVoiture();
 			}	
 		});
+		
 		MoinsTron1.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		MoinsTron1.setBounds(69, 141, 41, 18);
 		add(MoinsTron1);
-
 		
 		JButton PlusTron2 = new JButton("+");
 		PlusTron2.addActionListener(new ActionListener() {
@@ -81,6 +139,7 @@ public class PaneauMoyennes extends JPanel {
 				Troncon2.ajoutVoitures();
 			}
 		});
+		
 		PlusTron2.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		PlusTron2.setBounds(20, 197, 41, 18);
 		add(PlusTron2);
@@ -91,6 +150,7 @@ public class PaneauMoyennes extends JPanel {
 				Troncon2.retraitVoiture();
 			}	
 		});
+		
 		MoinsTron2.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		MoinsTron2.setBounds(69, 197, 41, 18);
 		add(MoinsTron2);
@@ -101,6 +161,7 @@ public class PaneauMoyennes extends JPanel {
 				Troncon3.ajoutVoitures();
 			}
 		});
+		
 		PlusTron3.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		PlusTron3.setBounds(20, 253, 41, 18);
 		add(PlusTron3);
@@ -111,6 +172,7 @@ public class PaneauMoyennes extends JPanel {
 				Troncon3.retraitVoiture();
 			}	
 		});
+		
 		MoinsTron3.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		MoinsTron3.setBounds(69, 253, 41, 18);
 		add(MoinsTron3);
@@ -121,6 +183,7 @@ public class PaneauMoyennes extends JPanel {
 				Rondpoint.ajoutVoitures();
 			}
 		});
+		
 		PlusRP.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		PlusRP.setBounds(20, 309, 41, 18);
 		add(PlusRP);
@@ -131,6 +194,7 @@ public class PaneauMoyennes extends JPanel {
 				Rondpoint.retraitVoiture();
 			}	
 		});
+		
 		MoinsRP.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		MoinsRP.setBounds(69, 309, 41, 18);
 		add(MoinsRP);
@@ -187,62 +251,11 @@ public class PaneauMoyennes extends JPanel {
 	private static double MoyenneRondpoint;
 	private static double totalRondpoint;
 	private static int compteurRondpoint = 0;
-
-	
-
-	public static void setMoyenneBretelle() {
-		compteurBretelle++;
-		totalBretelle = totalBretelle + Bretelle.getVoituresSize();
-		MoyenneBretelle = totalBretelle/compteurBretelle;
-	};
-	
-	public static double getMoyenneBretelle() {
-		return (int) Math.round(MoyenneBretelle);
-	};
-	
-	public static void setMoyenneTron1() {
-		compteurTron1++;
-		totalTron1 = totalTron1 + Troncon1.getVoituresSize();
-		MoyenneTron1 = totalTron1/compteurTron1;
-	};
-	
-	public static double getMoyenneTron1() {
-		return (int) Math.round(MoyenneTron1);
-	};
-	
-	public static void setMoyenneTron2() {
-		compteurTron2++;
-		totalTron2 = totalTron2 + Troncon2.getVoituresSize();
-		MoyenneTron2 = totalTron2/compteurTron2;
-	};
-	
-	public static double getMoyenneTron2() {
-		return (int) Math.round(MoyenneTron2);
-	};
-	
-	public static void setMoyenneTron3() {
-		compteurTron3++;
-		totalTron3 = totalTron3 + Troncon3.getVoituresSize();
-		MoyenneTron3 = totalTron3/compteurTron3;
-	};
-	
-	public static double getMoyenneTron3() {
-		return (int) Math.round(MoyenneTron3);
-	};
-	
-	public static void setMoyenneRondpoint() {
-		compteurRondpoint++;
-		totalRondpoint = totalRondpoint + Rondpoint.getVoituresSize();
-		MoyenneRondpoint = totalRondpoint/compteurRondpoint;
-	};
-	
-	public static double getMoyenneRondpoint() {
-		return (int) Math.round(MoyenneRondpoint);
-	}
 	
 	// Méthode pour réinitialiser les valeurs des variables et des affichages
 	
 	public static void resetValeurs() {
+		
 		MoyenneBretelle = 0;
 		totalBretelle = 0;
 		compteurBretelle = 0;

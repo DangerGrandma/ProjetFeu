@@ -1,3 +1,5 @@
+// Classe Bretelle, version 2.4.3, 22 avril 2019
+
 package essentiels.elementsRoute;
 
 import java.util.ArrayList;
@@ -15,11 +17,11 @@ import essentiels.Voiture;
 
 import java.awt.Font;
 
-//Objet pour le Bretelle
+// Modélisation de la brettelle
 
 public class Bretelle extends JPanel implements Route {
 
-	// Objets voitures figurant sur le Bretelle, ajustement du nombre de voitures sur le Bretelle et JLabel qui affiche ce nombre de voitures
+	// Objets voitures figurant sur la bretelle, ajustement du nombre de voitures sur la bretelle et JLabel qui affiche ce nombre de voitures
 
 	private static int Voitures;
 	public static JLabel VtrsBretelle = new JLabel("Voitures sur la Bretelle : " + Voitures);
@@ -48,11 +50,13 @@ public class Bretelle extends JPanel implements Route {
 			voituresMax = ChoixVoitures.getBretelleDebut();
 			Voitures = ThreadLocalRandom.current().nextInt(voituresMin, voituresMax+1);
 		}
+		
 		else {
 			voituresMin = ComboBoxTrafic.getAutDebutMin();
 			voituresMax = ComboBoxTrafic.getAutDebutMax();
 			Voitures = ThreadLocalRandom.current().nextInt(voituresMin, voituresMax+1);
 		}
+		
 		for (int i = 1; i <= Voitures; i++) {
 			VtrBretelle.add(new Voiture());
 		};
@@ -81,18 +85,18 @@ public class Bretelle extends JPanel implements Route {
 		Bretelle.VtrsBretelle.setText("Voitures sur la Bretelle : ");
 	};
 	
-	// Fonction pour mettre à jour le nombre de voitures sur le Bretelle. Ajustement au hasard, selon l'heure du jour. 
+	// Fonction pour mettre à jour le nombre de voitures sur la bretelle. Ajustement au hasard, selon l'heure du jour. 
 
 	public static void MAJVoitures() {
-		
+
 		int nvlVoitures = ThreadLocalRandom.current().nextInt(ComboBoxTrafic.getMinAuto(), ComboBoxTrafic.getMaxAuto()+1);
 		if (nvlVoitures != 0) {
-		for (int i = 1; i <= nvlVoitures; i++) {
-			VtrBretelle.add(0,new Voiture());
-
-		};
+			for (int i = 1; i <= nvlVoitures; i++) {
+				VtrBretelle.add(0,new Voiture());
+			};
 		}
-		Bretelle.VtrsBretelle.setText("Voitures sur le Bretelle : " + (VtrBretelle.size()));
+		
+		Bretelle.VtrsBretelle.setText("Voitures sur la bretelle : " + (VtrBretelle.size()));
 		checkRondpoint();
 	}	
 	
@@ -111,6 +115,7 @@ public class Bretelle extends JPanel implements Route {
 	/* Vérifie si le rondpoint est assez libre (moins de 30 voitures), si le Troncon1 peu y transférer une de ses voitures. Si oui, le listArray pour Troncon1
 	   est réduit de un, et le listeArray du rondpoint gagne une nouvelle voiture avec des attributs
 	*/
+	
 public static void checkRondpoint() {
 	if(PaneauFeu.getEtatFeu()) {
 	int totalRondpoint = Rondpoint.getVoituresSize();
@@ -118,8 +123,7 @@ public static void checkRondpoint() {
 		destroyVoiture();
 		Rondpoint.VtrRondpoint.add(0, new Voiture());
 		Rondpoint.VtrRondpoint.get(0).setDestination();
-		Rondpoint.VtrRondpoint.get(0).setTimeStamp();
-			
+		Rondpoint.VtrRondpoint.get(0).setTimeStamp();		
 		};
 	};
 }

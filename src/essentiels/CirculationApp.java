@@ -1,3 +1,5 @@
+// Classe CirculationApp, version 1.1.0, 20 avril 2019. L'application en tant que telle pour la simulation
+
 package essentiels;
 
 import java.awt.BorderLayout;
@@ -26,10 +28,10 @@ import java.awt.Font;
 import javax.swing.Timer;
 import java.awt.Color;
 
-// L'application en tant que telle pour la simulation
-
 public class CirculationApp {
 
+// Lancement de l'application	
+	
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {

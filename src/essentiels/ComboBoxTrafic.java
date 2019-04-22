@@ -1,3 +1,5 @@
+// Classe ComboBoxTrafic version 3.2.0, 22 avril 2019
+
 package essentiels;
 
 import java.awt.event.ActionEvent;
@@ -8,8 +10,14 @@ import javax.swing.JPanel;
 
 public class ComboBoxTrafic extends JPanel implements ActionListener {
 	
+<<<<<<< Updated upstream
 	private String[] messageStrings = {"Heure de pointe", "Milieu de journée", "Soir et nuit"};
 	private JComboBox menuList;
+=======
+	String[] messageStrings = {"Heure de pointe", "Milieu de journée", "Soir et nuit"};
+	
+	JComboBox menuList; // Composante visuelle
+>>>>>>> Stashed changes
 	
 	private static int maxTron = 1; // Nombre maximum de voitures ajoutées aux tronçons du rond-point
 	private static int minTron = 0; // Nombre minimum de voitures ajoutées aux tronçons du rond-point
@@ -25,6 +33,7 @@ public class ComboBoxTrafic extends JPanel implements ActionListener {
 	private static int rondpointDebutMax = 8;
 	private static int rondpointDebutMin = 4;
 	
+	//Getters
 	
 	public static int getMaxTron() {
 		return maxTron;
@@ -66,6 +75,12 @@ public class ComboBoxTrafic extends JPanel implements ActionListener {
 		return rondpointDebutMin;
 	}
 	
+	public int getTemps() {
+		return temps;
+	}
+	
+	// Setters
+	
 	public static void setTronDebutMax(int tronDebutMax) {
 		ComboBoxTrafic.tronDebutMax = tronDebutMax;
 	}
@@ -90,10 +105,6 @@ public class ComboBoxTrafic extends JPanel implements ActionListener {
 		ComboBoxTrafic.rondpointDebutMin = rondpointDebutMin;
 	}
 
-	public int getTemps() {
-		return temps;
-	}
-
 	public ComboBoxTrafic() {
 		
 		menuList = new JComboBox(messageStrings);
@@ -106,11 +117,13 @@ public class ComboBoxTrafic extends JPanel implements ActionListener {
 	}
 
 	// Chaque fois qu'on change le temps de la journée, les nombres sont mis à jour selon les données de simulation déterminées
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == menuList) {
+			
 			JComboBox cb = (JComboBox) e.getSource();
+			
 			String msg = (String) cb.getSelectedItem();
+			
 			switch (msg) {
 			case "Heure de pointe": 
 				maxTron = 1;
@@ -125,6 +138,7 @@ public class ComboBoxTrafic extends JPanel implements ActionListener {
 				rondpointDebutMax = 8;
 				rondpointDebutMin = 4;
 				break;
+				
 			case "Milieu de journée": 
 				maxTron = 1;
 				minTron = 0;
@@ -138,6 +152,7 @@ public class ComboBoxTrafic extends JPanel implements ActionListener {
 				rondpointDebutMax = 4;
 				rondpointDebutMin = 1;
 				break;
+				
 			case "Soir et nuit":
 				maxTron = 1;
 				minTron = 0;

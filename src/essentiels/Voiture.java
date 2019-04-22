@@ -1,9 +1,11 @@
+// Classe voiture, version 1.1.2, 21 avril 2019
+
 package essentiels;
 
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
-// Objet voiture
+// Objet voiture. Utilisée par tous les éléments de la route
 
 public class Voiture {
 	
