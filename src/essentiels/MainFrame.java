@@ -38,7 +38,7 @@ public class MainFrame extends JFrame {
 
 		PaneauFeu PanFeu = new PaneauFeu();
 		PanFeu.setBackground(new Color(47, 79, 79));
-		PanFeu.setBounds(748, 221, 58, 89);
+		PanFeu.setBounds(748, 221, 58, 110);
 
 		// Initialisation du menu du moment du jour
 
