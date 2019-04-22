@@ -121,6 +121,7 @@ public class Chrono extends JPanel {
 		Btn_Start.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				T.start();
+				PaneauFeu.resumeTimer();
 				if (chronoOff) {
 
 					// Génération au hasard des voitures sur les éléments de la route
@@ -147,6 +148,7 @@ public class Chrono extends JPanel {
 		Btn_Reset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				T.stop();
+				PaneauFeu.resetTimer();
 
 				// Les voitures sur les éléments de la route sont aussi réinitialisées
 
@@ -181,6 +183,7 @@ public class Chrono extends JPanel {
 		Btn_Stop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				T.stop();
+				PaneauFeu.pauseTimer();
 
 				// Termine la loop infinie de PanneauEtat
 				PaneauEtat.ImageChange.timeCancel();
@@ -196,4 +199,9 @@ public class Chrono extends JPanel {
 	public static int getTimestamp() {
 		return timestamp;
 	};
+	
+	public static int getSecondes() {
+		return secondes + 60 * minutes;	
+	}
+	
 }

@@ -20,11 +20,12 @@ public class PaneauFeu extends JPanel {
 
 	private static boolean etatFeu = true;
 	private static int statusRoad = 0;
-	private JLabel feuRouge; 
-	private int dureeFeuVert = 1000 * 3; 
-	private Timer timerFeu = new Timer();  
+	private static JLabel feuRouge;
+	private static Timer timerFeu = new Timer();  
 	private JButton switchMode; 
-	private int nbAutoBretelle; 
+	private static int nbAutoBretelle;
+	private static int currentNbAuto = 0;
+	private static int timerTempsDepart = 0;
 
 	public PaneauFeu() {
 		
@@ -96,48 +97,56 @@ public class PaneauFeu extends JPanel {
 		
 		//commence le timer du feu vert au debut du programme 
 		updateNbAutoBretelle();
-		startTimerFeuVert(); 
 
 	}
 	 
 	//commence le timer du feu vert et change le feu a rouge a la fin en plus de commencer le timer du feu rouge
-	public void startTimerFeuVert() { 
+	public static void startTimerFeuVert() { 
 		 
 		TimerTask changeFeu = new TimerTask() {  
 	        public void run() {  
 	                    
-	        	etatFeu = false; 
-				feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/essentiels/images/feurouge.png"))); 
-				timerFeu.cancel(); 
-				timerFeu.purge(); 
-				startTimerFeuRouge(); 
-	        	 
+	        	if (Chrono.getSecondes() - timerTempsDepart >= 2 * currentNbAuto) {
+	        		etatFeu = false; 
+					feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/essentiels/images/feurouge.png"))); 
+					timerFeu.cancel(); 
+					timerFeu.purge(); 
+					currentNbAuto = 0;
+					timerTempsDepart = 0;
+					resumeTimer();
+	        	}
+				
 	        }  
 	    }; 
 	    updateNbAutoBretelle();
-		timerFeu = new Timer(); 
-		timerFeu.schedule(changeFeu, 2000 * nbAutoBretelle); 
-		System.out.println("il y a " + nbAutoBretelle + "auto dans la bretelle.");
-		System.out.println("Timer du feu vert parti pour " + 2 * nbAutoBretelle + " secondes"); 
+	    if (currentNbAuto == 0) {
+	    	currentNbAuto = nbAutoBretelle;
+			System.out.println("Timer du feu vert parti pour " + 2 * nbAutoBretelle + " secondes"); 
+	    }
+	    timerFeu = new Timer(); 
+		timerFeu.schedule(changeFeu, 0, 1);
 	} 
 	 
 	//commence le timer du feu rouge et change le feu a vert a la fin en plus de commencer le timer du feu vert
-	public void startTimerFeuRouge() { 
+	public static void startTimerFeuRouge() { 
 		 
 		TimerTask changeFeu = new TimerTask() {  
 	        public void run() {  
 	                    
-	        	etatFeu = true; 
-				feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/essentiels/images/feuvert.png"))); 
-				timerFeu.cancel(); 
-				timerFeu.purge(); 
-				startTimerFeuVert(); 
+	        	if (Chrono.getSecondes() - timerTempsDepart >= 5) {
+	        		etatFeu = true; 
+					feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/essentiels/images/feuvert.png"))); 
+					timerTempsDepart = 0;
+					timerFeu.cancel(); 
+					timerFeu.purge(); 
+					resumeTimer();
+	        	}
 	        	 
 	        }  
 	    }; 
 		 
 		timerFeu = new Timer(); 
-		timerFeu.schedule(changeFeu, 5000); 
+		timerFeu.schedule(changeFeu, 0, 1); 
 		System.out.println("Timer du feu rouge parti pour " + 5 + " secondes"); 
 		 
 	} 
@@ -149,7 +158,7 @@ public class PaneauFeu extends JPanel {
 	} 
 	
 	//ajuste la variable nbAutoBretelle au nombre actuelle d'auto dans la bretelle avec un minimum de 5
-	public void updateNbAutoBretelle() {
+	public static void updateNbAutoBretelle() {
 		if (Bretelle.getVoituresSize() < 5) { 
 			nbAutoBretelle = 5; 
 		} 
@@ -157,6 +166,33 @@ public class PaneauFeu extends JPanel {
 		else { 
 			nbAutoBretelle = Bretelle.getVoituresSize(); 
 		} 
+	}
+	
+	public static void pauseTimer() {
+		System.out.println("le timer du feu est mis en pause");
+		timerFeu.cancel();
+	}
+	
+	public static void resumeTimer() {
+		if (timerTempsDepart == 0 & currentNbAuto == 0) timerTempsDepart = Chrono.getSecondes();
+		if (etatFeu) {
+			startTimerFeuVert();
+		}
+		else {
+			startTimerFeuRouge();
+		}
+	}
+	
+	public static void resetTimer() {
+		System.out.println("le timer du feu est mis a zero");
+		
+		timerFeu.cancel();
+		timerFeu.purge();
+		etatFeu = true; 
+		feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/essentiels/images/feuvert.png"))); 
+		timerTempsDepart = 0;
+		currentNbAuto = 0;
+		
 	}
 	 
 }

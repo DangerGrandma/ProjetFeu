@@ -21,7 +21,7 @@ public class Bretelle extends JPanel implements Route {
 	// Objets voitures figurant sur le Bretelle, ajustement du nombre de voitures sur le Bretelle et JLabel qui affiche ce nombre de voitures
 
 	private static int Voitures;
-	public static JLabel VtrsBretelle = new JLabel("Voitures sur le Bretelle : " + Voitures);
+	public static JLabel VtrsBretelle = new JLabel("Voitures sur la Bretelle : " + Voitures);
 	
 	// @param VtrBretelle sert à contenir les voitures situées dans la ligne d'attente de la bretelle.
 
