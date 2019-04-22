@@ -64,7 +64,8 @@ public class Chrono extends JPanel {
 		Timer T = new Timer(8, new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				// 8 millisecondes sont ajoutées à l'entier @param millisecondes, à toutes les 8 millisecondes
+				// 8 millisecondes sont ajoutées à l'entier @param millisecondes, à toutes les 8
+				// millisecondes
 
 				millisecondes += 8;
 
@@ -73,7 +74,8 @@ public class Chrono extends JPanel {
 				Bt_Millis.setText("" + millisecondes);
 				if (millisecondes >= 1000) // Une seconde écoulée
 				{
-					// Cette fonction réinitialise les millisecondes à 0 puis ajoute 1 seconde au chronomètre et à la marque de temps globale
+					// Cette fonction réinitialise les millisecondes à 0 puis ajoute 1 seconde au
+					// chronomètre et à la marque de temps globale
 					millisecondes = 0;
 					Bt_Millis.setText("" + 0);
 					secondes++;
@@ -127,6 +129,9 @@ public class Chrono extends JPanel {
 					Troncon1.genVoitures();
 					Troncon2.genVoitures();
 					Troncon3.genVoitures();
+
+					// Commence la loop infinie du PanneauEtat
+					PaneauEtat.ImageChange.timeEtat();
 					chronoOff = false;
 				}
 			}
@@ -149,6 +154,10 @@ public class Chrono extends JPanel {
 				Troncon1.resetVoitures();
 				Troncon2.resetVoitures();
 				Troncon3.resetVoitures();
+
+				// Termine la loop infinie de PanneauEtat
+				PaneauEtat.ImageChange.timeCancel();
+
 				PaneauMoyennes.resetValeurs();
 
 				millisecondes = 0;
@@ -172,13 +181,16 @@ public class Chrono extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				T.stop();
 
+				// Termine la loop infinie de PanneauEtat
+				PaneauEtat.ImageChange.timeCancel();
 			}
 		});
 		add(Btn_Stop);
 
 	}
 
-	// Prend l'empreinte de temps globale. Appliquée aux voitures du rondpoint pour savoir combien de temps avant qu'elles le quitte
+	// Prend l'empreinte de temps globale. Appliquée aux voitures du rondpoint pour
+	// savoir combien de temps avant qu'elles le quitte
 
 	public static int getTimestamp() {
 		return timestamp;
