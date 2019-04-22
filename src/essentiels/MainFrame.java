@@ -99,37 +99,58 @@ public class MainFrame extends JFrame {
 		// Initialisation du premier tronçon
 		
 		Troncon1 Tr1 = new Troncon1();
-		Tr1.VtrsTroncon.setText("Voitures sur le troncon1 : ");
+		Tr1.VtrsTroncon1.setText("Voitures sur le troncon1 : ");
 		Tr1.setBackground(Color.LIGHT_GRAY);
 		Tr1.setSize(163, 40);
+
 		Tr1.setLocation(227, 127);
-		Tr1.VtrsTroncon.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		Tr1.VtrsTroncon.setHorizontalAlignment(SwingConstants.CENTER);
-		Tr1.VtrsTroncon.setBounds(10, 11, 140, 14);
+		Tr1.VtrsTroncon1.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		Tr1.VtrsTroncon1.setHorizontalAlignment(SwingConstants.CENTER);
+		Tr1.VtrsTroncon1.setBounds(10, 11, 140, 14);
+
+		Tr1.setLocation(188, 223);
+		Tr1.VtrsTroncon1.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		Tr1.VtrsTroncon1.setHorizontalAlignment(SwingConstants.CENTER);
+		Tr1.VtrsTroncon1.setBounds(11, 11, 140, 14);
+
 		c.add(Tr1);
 		
 		// Initialisation du second tronçon
 		
 		Troncon2 Tr2 = new Troncon2();
-		Tr2.VtrsTroncon.setText("Voitures sur le troncon2 : ");
+		Tr2.VtrsTroncon2.setText("Voitures sur le troncon2 : ");
 		Tr2.setBackground(Color.LIGHT_GRAY);
 		Tr2.setSize(163, 40);
+
 		Tr2.setLocation(177, 271);
-		Tr2.VtrsTroncon.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		Tr2.VtrsTroncon.setHorizontalAlignment(SwingConstants.CENTER);
-		Tr2.VtrsTroncon.setBounds(10, 11, 140, 14);
+		Tr2.VtrsTroncon2.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		Tr2.VtrsTroncon2.setHorizontalAlignment(SwingConstants.CENTER);
+		Tr2.VtrsTroncon2.setBounds(10, 11, 140, 14);
+
+		Tr2.setLocation(188, 284);
+		Tr2.VtrsTroncon2.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		Tr2.VtrsTroncon2.setHorizontalAlignment(SwingConstants.CENTER);
+		Tr2.VtrsTroncon2.setBounds(10, 11, 140, 14);
+
 		c.add(Tr2);
 		
 		// Initialisation du troisième tronçon
 		
 		Troncon3 Tr3 = new Troncon3();
-		Tr3.VtrsTroncon.setText("Voitures sur le troncon3 : ");
+		Tr3.VtrsTroncon3.setText("Voitures sur le troncon3 : ");
 		Tr3.setBackground(Color.LIGHT_GRAY);
 		Tr3.setSize(163, 40);
+
 		Tr3.setLocation(227, 532);
-		Tr3.VtrsTroncon.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		Tr3.VtrsTroncon.setHorizontalAlignment(SwingConstants.CENTER);
-		Tr3.VtrsTroncon.setBounds(10, 11, 140, 14);
+		Tr3.VtrsTroncon3.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		Tr3.VtrsTroncon3.setHorizontalAlignment(SwingConstants.CENTER);
+		Tr3.VtrsTroncon3.setBounds(10, 11, 140, 14);
+
+		Tr3.setLocation(188, 348);
+		Tr3.VtrsTroncon3.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		Tr3.VtrsTroncon3.setHorizontalAlignment(SwingConstants.CENTER);
+		Tr3.VtrsTroncon3.setBounds(10, 11, 140, 14);
+
 		c.add(Tr3);
 		
 		// Initialisation d'un JLabel ayant pour texte "Menu"

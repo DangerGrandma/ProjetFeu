@@ -26,6 +26,8 @@ public class Chrono extends JPanel {
 	protected static int secondes = 0;
 	protected static int minutes = 0;
 	protected static int millisecondes = 0;
+	protected static int timestamp = 0;
+	protected boolean chronoOff = true;
 
 // Le chronomètre est un objet JPanel à placer sur un interface graphique
 	
@@ -77,9 +79,11 @@ public class Chrono extends JPanel {
 	                        millisecondes = 0;
 	                        Bt_Millis.setText(""+0);
 	                        secondes++;
+	                        timestamp++;
 	                        Bt_Secs.setText(""+ secondes+"s :");
 	                        
 	                        // Mise à jour du nombre de voiture sur les éléments de la route
+	                       
 	                        Bretelle.MAJVoitures();
 	                        Rondpoint.MAJVoitures();
 	                        Troncon1.MAJVoitures();
@@ -103,8 +107,15 @@ public class Chrono extends JPanel {
 		Btn_Start.setBounds(10, 36, 63, 18);
 		Btn_Start.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 T.start();
-
+				T.start();
+				if(chronoOff) {
+				Rondpoint.genVoitures();
+				Bretelle.genVoitures();
+				Troncon1.genVoitures();
+				Troncon2.genVoitures();
+				Troncon3.genVoitures();
+				 chronoOff = false;
+				 }
 			}
 		});
 		add(Btn_Start);
@@ -120,11 +131,11 @@ public class Chrono extends JPanel {
 				
 				// Les voitures sur les éléments de la routes sont aussi réinitialisées
 				
-				Bretelle.ResetVoitures();
-				Rondpoint.ResetVoitures();
-				Troncon1.ResetVoitures();
-				Troncon2.ResetVoitures();
-                Troncon3.ResetVoitures();
+				Bretelle.resetVoitures();
+				Rondpoint.resetVoitures();
+				Troncon1.resetVoitures();
+				Troncon2.resetVoitures();
+                Troncon3.resetVoitures();
                 
 				
 		        millisecondes = 0;
@@ -132,7 +143,8 @@ public class Chrono extends JPanel {
 		        secondes = 0;
 		        Bt_Millis.setText(""+millisecondes+" :");
 		        Bt_Mins.setText(""+minutes+" :");
-		        Bt_Secs.setText(""+secondes+" :");
+		        Bt_Secs.setText(""+secondes+" :");		    
+		        chronoOff = true;
 			}
 		});
 		add(Btn_Reset);
@@ -149,5 +161,15 @@ public class Chrono extends JPanel {
 			}
 		});
 		add(Btn_Stop);
+		
+
 	}
+	
+	public static int getSecs() {
+		return secondes;
+	};
+	
+	public static int getTimestamp() {
+		return timestamp;
+	};
 }

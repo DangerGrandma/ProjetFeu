@@ -1,44 +1,98 @@
 package essentiels.elementsRoute;
 
+import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+import essentiels.Chrono;
+import essentiels.Voiture;
+
 import java.awt.Font;
 
 //Objet pour le rondpoint
 
 public class Rondpoint extends JPanel implements Route {
-	
+
 	// Objets voitures figurant sur le rondpoint, ajustement du nombre de voitures sur le rondpoint et JLabel qui affiche ce nombre de voitures
+
+	private static int Voitures;
+	public static JLabel VtrsRondpoint = new JLabel("Voitures sur le rondpoint : " + Voitures);
 	
-	public static int Voitures;
-	public static int modVoitures;
-	public static JLabel VtrsRondpoint = new JLabel("Voitures sur le rondpoint : "+Voitures);
-		
-	// Initialisation de la représentation graphique 
-	
+	// Variable du nombre de voitures générées au lancement du programme, et un ArrayList pour les contenir
+
+	public static ArrayList<Voiture> VtrRondpoint = new ArrayList<Voiture>();
+
+	// Initialisation de la représentation graphique
+
 	public Rondpoint() {
-		setLayout(null);		
+		setLayout(null);
 		VtrsRondpoint.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		VtrsRondpoint.setHorizontalAlignment(SwingConstants.CENTER);
 		VtrsRondpoint.setBounds(11, 9, 140, 14);
-		add(VtrsRondpoint);	
+		add(VtrsRondpoint);
 	}
 
-	// Fonction pour mettre à jour le nombre de voitures sur le rondpoint. Ajustement au hasard, entre -2 voitures et + 2 voitures
+	// Génération des voitures, de leur destination et de leur empreinte de temps d'apparition
 	
-	public static void MAJVoitures() {
-		Rondpoint.modVoitures+= ThreadLocalRandom.current().nextInt(-2, 3);
-        Rondpoint.VtrsRondpoint.setText("Voitures sur le rondpoint : "+ (Rondpoint.Voitures + Rondpoint.modVoitures));
+	public static void genVoitures() {
+		 Voitures = ThreadLocalRandom.current().nextInt(1, 6);
+		for (int i = 1; i <= Voitures; i++) {
+			VtrRondpoint.add(new Voiture());
+			VtrRondpoint.get(i-1).setDestination();
+			VtrRondpoint.get(i-1).setTimeStamp();
+		};
 	}
-
-	// Fonction pour réinitialiser le nombre de voitures sur le rondpoint. Au hasard, entre 3 et 10 voitures.
 	
-	public static void ResetVoitures() {
+	// Ré-initialisation des voitures
+	
+	public static void resetVoitures() {
+		VtrRondpoint.clear();
 		Rondpoint.VtrsRondpoint.setText("Voitures sur le rondpoint : ");
-        Rondpoint.modVoitures = ThreadLocalRandom.current().nextInt(3, 11);	
 	};
+	
+	// Fonction pour mettre à jour le nombre de voitures sur le rondpoint. Ajustement au hasard, entre -2 voitures et + 2 voitures
+
+	public static void MAJVoitures() {
+		Rondpoint.VtrsRondpoint.setText("Voitures sur le rondpoint : " + (VtrRondpoint.size()));
+		destroyVoiture();
+	}	
+	
+	// Donne la grosseur de l'array de voitures
+	
+	public static int getVoituresSize() {
+		return VtrRondpoint.size();	 
+	}
+
+	// Donne la destination en secondes d'une voiture désignée
+	
+	public static int getVoitureArray(int i) {	
+			return VtrRondpoint.get(i).getDestination();
+	};
+	
+	// Vérifie si le temps nécessaire pour une voiture de se rendre à destination est écoulé. Si oui, la voiture est retirée de son tableau
+	
+	public static void checkDest() {
+		for (int p = 0; p < VtrRondpoint.size(); p++) {
+		int x = VtrRondpoint.get(p).getDestination();
+		int y = Chrono.getTimestamp();
+		int z = VtrRondpoint.get(p).getTimeStamp();
+		if(y-z >= x) {
+			VtrRondpoint.remove(p);
+		};
+	}
+	
+	// Application de la destruction de voitures pour usage manuel	
+		
+	};
+	public static void destroyVoiture() {
+	for(int i = 0; i < Rondpoint.getVoituresSize(); i++) {
+		Rondpoint.checkDest();	
+	};
+	
+  }
 }
+	
+
