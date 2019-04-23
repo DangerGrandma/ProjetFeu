@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-public class ChoixVoitures extends JPanel {
+public class ConfigurationVoitures extends JPanel {
 	
 	private static int tron1Debut;
 	private static int tron2Debut;
@@ -39,13 +39,12 @@ public class ChoixVoitures extends JPanel {
 	public static int getRondpointDebut() {
 		return rondpointDebut;
 	}
-	
 
 	public static void setBretelleDebut(int bretelleDebut) {
-		ChoixVoitures.bretelleDebut = bretelleDebut;
+		ConfigurationVoitures.bretelleDebut = bretelleDebut;
 	}
 
-	public ChoixVoitures() {
+	public ConfigurationVoitures() {
 
 		setLayout(null);
 		

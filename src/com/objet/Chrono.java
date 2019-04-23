@@ -93,16 +93,16 @@ public class Chrono extends JPanel {
 					Bt_Secs.setText("" + secondes + "s :");
 
 					// À chaque seconde, les paneaux d'affichage ont leur moyenne mise à jour
-					PaneauMoyennes.setMoyenneBretelle();
-					PaneauMoyennes.lblMoyBret.setText("Bretelle : " + String.format("%.0f", PaneauMoyennes.getMoyenneBretelle()));
-					PaneauMoyennes.setMoyenneTron1();
-					PaneauMoyennes.lblMoyTron1.setText("Tronçon1 : " + String.format("%.0f", PaneauMoyennes.getMoyenneTron1()));
-					PaneauMoyennes.setMoyenneTron2();
-					PaneauMoyennes.lblMoyTron2.setText("Tronçon2 : " + String.format("%.0f", PaneauMoyennes.getMoyenneTron2()));
-					PaneauMoyennes.setMoyenneTron3();
-					PaneauMoyennes.lblMoyTron3.setText("Tronçon3 : " + String.format("%.0f", PaneauMoyennes.getMoyenneTron3()));
-					PaneauMoyennes.setMoyenneRondpoint();
-					PaneauMoyennes.lblMoyRP.setText("Rondpoint : " + String.format("%.0f", PaneauMoyennes.getMoyenneRondpoint()));
+					Statistiques.setMoyenneBretelle();
+					Statistiques.lblMoyBret.setText("Bretelle : " + String.format("%.0f", Statistiques.getMoyenneBretelle()));
+					Statistiques.setMoyenneTron1();
+					Statistiques.lblMoyTron1.setText("Tronçon1 : " + String.format("%.0f", Statistiques.getMoyenneTron1()));
+					Statistiques.setMoyenneTron2();
+					Statistiques.lblMoyTron2.setText("Tronçon2 : " + String.format("%.0f", Statistiques.getMoyenneTron2()));
+					Statistiques.setMoyenneTron3();
+					Statistiques.lblMoyTron3.setText("Tronçon3 : " + String.format("%.0f", Statistiques.getMoyenneTron3()));
+					Statistiques.setMoyenneRondpoint();
+					Statistiques.lblMoyRP.setText("Rondpoint : " + String.format("%.0f", Statistiques.getMoyenneRondpoint()));
 
 					if (timestamp % ComboBoxTrafic.getTemps() == 0) {
 						// Mise à jour du nombre de voiture sur les éléments de la route en fonction du moment de la journée
@@ -174,7 +174,7 @@ public class Chrono extends JPanel {
 				// Termine la loop infinie de PanneauEtat
 				PaneauEtat.ImageChange.timeCancel();
 
-				PaneauMoyennes.resetValeurs();
+				Statistiques.resetValeurs();
 				
 				firstIteration = true;
 				millisecondes = 0;

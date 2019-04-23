@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-import com.objet.ChoixVoitures;
+import com.objet.ConfigurationVoitures;
 import com.objet.Chrono;
 import com.objet.ComboBoxTrafic;
 import com.objet.Voiture;
@@ -21,20 +21,20 @@ public class Troncon3 extends JPanel implements ElementRoute {
 	// Objets voitures figurant sur le Tronçon3, ajustement du nombre de voitures sur le Tronçon3 et JLabel qui affiche ce nombre de voitures
 
 	private static int Voitures;
-	public static JLabel VtrsTroncon3 = new JLabel("Voitures sur le Troncon3 : " + Voitures);
+	public static JLabel lblVoituresTR3 = new JLabel("Voitures sur le Troncon3 : " + Voitures);
 	
 	// @param VtrTroncon3 sert à contenir les voitures situées dans la ligne d'attente du tronçon2.
 
-	public static ArrayList<Voiture> VtrTroncon3 = new ArrayList<Voiture>();
+	public static ArrayList<Voiture> FilAttente = new ArrayList<Voiture>();
 
 	// Initialisation de la représentation graphique
 
 	public Troncon3() {
 		setLayout(null);
-		VtrsTroncon3.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		VtrsTroncon3.setHorizontalAlignment(SwingConstants.CENTER);
-		VtrsTroncon3.setBounds(11, 9, 140, 14);
-		add(VtrsTroncon3);
+		lblVoituresTR3.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		lblVoituresTR3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblVoituresTR3.setBounds(11, 9, 140, 14);
+		add(lblVoituresTR3);
 	}
 
 	// Génération des voitures, de leur destination et de leur empreinte de temps d'apparition
@@ -42,9 +42,9 @@ public class Troncon3 extends JPanel implements ElementRoute {
 	public static void genVoitures() {
 		int voituresMin;
 		int voituresMax;
-		if (ChoixVoitures.getTron3Debut() != 0) {
-			voituresMin = ChoixVoitures.getTron3Debut();
-			voituresMax = ChoixVoitures.getTron3Debut();
+		if (ConfigurationVoitures.getTron3Debut() != 0) {
+			voituresMin = ConfigurationVoitures.getTron3Debut();
+			voituresMax = ConfigurationVoitures.getTron3Debut();
 			Voitures = ThreadLocalRandom.current().nextInt(voituresMin, voituresMax+1);
 		}
 		else {
@@ -53,31 +53,31 @@ public class Troncon3 extends JPanel implements ElementRoute {
 			Voitures = ThreadLocalRandom.current().nextInt(voituresMin, voituresMax+1);
 		}
 		for (int i = 1; i <= Voitures; i++) {
-			VtrTroncon3.add(new Voiture());
+			FilAttente.add(new Voiture());
 		};
 	}
 	
 	// Fonction qui ajoute une voiture au array de voitures
 	
 		public static void ajoutVoitures() {
-			VtrTroncon3.add(0, new Voiture());
-			VtrsTroncon3.setText("Voitures sur le Troncon3 : " + (VtrTroncon3.size()));
+			FilAttente.add(0, new Voiture());
+			lblVoituresTR3.setText("Voitures sur le Troncon3 : " + (FilAttente.size()));
 		};
 		
 		// Fonction qui retire une voiture du array de voitures, si il y en a au moins une
 		
 		public static void retraitVoiture() {
-			if(VtrTroncon3.size() > 0) {
-			VtrTroncon3.remove(0);
-			VtrsTroncon3.setText("Voitures sur le Troncon3 : " + (VtrTroncon3.size()));
+			if(FilAttente.size() > 0) {
+			FilAttente.remove(0);
+			lblVoituresTR3.setText("Voitures sur le Troncon3 : " + (FilAttente.size()));
 			}
 		};
 	
 	// Ré-initialisation des voitures
 	
 	public static void resetVoitures() {
-		VtrTroncon3.clear();
-		Troncon3.VtrsTroncon3.setText("Voitures sur le Troncon3 : ");
+		FilAttente.clear();
+		Troncon3.lblVoituresTR3.setText("Voitures sur le Troncon3 : ");
 	};
 	
 	// Fonction pour mettre à jour le nombre de voitures sur le Tronçon3. Ajustement au hasard, selon l'heure du jour.
@@ -87,30 +87,30 @@ public class Troncon3 extends JPanel implements ElementRoute {
 		int nvlVoitures = ThreadLocalRandom.current().nextInt(ComboBoxTrafic.getMinTron(), ComboBoxTrafic.getMaxTron()+1);
 		if (nvlVoitures != 0) {
 		for (int i = 1; i <= nvlVoitures; i++) {
-			VtrTroncon3.add(0,new Voiture());
+			FilAttente.add(0,new Voiture());
 		};
 		}
 		
-		Troncon3.VtrsTroncon3.setText("Voitures sur le Troncon3 : " + (VtrTroncon3.size()));
+		Troncon3.lblVoituresTR3.setText("Voitures sur le Troncon3 : " + (FilAttente.size()));
 		checkRondpoint();
 	}	
 	
 	// Établit le nombre de voiture au démarrage du chrono
 	
 	public static void getVoitureDebut() {
-		Troncon3.VtrsTroncon3.setText("Voitures sur le Troncon3 : " + getVoituresSize());
+		Troncon3.lblVoituresTR3.setText("Voitures sur le Troncon3 : " + getVoituresSize());
 	}
 	
 	// Donne la grosseur de l'array de voitures
 	
 	public static int getVoituresSize() {
-		return VtrTroncon3.size();	 
+		return FilAttente.size();	 
 	}
 
 	// Donne la destination en secondes d'une voiture désignée
 	
 	public static int getVoitureArray(int i) {	
-			return VtrTroncon3.get(i).getDestination();
+			return FilAttente.get(i).getDestination();
 	};
 	
 	/* Vérifie si le rondpoint est assez libre (moins de 30 voitures), si le Troncon3 peu y transférer une de ses voitures. Si oui, le listArray pour Troncon3
@@ -118,17 +118,17 @@ public class Troncon3 extends JPanel implements ElementRoute {
 	*/
 	public static void checkRondpoint() {
 		int totalRondpoint = Rondpoint.getVoituresSize();
-		if(totalRondpoint < 30 && VtrTroncon3.size() >= 1) {
+		if(totalRondpoint < 30 && FilAttente.size() >= 1) {
 			destroyVoiture();
-			Rondpoint.VtrRondpoint.add(0, new Voiture());
-			Rondpoint.VtrRondpoint.get(0).setDestination();
-			Rondpoint.VtrRondpoint.get(0).setTimeStamp();			
+			Rondpoint.FilAttente.add(0, new Voiture());
+			Rondpoint.FilAttente.get(0).setDestination();
+			Rondpoint.FilAttente.get(0).setTimeStamp();			
 		};
 	};
 	
 	// Application de la destruction de voitures.
 	public static void destroyVoiture() {
-		VtrTroncon3.remove(0);
+		FilAttente.remove(0);
 	
   }
 	

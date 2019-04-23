@@ -20,7 +20,7 @@ import java.awt.event.ActionEvent;
 
 // Paneau affichant la moyenne du nombre de voitures sur un élément de la route
 
-public class PaneauMoyennes extends JPanel {
+public class Statistiques extends JPanel {
 	
 // Initialisation des Jlabels sur lesquels les moyennes sont affichées	
 	
@@ -83,7 +83,7 @@ public class PaneauMoyennes extends JPanel {
 		return (int) Math.round(MoyenneRondpoint);
 	}
 	
-	public PaneauMoyennes() {
+	public Statistiques() {
 		setBackground(new Color(95, 158, 160));
 		setLayout(null);
 		

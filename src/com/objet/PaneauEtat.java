@@ -14,7 +14,7 @@ import javax.swing.ImageIcon;
 
 // Paneau de l'état de la congestion du rondpoint
 
-public class PaneauEtat extends Mecanisme {
+public class PaneauEtat extends EquipementIntelligent {
 	
 	protected static JLabel labelneutre = new JLabel(""); // JLabel utilisé pour illustrer une image
 	
@@ -32,9 +32,9 @@ public class PaneauEtat extends Mecanisme {
 			
 			//print pour tester la fonction
 
-			if (Rondpoint.VtrRondpoint.size() >= 0 && Rondpoint.VtrRondpoint.size() < 10) {
+			if (Rondpoint.FilAttente.size() >= 0 && Rondpoint.FilAttente.size() < 10) {
 				labelneutre.setIcon(new ImageIcon(getClass().getResource("/com/images/etat_eneqiulibre.png")));
-			} else if (Rondpoint.VtrRondpoint.size() >= 10 && Rondpoint.VtrRondpoint.size() < 25) {
+			} else if (Rondpoint.FilAttente.size() >= 10 && Rondpoint.FilAttente.size() < 25) {
 				labelneutre.setIcon(new ImageIcon(getClass().getResource("/com/images/etat_risque.png")));
 			} else {
 				labelneutre.setIcon(new ImageIcon(getClass().getResource("/com/images/etat_congestion.png")));

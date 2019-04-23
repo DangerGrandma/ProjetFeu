@@ -2,7 +2,7 @@ package com.objet;
 
 import javax.swing.JPanel;
 
-abstract class Mecanisme extends JPanel {
+abstract class EquipementIntelligent extends JPanel {
 
 	protected static int 	timeStamp;
 	protected static boolean 	etat;

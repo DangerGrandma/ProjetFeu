@@ -59,7 +59,7 @@ public class InterfaceGraphique extends JFrame {
 
 		// Initialisation du nombre de voitures
 		
-		ChoixVoitures boitesVoitures = new ChoixVoitures();
+		ConfigurationVoitures boitesVoitures = new ConfigurationVoitures();
 		boitesVoitures.setBackground(new Color(47, 79, 79));
 		boitesVoitures.setBounds(148, 12, 449, 97);
 		getContentPane().add(boitesVoitures);
@@ -92,7 +92,7 @@ public class InterfaceGraphique extends JFrame {
 
 		// Initialisation du paneau affichant les moyennes de voitures aux éléments de la route
 
-		PaneauMoyennes panMoy = new PaneauMoyennes();
+		Statistiques panMoy = new Statistiques();
 		panMoy.setBounds(10, 135, 132, 511);
 		c.add(panMoy);
 		
@@ -101,20 +101,20 @@ public class InterfaceGraphique extends JFrame {
 		// Initialisation de la brettelle qui connecte l'autoroute au rondpoint
 
 		Bretelle bretelle = new Bretelle();
-		bretelle.VtrsBretelle.setText("Voitures sur la bretelle : ");
+		bretelle.lblVoituresBret.setText("Voitures sur la bretelle : ");
 		bretelle.setBackground(Color.LIGHT_GRAY);
 		bretelle.setSize(163, 40);
 		bretelle.setLocation(748, 361);
-		bretelle.VtrsBretelle.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		bretelle.VtrsBretelle.setHorizontalAlignment(SwingConstants.CENTER);
-		bretelle.VtrsBretelle.setBounds(11, 11, 140, 14);
+		bretelle.lblVoituresBret.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		bretelle.lblVoituresBret.setHorizontalAlignment(SwingConstants.CENTER);
+		bretelle.lblVoituresBret.setBounds(11, 11, 140, 14);
 		c.add(bretelle);
 
 		// Initialisation du rondpoint
 
 		Rondpoint rondpoint = new Rondpoint();
-		rondpoint.VtrsRondpoint.setText("Voitures sur le rondpoint : ");
-		rondpoint.VtrsRondpoint.setLocation(10, 11);
+		rondpoint.lblVoituresRP.setText("Voitures sur le rondpoint : ");
+		rondpoint.lblVoituresRP.setLocation(10, 11);
 		rondpoint.setBackground(Color.LIGHT_GRAY);
 		rondpoint.setBounds(359, 361, 163, 40);
 		getContentPane().add(rondpoint);
@@ -122,38 +122,38 @@ public class InterfaceGraphique extends JFrame {
 		// Initialisation du premier tronçon
 
 		Troncon1 Tr1 = new Troncon1();
-		Tr1.VtrsTroncon1.setText("Voitures sur le troncon1 : ");
+		Tr1.lblVoituresTR1.setText("Voitures sur le troncon1 : ");
 		Tr1.setBackground(Color.LIGHT_GRAY);
 		Tr1.setSize(163, 40);
 		Tr1.setLocation(359, 590);
-		Tr1.VtrsTroncon1.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		Tr1.VtrsTroncon1.setHorizontalAlignment(SwingConstants.CENTER);
-		Tr1.VtrsTroncon1.setBounds(11, 11, 140, 14);
+		Tr1.lblVoituresTR1.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		Tr1.lblVoituresTR1.setHorizontalAlignment(SwingConstants.CENTER);
+		Tr1.lblVoituresTR1.setBounds(11, 11, 140, 14);
 		c.add(Tr1);
 
 		// Initialisation du second tronçon
 
 		Troncon2 Tr2 = new Troncon2();
-		Tr2.VtrsTroncon2.setText("Voitures sur le troncon2 : ");
+		Tr2.lblVoituresTR2.setText("Voitures sur le troncon2 : ");
 		Tr2.setBackground(Color.LIGHT_GRAY);
 		Tr2.setSize(163, 40);
 		Tr2.setLocation(157, 373);
-		Tr2.VtrsTroncon2.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		Tr2.VtrsTroncon2.setHorizontalAlignment(SwingConstants.CENTER);
-		Tr2.VtrsTroncon2.setBounds(10, 11, 140, 14);
+		Tr2.lblVoituresTR2.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		Tr2.lblVoituresTR2.setHorizontalAlignment(SwingConstants.CENTER);
+		Tr2.lblVoituresTR2.setBounds(10, 11, 140, 14);
 
 		c.add(Tr2);
 
 		// Initialisation du troisième tronçon
 
 		Troncon3 Tr3 = new Troncon3();
-		Tr3.VtrsTroncon3.setText("Voitures sur le troncon3 : ");
+		Tr3.lblVoituresTR3.setText("Voitures sur le troncon3 : ");
 		Tr3.setBackground(Color.LIGHT_GRAY);
 		Tr3.setSize(163, 40);
 		Tr3.setLocation(359, 144);
-		Tr3.VtrsTroncon3.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		Tr3.VtrsTroncon3.setHorizontalAlignment(SwingConstants.CENTER);
-		Tr3.VtrsTroncon3.setBounds(10, 11, 140, 14);
+		Tr3.lblVoituresTR3.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		Tr3.lblVoituresTR3.setHorizontalAlignment(SwingConstants.CENTER);
+		Tr3.lblVoituresTR3.setBounds(10, 11, 140, 14);
 		c.add(Tr3);
 
 		// Initialisation d'un JLabel ayant pour texte "Menu"
