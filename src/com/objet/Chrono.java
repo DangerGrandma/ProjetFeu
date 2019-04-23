@@ -107,11 +107,11 @@ public class Chrono extends JPanel {
 					if (timestamp % ComboBoxTrafic.getTemps() == 0) {
 						// Mise à jour du nombre de voiture sur les éléments de la route en fonction du moment de la journée
 
-						Bretelle.MAJVoitures();
-						Rondpoint.MAJVoitures();
-						Troncon1.MAJVoitures();
-						Troncon2.MAJVoitures();
-						Troncon3.MAJVoitures();
+						Bretelle.majVoitures(); 
+						Rondpoint.mAJVoitures(); 
+						Troncon1.majVoitures(); 
+						Troncon2.majVoitures(); 
+						Troncon3.majVoitures(); 
 					}
 					
 					PaneauFeu.checkTimer();

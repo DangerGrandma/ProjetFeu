@@ -16,14 +16,14 @@ import javax.swing.ImageIcon;
 
 public class PaneauEtat extends Mecanisme {
 	
-	protected static JLabel labelneutre = new JLabel(""); // JLabel utilisé pour illustrer une image
+	protected static JLabel labelNeutre = new JLabel("");  // JLabel utilisé pour illustrer une image
 	
 	// Configuration dy Paneau
 	
 	public PaneauEtat() {
 		setBackground(new Color(44, 44, 44));
-		labelneutre.setIcon(new ImageIcon(getClass().getResource("/com/images/etat_eneqiulibre.png")));
-		add(labelneutre);
+		labelNeutre.setIcon(new ImageIcon(getClass().getResource("/com/images/etat_eneqiulibre.png")));
+		add(labelNeutre);
 
 	}
 
@@ -32,12 +32,12 @@ public class PaneauEtat extends Mecanisme {
 			
 			//print pour tester la fonction
 
-			if (Rondpoint.VtrRondpoint.size() >= 0 && Rondpoint.VtrRondpoint.size() < 10) {
-				labelneutre.setIcon(new ImageIcon(getClass().getResource("/com/images/etat_eneqiulibre.png")));
-			} else if (Rondpoint.VtrRondpoint.size() >= 10 && Rondpoint.VtrRondpoint.size() < 25) {
-				labelneutre.setIcon(new ImageIcon(getClass().getResource("/com/images/etat_risque.png")));
+			if (Rondpoint.vtrRondpoint.size() >= 0 && Rondpoint.vtrRondpoint.size() < 10) {
+				labelNeutre.setIcon(new ImageIcon(getClass().getResource("/com/images/etat_eneqiulibre.png")));
+			} else if (Rondpoint.vtrRondpoint.size() >= 10 && Rondpoint.vtrRondpoint.size() < 25) {
+				labelNeutre.setIcon(new ImageIcon(getClass().getResource("/com/images/etat_risque.png")));
 			} else {
-				labelneutre.setIcon(new ImageIcon(getClass().getResource("/com/images/etat_congestion.png")));
+				labelNeutre.setIcon(new ImageIcon(getClass().getResource("/com/images/etat_congestion.png")));
 			}
 		}
 

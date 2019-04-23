@@ -2,7 +2,7 @@ package com.zone;
 
 public interface ElementRoute {
 	
-public static void MAJVoitures() {
+public static void majVoitures() {
 	
 	// Fonction de mise à jour des voitures sur l'autoroute
 	

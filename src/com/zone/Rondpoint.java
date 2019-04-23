@@ -20,64 +20,64 @@ public class Rondpoint extends JPanel implements ElementRoute {
 
 	// Objets voitures figurant sur le rondpoint, ajustement du nombre de voitures sur le rondpoint et JLabel qui affiche ce nombre de voitures
 
-	private static int Voitures;;
-	public static JLabel VtrsRondpoint = new JLabel("Voitures sur le rondpoint : " + Voitures);
+	private static int voitures;;
+	public static JLabel vtrsRondpoint = new JLabel("Voitures sur le rondpoint : " + voitures);
 	
-	// @param VtrRondpoint sert à contenir les voitures situées dans la ligne d'attente du rondpoint.
+	// @param vtrRondpoint sert à contenir les voitures situées dans la ligne d'attente du rondpoint.
 	
-	public static ArrayList<Voiture> VtrRondpoint = new ArrayList<Voiture>();
+	public static ArrayList<Voiture> vtrRondpoint = new ArrayList<Voiture>();
 
 	// Initialisation de la représentation graphique
 
 	public Rondpoint() {
 		setLayout(null);
-		VtrsRondpoint.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		VtrsRondpoint.setHorizontalAlignment(SwingConstants.CENTER);
-		VtrsRondpoint.setBounds(11, 9, 140, 14);
-		add(VtrsRondpoint);
+		vtrsRondpoint.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		vtrsRondpoint.setHorizontalAlignment(SwingConstants.CENTER);
+		vtrsRondpoint.setBounds(11, 9, 140, 14);
+		add(vtrsRondpoint);
 	}
 
 	// Génération des voitures, de leur destination et de leur empreinte de temps d'apparition. Les intervalles de création dépendent du moment du jour
 	
 	public static void genVoitures() {
 		
-		int voituresMin;
-		int voituresMax;
+		final int VOITURES_MIN; 
+		final int VOITURES_MAX; 
 		if (ChoixVoitures.getRondpointDebut() != 0) {
-			voituresMin = ChoixVoitures.getRondpointDebut();
-			voituresMax = ChoixVoitures.getRondpointDebut();
-			Voitures = ThreadLocalRandom.current().nextInt(voituresMin, voituresMax+1);
+			VOITURES_MIN = ChoixVoitures.getRondpointDebut(); 
+			VOITURES_MAX = ChoixVoitures.getRondpointDebut(); 
+			voitures = ThreadLocalRandom.current().nextInt(VOITURES_MIN, VOITURES_MAX+1); 
 		}
 		else {
-			voituresMin = ComboBoxTrafic.getRondpointDebutMin();
-			voituresMax = ComboBoxTrafic.getRondpointDebutMax();
-			Voitures = ThreadLocalRandom.current().nextInt(voituresMin, voituresMax+1);
+			VOITURES_MIN = ComboBoxTrafic.getRondpointDebutMin(); 
+			VOITURES_MAX = ComboBoxTrafic.getRondpointDebutMax(); 
+			voitures = ThreadLocalRandom.current().nextInt(VOITURES_MIN, VOITURES_MAX+1); 
 		}
-		for (int i = 1; i <= Voitures; i++) {
-			VtrRondpoint.add(new Voiture());
-			VtrRondpoint.get(i-1).setDestination();
-			VtrRondpoint.get(i-1).setTimeStamp();
+		for (int i = 1; i <= voitures; i++) { 
+			vtrRondpoint.add(new Voiture()); 
+			vtrRondpoint.get(i-1).setDestination(); 
+			vtrRondpoint.get(i-1).setTimeStamp(); 
 		};
 	}
 	
 	// Fonction qui ajoute une voiture au array de voitures
 	
 		public static void ajoutVoitures() {
-			VtrRondpoint.add(0, new Voiture());
-			VtrRondpoint.get(0).setDestination();
-			VtrRondpoint.get(0).setTimeStamp();
+			vtrRondpoint.add(0, new Voiture());
+			vtrRondpoint.get(0).setDestination();
+			vtrRondpoint.get(0).setTimeStamp();
 			checkDest();
-			VtrsRondpoint.setText("Voitures sur le Rondpoint : " + (VtrRondpoint.size()));
+			vtrsRondpoint.setText("Voitures sur le Rondpoint : " + (vtrRondpoint.size()));
 			
 		};
 		
 		// Fonction qui retire une voiture du array de voitures, si il y en a au moins une
 		
 		public static void retraitVoiture() {
-			if(VtrRondpoint.size() > 0) {
-			VtrRondpoint.remove(0);
+			if(vtrRondpoint.size() > 0) {
+			vtrRondpoint.remove(0);
 			checkDest();
-			VtrsRondpoint.setText("Voitures sur le Rondpoint : " + (VtrRondpoint.size()));
+			vtrsRondpoint.setText("Voitures sur le Rondpoint : " + (vtrRondpoint.size()));
 			
 			}
 		};
@@ -85,45 +85,45 @@ public class Rondpoint extends JPanel implements ElementRoute {
 	// Ré-initialisation des voitures
 	
 	public static void resetVoitures() {
-		VtrRondpoint.clear();
-		Rondpoint.VtrsRondpoint.setText("Voitures sur le rondpoint : ");
+		vtrRondpoint.clear();
+		Rondpoint.vtrsRondpoint.setText("Voitures sur le rondpoint : ");
 	};
 	
 	// Fonction pour mettre à jour le nombre de voitures sur le rondpoint.
 
-	public static void MAJVoitures() {
+	public static void mAJVoitures() {
 		
-		Rondpoint.VtrsRondpoint.setText("Voitures sur le rondpoint : " + (VtrRondpoint.size()));
+		Rondpoint.vtrsRondpoint.setText("Voitures sur le rondpoint : " + (vtrRondpoint.size()));
 		destroyVoiture();
 	}	
 	
 	// Établit le nombre de voiture au démarrage du chrono
 	
 	public static void getVoitureDebut() {
-		Rondpoint.VtrsRondpoint.setText("Voitures sur la rondpoint : " + getVoituresSize());
+		Rondpoint.vtrsRondpoint.setText("Voitures sur la rondpoint : " + getVoituresSize());
 	}
 	
 	// Donne la grosseur de l'array de voitures
 	
 	public static int getVoituresSize() {
-		return VtrRondpoint.size();	 
+		return vtrRondpoint.size();	 
 	}
 
 	// Donne la destination en secondes d'une voiture désignée
 	
 	public static int getVoitureArray(int i) {	
-			return VtrRondpoint.get(i).getDestination();
+			return vtrRondpoint.get(i).getDestination();
 	};
 	
 	// Vérifie si le temps nécessaire pour une voiture de se rendre à destination est écoulé. Si oui, la voiture est retirée de son tableau
 	
 	public static void checkDest() {
-		for (int p = 0; p < VtrRondpoint.size(); p++) {
-		int x = VtrRondpoint.get(p).getDestination();
+		for (int p = 0; p < vtrRondpoint.size(); p++) {
+		int x = vtrRondpoint.get(p).getDestination();
 		int y = Chrono.getTimestamp();
-		int z = VtrRondpoint.get(p).getTimeStamp();
+		int z = vtrRondpoint.get(p).getTimeStamp();
 		if(y-z >= x) {
-			VtrRondpoint.remove(p);
+			vtrRondpoint.remove(p);
 		};
 	}
 	

@@ -15,25 +15,25 @@ public class Voiture {
 	 * la voiture est retirée du rondpoint.
 	 */
 	
-	private int Destination;
-	private int TimeStamp;		
+	private int destination;
+	private int timeStamp;		
 	
 	// Le nombre de temps nécessaire pour quitter la route. Valeur aléatoire entre 2 et 5 secondes.
 	
 	public void setDestination() {
-		this.Destination = ThreadLocalRandom.current().nextInt(2, 6);		
+		this.destination = ThreadLocalRandom.current().nextInt(2, 6);		
 	};
 	
 	public int getDestination() {
-		return this.Destination;
+		return this.destination;
 	};	
 	
 	public void setTimeStamp() {
-		this.TimeStamp = Chrono.secondes;
+		this.timeStamp = Chrono.secondes;
 	};
 	
 	public int getTimeStamp() {
-		return this.TimeStamp;
+		return this.timeStamp;
 	};
 
 }
