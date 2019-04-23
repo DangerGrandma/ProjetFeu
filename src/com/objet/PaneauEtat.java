@@ -16,14 +16,14 @@ import javax.swing.ImageIcon;
 
 public class PaneauEtat extends EquipementIntelligent {
 	
-	protected static JLabel labelneutre = new JLabel(""); // JLabel utilisé pour illustrer une image
+	protected static JLabel labelNeutre = new JLabel("");  // JLabel utilisé pour illustrer une image
 	
 	// Configuration dy Paneau
 	
 	public PaneauEtat() {
 		setBackground(new Color(44, 44, 44));
-		labelneutre.setIcon(new ImageIcon(getClass().getResource("/com/images/etat_eneqiulibre.png")));
-		add(labelneutre);
+		labelNeutre.setIcon(new ImageIcon(getClass().getResource("/com/images/etat_eneqiulibre.png")));
+		add(labelNeutre);
 
 	}
 
@@ -33,11 +33,11 @@ public class PaneauEtat extends EquipementIntelligent {
 			//print pour tester la fonction
 
 			if (Rondpoint.FilAttente.size() >= 0 && Rondpoint.FilAttente.size() < 10) {
-				labelneutre.setIcon(new ImageIcon(getClass().getResource("/com/images/etat_eneqiulibre.png")));
+				labelNeutre.setIcon(new ImageIcon(getClass().getResource("/com/images/etat_eneqiulibre.png")));
 			} else if (Rondpoint.FilAttente.size() >= 10 && Rondpoint.FilAttente.size() < 25) {
-				labelneutre.setIcon(new ImageIcon(getClass().getResource("/com/images/etat_risque.png")));
+				labelNeutre.setIcon(new ImageIcon(getClass().getResource("/com/images/etat_risque.png")));
 			} else {
-				labelneutre.setIcon(new ImageIcon(getClass().getResource("/com/images/etat_congestion.png")));
+				labelNeutre.setIcon(new ImageIcon(getClass().getResource("/com/images/etat_congestion.png")));
 			}
 		}
 

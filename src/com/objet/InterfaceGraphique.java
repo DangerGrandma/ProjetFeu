@@ -46,9 +46,9 @@ public class InterfaceGraphique extends JFrame {
 
 		// Initialisation du paneau du feu intelligent
 
-		PaneauFeu PanFeu = new PaneauFeu();
-		PanFeu.setBackground(new Color(47, 79, 79));
-		PanFeu.setBounds(748, 221, 58, 110);
+		PaneauFeu panFeu = new PaneauFeu(); 
+		panFeu.setBackground(new Color(47, 79, 79)); 
+		panFeu.setBounds(748, 221, 58, 110); 
 
 		// Initialisation du menu du moment du jour
 
@@ -67,7 +67,7 @@ public class InterfaceGraphique extends JFrame {
 		// Initialisation du conteneur des composantes visuelles
 
 		Container c = getContentPane();
-		c.add(PanFeu);
+		c.add(panFeu);
 
 		// JLabel ayant pour texte "Chronomètre"
 
@@ -108,13 +108,16 @@ public class InterfaceGraphique extends JFrame {
 		bretelle.lblVoituresBret.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		bretelle.lblVoituresBret.setHorizontalAlignment(SwingConstants.CENTER);
 		bretelle.lblVoituresBret.setBounds(11, 11, 140, 14);
+
 		c.add(bretelle);
 
 		// Initialisation du rondpoint
 
 		Rondpoint rondpoint = new Rondpoint();
+
 		rondpoint.lblVoituresRP.setText("Voitures sur le rondpoint : ");
 		rondpoint.lblVoituresRP.setLocation(10, 11);
+
 		rondpoint.setBackground(Color.LIGHT_GRAY);
 		rondpoint.setBounds(359, 361, 163, 40);
 		getContentPane().add(rondpoint);
@@ -122,6 +125,7 @@ public class InterfaceGraphique extends JFrame {
 		// Initialisation du premier tronçon
 
 		Troncon1 Tr1 = new Troncon1();
+
 		Tr1.lblVoituresTR1.setText("Voitures sur le troncon1 : ");
 		Tr1.setBackground(Color.LIGHT_GRAY);
 		Tr1.setSize(163, 40);
@@ -129,6 +133,7 @@ public class InterfaceGraphique extends JFrame {
 		Tr1.lblVoituresTR1.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		Tr1.lblVoituresTR1.setHorizontalAlignment(SwingConstants.CENTER);
 		Tr1.lblVoituresTR1.setBounds(11, 11, 140, 14);
+
 		c.add(Tr1);
 
 		// Initialisation du second tronçon
@@ -175,10 +180,10 @@ public class InterfaceGraphique extends JFrame {
 
 		// Banière turquoise pâle
 
-		JEditorPane editorPane_1 = new JEditorPane();
-		editorPane_1.setBackground(new Color(95, 158, 160));
-		editorPane_1.setBounds(0, 115, 154, 556);
-		getContentPane().add(editorPane_1);
+		JEditorPane editorPane1 = new JEditorPane(); 
+		editorPane1.setBackground(new Color(95, 158, 160)); 
+		editorPane1.setBounds(0, 115, 154, 556); 
+		getContentPane().add(editorPane1); 
 
 		// Image du rondpoint avec les tronçons et la bretelle d'autoroute
 

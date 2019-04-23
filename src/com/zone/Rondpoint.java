@@ -20,12 +20,16 @@ public class Rondpoint extends JPanel implements ElementRoute {
 
 	// Objets voitures figurant sur le rondpoint, ajustement du nombre de voitures sur le rondpoint et JLabel qui affiche ce nombre de voitures
 
+
 	private static int Voitures;
 	public static JLabel lblVoituresRP = new JLabel("Voitures sur le rondpoint : " + Voitures);
+
 	
-	// @param VtrRondpoint sert à contenir les voitures situées dans la ligne d'attente du rondpoint.
+	// @param vtrRondpoint sert à contenir les voitures situées dans la ligne d'attente du rondpoint.
 	
+
 	public static ArrayList<Voiture> FilAttente = new ArrayList<Voiture>();
+
 
 	// Initialisation de la représentation graphique
 
@@ -35,6 +39,7 @@ public class Rondpoint extends JPanel implements ElementRoute {
 		lblVoituresRP.setHorizontalAlignment(SwingConstants.CENTER);
 		lblVoituresRP.setBounds(11, 9, 140, 14);
 		add(lblVoituresRP);
+
 	}
 
 	// Génération des voitures, de leur destination et de leur empreinte de temps d'apparition. Les intervalles de création dépendent du moment du jour
@@ -49,9 +54,9 @@ public class Rondpoint extends JPanel implements ElementRoute {
 			Voitures = ThreadLocalRandom.current().nextInt(voituresMin, voituresMax+1);
 		}
 		else {
-			voituresMin = ComboBoxTrafic.getRondpointDebutMin();
-			voituresMax = ComboBoxTrafic.getRondpointDebutMax();
-			Voitures = ThreadLocalRandom.current().nextInt(voituresMin, voituresMax+1);
+			int VOITURES_MIN = ComboBoxTrafic.getRondpointDebutMin(); 
+			int VOITURES_MAX = ComboBoxTrafic.getRondpointDebutMax(); 
+			Voitures = ThreadLocalRandom.current().nextInt(VOITURES_MIN, VOITURES_MAX+1); 
 		}
 		for (int i = 1; i <= Voitures; i++) {
 			FilAttente.add(new Voiture());
@@ -91,7 +96,7 @@ public class Rondpoint extends JPanel implements ElementRoute {
 	
 	// Fonction pour mettre à jour le nombre de voitures sur le rondpoint.
 
-	public static void MAJVoitures() {
+	public static void mAJVoitures() {
 		
 		Rondpoint.lblVoituresRP.setText("Voitures sur le rondpoint : " + (FilAttente.size()));
 		destroyVoiture();
