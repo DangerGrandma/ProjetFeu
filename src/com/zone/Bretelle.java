@@ -124,15 +124,18 @@ public class Bretelle extends JPanel implements ElementRoute {
 	*/
 	
 public static void checkRondpoint() {
+	int hasard = ThreadLocalRandom.current().nextInt(1, 3);
+	for(int i = 0; i <= hasard; i++ ) {
 	if(PaneauFeu.getEtatFeu()) {
 	int totalRondpoint = Rondpoint.getVoituresSize();
-	if(totalRondpoint < 30 && FilAttente.size() >= 1) {
+	if(totalRondpoint < 20 && FilAttente.size() >= 1) {
 		destroyVoiture();
 		Rondpoint.FilAttente.add(0, new Voiture());
 		Rondpoint.FilAttente.get(0).setDestination();
 		Rondpoint.FilAttente.get(0).setTimeStamp();		
 		};
 	};
+  }
 }
 	// Application de la destruction de voitures.
 	

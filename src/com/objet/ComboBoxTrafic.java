@@ -120,15 +120,15 @@ public class ComboBoxTrafic extends JPanel implements ActionListener {
 			
 			switch (msg) {
 			case "Heure de pointe": 
-				maxTron = 1;
+				maxTron = 2;
 				minTron = 0;
 				maxAut = 2;
 				minAuto = 0;
 				temps = 1;
 				tronDebutMax = 6;
 				tronDebutMin = 4;
-				autDebutMax = 20;
-				autDebutMin = 10;
+				autDebutMax = 15;
+				autDebutMin = 8;
 				rondpointDebutMax = 8;
 				rondpointDebutMin = 4;
 				break;

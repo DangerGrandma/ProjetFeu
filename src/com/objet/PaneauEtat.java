@@ -34,7 +34,7 @@ public class PaneauEtat extends EquipementIntelligent {
 
 			if (Rondpoint.FilAttente.size() >= 0 && Rondpoint.FilAttente.size() < 10) {
 				labelNeutre.setIcon(new ImageIcon(getClass().getResource("/com/images/etat_eneqiulibre.png")));
-			} else if (Rondpoint.FilAttente.size() >= 10 && Rondpoint.FilAttente.size() < 25) {
+			} else if (Rondpoint.FilAttente.size() >= 10 && Rondpoint.FilAttente.size() < 21) {
 				labelNeutre.setIcon(new ImageIcon(getClass().getResource("/com/images/etat_risque.png")));
 			} else {
 				labelNeutre.setIcon(new ImageIcon(getClass().getResource("/com/images/etat_congestion.png")));

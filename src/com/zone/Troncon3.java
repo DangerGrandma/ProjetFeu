@@ -139,7 +139,7 @@ public class Troncon3 extends JPanel implements ElementRoute {
 	public static void checkRondpoint() {
 		int totalRondpoint = Rondpoint.getVoituresSize();
 
-		if(totalRondpoint < 30 && FilAttente.size() >= 1) {
+		if(totalRondpoint < 20 && FilAttente.size() >= 1) {
 			destroyVoiture();
 			Rondpoint.FilAttente.add(0, new Voiture());
 			Rondpoint.FilAttente.get(0).setDestination();
