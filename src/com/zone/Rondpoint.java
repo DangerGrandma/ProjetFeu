@@ -1,3 +1,11 @@
+/**
+ * Classe Rondpoint, version 3.6.2, 22 avril 2019
+ * 
+ * Il s'agit de la modélisation du rondpoint. Les voitures qui y sont générées et transférées
+ * y restent un certain moment de temps avant d'en sortir. 
+ * 
+ */
+
 package com.zone;
 
 import java.util.ArrayList;
@@ -13,8 +21,6 @@ import com.objet.ComboBoxTrafic;
 import com.objet.Voiture;
 
 import java.awt.Font;
-
-//Objet pour le rondpoint
 
 public class Rondpoint extends JPanel implements ElementRoute {
 

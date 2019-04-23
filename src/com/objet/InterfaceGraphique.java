@@ -1,4 +1,8 @@
-// Classe MainFrame, version 4.0.0, 22 avril 2019
+/** 
+ * Classe InterfaceGraphique, version 4.0.0, 22 avril 2019
+ * 
+ * Il s'agit de l'interface sur lequel les composantes visuelles et graphiques sont disposées.
+ */
 
 package com.objet;
 

@@ -1,3 +1,11 @@
+/**
+ * Class Troncon1, version 2.3.2, 22 avril 2019
+ * 
+ * Il s'agit de la modélisation du tronçon 1 qui est connecté au rondpoint.
+ * Les voitures y sont générées au hasard selon le moment de la journée,
+ * puis transférées au rondpoint selon un rythme qui dépend de l'heure du jour.
+ */
+
 package com.zone;
 
 import java.util.ArrayList;
@@ -14,11 +22,9 @@ import com.objet.Voiture;
 
 import java.awt.Font;
 
-//Objet pour le Tronçon3
-
 public class Troncon1 extends JPanel implements ElementRoute {
 
-	// Objets voitures figurant sur le Tronçon3, ajustement du nombre de voitures sur le Tronçon3 et JLabel qui affiche ce nombre de voitures
+	// Objets voitures figurant sur le tronçon1, ajustement du nombre de voitures sur le tronçon1 et JLabel qui affiche ce nombre de voitures
 
 
 	private static int Voitures;
@@ -93,7 +99,7 @@ public class Troncon1 extends JPanel implements ElementRoute {
 
 	};
 	
-	// Fonction pour mettre à jour le nombre de voitures sur le Tronçon3. Ajustement au hasard, selon l'heure du jour.
+	// Fonction pour mettre à jour le nombre de voitures sur le tronçon1. Ajustement au hasard, selon l'heure du jour.
 
 
 	public static void mAJVoitures() {

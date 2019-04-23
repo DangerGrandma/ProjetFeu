@@ -1,4 +1,10 @@
-// Classe ComboBoxTrafic version 3.2.0, 22 avril 2019
+/** 
+ * Classe ComboBoxTrafic version 3.2.0, 22 avril 2019.
+ * 
+ *  Il s'agit de paramï¿½tres utilisï¿½s pour la gï¿½nï¿½ration de voitures.
+ *  Cela concerne tant la gï¿½nï¿½ration initiale que celle appliquï¿½e
+ *  rï¿½guliï¿½rement.
+ */
 
 package com.objet;
 
@@ -10,22 +16,22 @@ import javax.swing.JPanel;
 
 public class ComboBoxTrafic extends JPanel implements ActionListener {
 	
-	private String[] messageStrings = {"Heure de pointe", "Milieu de journée", "Soir et nuit"};
+	private String[] messageStrings = {"Heure de pointe", "Milieu de journï¿½e", "Soir et nuit"};
 	private JComboBox menuList;
 	
-	private static int maxTron = 1; // Nombre maximum de voitures ajoutées aux tronçons du rond-point
-	private static int minTron = 0; // Nombre minimum de voitures ajoutées aux tronçons du rond-point
-	private static int maxAut = 2; // Nombre maximum de voitures provenant de l'autoroute ajoutées à la bretelle
-	private static int minAuto = 0; // Nombre minimum de voitures provenant de l'autoroute ajoutées à la bretelle
-	private static int temps = 1;  // Temps avant d'ajouter d'autres voitures
+	private static int	maxTron = 1; // Nombre maximum de voitures ajoutï¿½es aux tronï¿½ons du rond-point
+	private static int	minTron = 0; // Nombre minimum de voitures ajoutï¿½es aux tronï¿½ons du rond-point
+	private static int	maxAut = 2; // Nombre maximum de voitures provenant de l'autoroute ajoutï¿½es ï¿½ la bretelle
+	private static int	minAuto = 0; // Nombre minimum de voitures provenant de l'autoroute ajoutï¿½es ï¿½ la bretelle
+	private static int	temps = 1;  // Temps avant d'ajouter d'autres voitures
 	
-	private static int tronDebutMax = 6; // Nombre maximum de voitures au départ aux tronçons du rond-point
-	private static int tronDebutMin = 4; // Nombre minimum de voitures au départ aux tronçons du rond-point
-	private static int autDebutMax = 15; // Nombre maximum de voitures au début à la bretelle de l'autoroute
-	private static int autDebutMin = 10; // Nombre minimum de voitures au début à la bretelle de l'autoroute
+	private static int tronDebutMax = 6; // Nombre maximum de voitures au dï¿½part aux tronï¿½ons du rond-point
+	private static int tronDebutMin = 4; // Nombre minimum de voitures au dï¿½part aux tronï¿½ons du rond-point
+	private static int autDebutMax = 15; // Nombre maximum de voitures au dï¿½but ï¿½ la bretelle de l'autoroute
+	private static int autDebutMin = 10; // Nombre minimum de voitures au dï¿½but ï¿½ la bretelle de l'autoroute
 	
-	private static int rondpointDebutMax = 8;
-	private static int rondpointDebutMin = 4;
+	private static int	rondpointDebutMax = 8;
+	private static int	rondpointDebutMin = 4;
 	
 	//Getters
 	
@@ -110,7 +116,8 @@ public class ComboBoxTrafic extends JPanel implements ActionListener {
 		
 	}
 
-	// Chaque fois qu'on change le temps de la journée, les nombres sont mis à jour selon les données de simulation déterminées
+	// Chaque fois qu'on change le temps de la journï¿½e, les nombres sont mis ï¿½ jour selon les donnï¿½es de simulation dï¿½terminï¿½es
+	
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == menuList) {
 			
@@ -133,7 +140,7 @@ public class ComboBoxTrafic extends JPanel implements ActionListener {
 				rondpointDebutMin = 4;
 				break;
 				
-			case "Milieu de journée": 
+			case "Milieu de journï¿½e": 
 				maxTron = 2;
 				minTron = 0;
 				maxAut = 2;

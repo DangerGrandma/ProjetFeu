@@ -28,7 +28,7 @@ import java.awt.Font;
 import javax.swing.Timer;
 import java.awt.Color;
 
-public class ExecitionMain {
+public class ExecutionMain {
 
 // Lancement de l'application	
 	

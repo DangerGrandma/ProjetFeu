@@ -1,4 +1,8 @@
-// Classe Bretelle, version 2.4.3, 22 avril 2019
+/**
+ *  Classe Bretelle, version 2.4.3, 22 avril 2019
+ *  
+ *  Il s'agit de la modélisation de la bretelle qui connecte l'autoroute au rondpoint.
+ */
 
 package com.zone;
 
@@ -17,8 +21,6 @@ import com.objet.Voiture;
 
 import java.awt.Font;
 
-// Modélisation de la brettelle
-
 public class Bretelle extends JPanel implements ElementRoute {
 
 	// Objets voitures figurant sur la bretelle, ajustement du nombre de voitures sur la bretelle et JLabel qui affiche ce nombre de voitures
@@ -27,7 +29,7 @@ public class Bretelle extends JPanel implements ElementRoute {
 	public static JLabel lblVoituresBret = new JLabel("Voitures sur la Bretelle : " + Voitures);
 
 	
-	// @param vtrBretelle sert à contenir les voitures situ�es dans la ligne d'attente de la bretelle. 
+	// @param vtrBretelle sert à contenir les voitures situées dans la ligne d'attente de la bretelle. 
 
 	public static ArrayList<Voiture> FilAttente = new ArrayList<Voiture>();
 
@@ -126,7 +128,7 @@ public class Bretelle extends JPanel implements ElementRoute {
 public static void checkRondpoint() {
 	int hasard = ThreadLocalRandom.current().nextInt(1, 3);
 	for(int i = 0; i <= hasard; i++ ) {
-	if(PaneauFeu.getEtatFeu()) {
+	if(PaneauFeu.getEtat()) {
 	int totalRondpoint = Rondpoint.getVoituresSize();
 	if(totalRondpoint < 20 && FilAttente.size() >= 1) {
 		destroyVoiture();

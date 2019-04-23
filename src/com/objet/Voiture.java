@@ -1,11 +1,13 @@
-// Classe voiture, version 1.1.2, 21 avril 2019
+/**
+ * Classe voiture, version 1.1.2, 21 avril 2019
+ * 
+ * Il s'agit de l'objet emmagasiné dans un Arraylist par toutes les zones.
+ */
 
 package com.objet;
 
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
-
-// Objet voiture. Utilisée par tous les éléments de la route
 
 public class Voiture {
 	

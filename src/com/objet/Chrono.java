@@ -1,3 +1,12 @@
+/** 
+ * Classe Chrono, version 3.4.1, 22 avril 2019.
+ * 
+ * Il s'agit du chronomètre en haut à droite de l'interface. Lorsqu'on le démarre,
+ * les voitures des zones sont générées au hasard. Il se met à jour au 8 millisecondes,
+ * et à chaque seconde écoulée, met à jour le nombre de voitures sur les zones. On peut
+ * réinitialiser toutes les zones et reprendre de nouveaux tests. Fonction d'arrêt disponible.
+ */
+
 package com.objet;
 
 import javax.swing.JPanel;
@@ -21,14 +30,17 @@ import java.awt.Color;
 
 public class Chrono extends JPanel {
 
-	// Paramètres de temps
+	/** Paramètres de temps. @param timestamp est utilisé pour comparer le moment
+	 *  de création d'objects au moment actuel.
+	 */
+	
 
-	protected static int secondes = 0;
-	protected static int minutes = 0;
-	protected static int millisecondes = 0;
-	protected static int timestamp = 0;
-	protected boolean chronoOff = true;
-	protected boolean firstIteration = true;
+	protected static int	secondes = 0;
+	protected static int	minutes = 0;
+	protected static int	millisecondes = 0;
+	protected static int	timestamp = 0;
+	protected boolean	chronoOff = true;
+	protected boolean	firstIteration = true;
 
 	// Le chronomètre est un objet JPanel à placer sur un interface graphique
 
@@ -105,6 +117,7 @@ public class Chrono extends JPanel {
 					Statistiques.lblMoyRP.setText("Rondpoint : " + String.format("%.0f", Statistiques.getMoyenneRondpoint()));
 
 					if (timestamp % ComboBoxTrafic.getTemps() == 0) {
+						
 						// Mise à jour du nombre de voiture sur les éléments de la route en fonction du moment de la journée
 
 						Bretelle.majVoitures(); 
@@ -172,6 +185,7 @@ public class Chrono extends JPanel {
 				Troncon3.resetVoitures();
 
 				// Termine la loop infinie de PanneauEtat
+				
 				PaneauEtat.ImageChange.timeCancel();
 
 				Statistiques.resetValeurs();
@@ -200,6 +214,7 @@ public class Chrono extends JPanel {
 				T.stop();
 
 				// Termine la loop infinie de PanneauEtat
+				
 				PaneauEtat.ImageChange.timeCancel();
 			}
 		});

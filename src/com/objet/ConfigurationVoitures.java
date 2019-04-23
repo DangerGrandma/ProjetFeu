@@ -1,3 +1,12 @@
+/** 
+ * Classe ConfigurationVoiture, version 1.2.0, 22 avril 2019
+ * 
+ * Il s'agit des boîtes d'entrées de texte sur l'interface. On peut entrer
+ * des paramètres numériques dedans, représantant le nombre de voitures additionnelles
+ * à générer à des zones précises. En cliquant le bouton sans entrées, la génération par
+ * défaut est priviligiées. Une entrée non numérique n'est pas enregistrée.
+ */
+
 package com.objet;
 
 import java.awt.Color;
@@ -14,11 +23,13 @@ import javax.swing.JButton;
 
 public class ConfigurationVoitures extends JPanel {
 	
-	private static int tron1Debut;
-	private static int tron2Debut;
-	private static int tron3Debut;
-	private static int bretelleDebut;
-	private static int rondpointDebut;
+	private static int	tron1Debut;	// Voitures à ajouter au Troncon1
+	private static int	tron2Debut; // Voitures à ajouter au Troncon2
+	private static int	tron3Debut; // Voitures à ajouter au Troncon3
+	private static int	bretelleDebut; // Voitures à ajouter à la Bretelle
+	private static int	rondpointDebut; // Voitures à ajouter au Rondpoint
+
+	// Getters
 	
 	public static int getTron1Debut() {
 		return tron1Debut;
@@ -40,10 +51,14 @@ public class ConfigurationVoitures extends JPanel {
 		return rondpointDebut;
 	}
 
+	// Utilisé pour varier le ryhtme de mise à jour
+	
 	public static void setBretelleDebut(int bretelleDebut) {
 		ConfigurationVoitures.bretelleDebut = bretelleDebut;
 	}
 
+	// Configuration et initialisation des composantes graphiques
+	
 	public ConfigurationVoitures() {
 
 		setLayout(null);

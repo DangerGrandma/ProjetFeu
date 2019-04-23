@@ -1,3 +1,13 @@
+/** 
+ * Classe PaneauFeu, version 3.1.7, 22 avril 2019
+ * 
+ * Il s'agit du paneau affichant l'état du feu, rouge ou vert. Les voitures
+ * provenant de la bretelle nécessitent le feu vert pour accéder au rondpoint.
+ * L'état de la lumière et sa durée changent selon la fil d'attente en bretelle
+ * et le nombre de voitures sur le rondpoint.
+ * 
+ */
+
 package com.objet;
 
 import javax.swing.JPanel;
@@ -19,13 +29,13 @@ import java.util.TimerTask;
 
 // Paneau du feu intelligent
 
-public class PaneauFeu extends JPanel {
+public class PaneauFeu extends EquipementIntelligent {
 
-	private static int feuTemps;
-	private static int timerStamp;
-	private static boolean etatFeu = true;
-	private static JLabel feuRouge; 
-	private JButton switchMode; 
+	private static int	 feuTemps;	// Nombre de temps d'activation du feu
+	private static int	 timerStamp; // Empreinte de temps à laquelle le feu a été allumé
+	private static boolean	 etat = true;  //true = feu vert false = feu rouge
+	private static JLabel 	feuRouge; // Label où l'état du feu est disposé
+	private JButton 	switchMode;  // Bouton pour changer le mode de automatique à intelligent
 
 	public PaneauFeu() {
 		
@@ -37,7 +47,7 @@ public class PaneauFeu extends JPanel {
 
 		// Changement de couleur du feu selon une valeur booléenne
 
-		if (etatFeu) {
+		if (etat) {
 			feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/com/images/feuvert.png")));
 		} else {
 			feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/com/images/feurouge.png")));
@@ -52,13 +62,13 @@ public class PaneauFeu extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				if (switchMode.getText().equals("Manuel")) { 
 
-					if (etatFeu) {
-						etatFeu = false;
+					if (etat) {
+						etat = false;
 						feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/com/images/feurouge.png")));
 					}
 	
 					else {
-						etatFeu = true;
+						etat = true;
 						feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/com/images/feuvert.png")));
 	
 					}
@@ -72,7 +82,7 @@ public class PaneauFeu extends JPanel {
 		add(btnFeu);
 		
 		 
-	    // creation et ajustement du bouton pour alterner entre le mode manuel et automatique du feu 
+	    // Creation et ajustement du bouton pour alterner entre le mode manuel et automatique du feu 
 		
 		switchMode = new JButton("Intelligent"); 
 		switchMode.addActionListener(new ActionListener() { 
@@ -98,39 +108,46 @@ public class PaneauFeu extends JPanel {
 
 	}
   
-	//retourne un boolean selon la couleur du feu: true veut dire que le feu est vert et false veut dire que le feu est rouge 
+	// Retourne un boolean selon la couleur du feu: true veut dire que le feu est vert et false veut dire que le feu est rouge 
 	
-	public static boolean getEtatFeu() { 
-		return etatFeu; 
+	public static boolean getEtat() { 
+		return etat; 
 	} 
+	
+	// Réinitialisation du feu
 	
 	public static void resetFeu() {
 		feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/com/images/feuvert.png")));
 		feuTemps = 0;
-		timerStamp = 0;
-		
+		timerStamp = 0;	
 	};
+	
+	// Lancement du feu vert. @param feuTemps dépend du nombre de voiture sur la bretelle
 	
 	public static void startVert() {
 		feuTemps = (int)(Bretelle.getVoituresSize()/2);
 		timerStamp = Chrono.getTimestamp();
 		feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/com/images/feuvert.png")));
-		etatFeu = true;
+		etat = true;
 		System.out.println("Feu vert actif pour " + feuTemps + " secondes.");		
 	};
+	
+	// Lancement du feu rouge. @param feuTemps dépend du nombre de voiture sur le rondpoint
 	
 	public static void startRouge() {
 		feuTemps = (int)(Rondpoint.getVoituresSize()/2);
 		timerStamp = Chrono.getTimestamp();
 		feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/com/images/feurouge.png")));
-		etatFeu = false;
+		etat = false;
 		System.out.println("Feu rouge actif pour " + feuTemps + " secondes.");
 		
 	};
 	
+	// Vérification de l'empreinte de temps de lancement du feu. Changement de feu si le temps est écoulé
+	
 	public static void checkTimer() {
 		if(Chrono.getTimestamp() - timerStamp >= feuTemps) {
-			if(etatFeu) {
+			if(etat) {
 				startRouge();
 			}
 			else {

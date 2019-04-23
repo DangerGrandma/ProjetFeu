@@ -1,4 +1,10 @@
-// Classe PaneauEtat, versions 2.1.3, 22 avril 2019
+/** 
+ * Classe PaneauEtat, versions 2.1.3, 22 avril 2019
+ * 
+ * Il s'agit du paneau d'état de congestion de la route. Il est
+ * mis-à-jour à chaque seconde et vérifie le nombre de voitures à
+ * l'intérieur du rondpoint. 
+ */
 
 package com.objet;
 
@@ -30,7 +36,7 @@ public class PaneauEtat extends EquipementIntelligent {
 	static class ImageChange extends TimerTask {
 		public void run() {
 			
-			//print pour tester la fonction
+			// Paramètres de congestion. L'image du paneau change en conséquence de son état
 
 			if (Rondpoint.FilAttente.size() >= 0 && Rondpoint.FilAttente.size() < 10) {
 				labelNeutre.setIcon(new ImageIcon(getClass().getResource("/com/images/etat_eneqiulibre.png")));
@@ -41,6 +47,8 @@ public class PaneauEtat extends EquipementIntelligent {
 			}
 		}
 
+		// Chronomètre personalisé pour @class PaneauEtat et son affichage
+		
 		public static void timeEtat() {
 			timer = new Timer();
 			timer.schedule(new PaneauEtat.ImageChange(), 0, 8);

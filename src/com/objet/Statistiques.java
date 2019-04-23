@@ -1,4 +1,8 @@
-// Classe PaneauMoyenne, version 1.5.2, 22 avril 2019
+/**
+ *  Classe Statistiques, version 2.0.0, 22 avril 2019
+ *  
+ *  Il s'agit du panneau affichant les moyennes de voitures sur les zones.
+ */
 
 package com.objet;
 
@@ -24,11 +28,11 @@ public class Statistiques extends JPanel {
 	
 // Initialisation des Jlabels sur lesquels les moyennes sont affichées	
 	
-	public static JLabel lblMoyBret = new JLabel("Bretelle : ");
-	public static JLabel lblMoyTron1 = new JLabel("Tronçon 1 : ");
-	public static JLabel lblMoyTron2 = new JLabel("Tronçon 2 : ");
-	public static JLabel lblMoyTron3 = new JLabel("Tronçon 3 : ");
-	public static JLabel lblMoyRP = new JLabel("Rondpoint : ");
+	public static JLabel lblMoyBret = new JLabel("Bretelle : "); 	// Label avec la moyenne de la bretelle
+	public static JLabel lblMoyTron1 = new JLabel("Tronçon 1 : ");	// Label avec la moyenne du tronçon1
+	public static JLabel lblMoyTron2 = new JLabel("Tronçon 2 : ");	// Label avec la moyenne du tronçon2 
+	public static JLabel lblMoyTron3 = new JLabel("Tronçon 3 : ");	// Label avec la moyenne du tronçon3
+	public static JLabel lblMoyRP = new JLabel("Rondpoint : ");		// Label avec la moyenne du rondpoint
 	public static JLabel lblMoyennes = new JLabel("<html>" + "Moyennes des voitures" + "<br>" +  "<span>" + "sur l'élément :" + "</html>");
 	
 	// Setters et getters

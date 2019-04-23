@@ -1,23 +1,16 @@
+/** 
+ * Classe abstraite Equipement intelligent, version 2.0.1
+ * 
+ * Utilisée par les objets illustratifs, comme les paneaux
+ */
+
 package com.objet;
 
 import javax.swing.JPanel;
 
 abstract class EquipementIntelligent extends JPanel {
 
-	protected static int 	timeStamp;
 	protected static boolean 	etat;
-	
-	public static int getTimeStamp() {
-		return timeStamp;
-	};
-	
-	public static void setTimeStamp() {
-		
-	};
-	
-	public static boolean setEtat(boolean b) {
-		return etat == b;
-	}
 	
 	public static boolean getEtat() {
 		return etat;

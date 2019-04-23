@@ -1,3 +1,11 @@
+/**
+ * Class Troncon3, version 2.3.2, 22 avril 2019
+ * 
+ * Il s'agit de la modélisation du tronçon 3 qui est connecté au rondpoint.
+ * Les voitures y sont générées au hasard selon le moment de la journée,
+ * puis transférées au rondpoint selon un rythme qui dépend de l'heure du jour.
+ */
+
 package com.zone;
 
 import java.util.ArrayList;
