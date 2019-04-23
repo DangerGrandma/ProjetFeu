@@ -1,6 +1,6 @@
 // Classe voiture, version 1.1.2, 21 avril 2019
 
-package essentiels;
+package com.objet;
 
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;

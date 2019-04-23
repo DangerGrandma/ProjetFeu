@@ -1,6 +1,6 @@
 // Classe ComboBoxTrafic version 3.2.0, 22 avril 2019
 
-package essentiels;
+package com.objet;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

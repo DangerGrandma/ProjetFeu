@@ -1,6 +1,6 @@
-package essentiels.elementsRoute;
+package com.zone;
 
-public interface Route {
+public interface ElementRoute {
 	
 public static void MAJVoitures() {
 	

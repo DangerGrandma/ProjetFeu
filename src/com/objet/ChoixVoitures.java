@@ -1,4 +1,4 @@
-package essentiels;
+package com.objet;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;

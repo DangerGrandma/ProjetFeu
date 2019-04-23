@@ -1,4 +1,4 @@
-package essentiels.elementsRoute;
+package com.zone;
 
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
@@ -7,16 +7,16 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-import essentiels.ChoixVoitures;
-import essentiels.Chrono;
-import essentiels.ComboBoxTrafic;
-import essentiels.Voiture;
+import com.objet.ChoixVoitures;
+import com.objet.Chrono;
+import com.objet.ComboBoxTrafic;
+import com.objet.Voiture;
 
 import java.awt.Font;
 
 //Objet pour le Tronçon2
 
-public class Troncon2 extends JPanel implements Route {
+public class Troncon2 extends JPanel implements ElementRoute {
 
 	// Objets voitures figurant sur le Tronçon2, ajustement du nombre de voitures sur le Tronçon2 et JLabel qui affiche ce nombre de voitures
 

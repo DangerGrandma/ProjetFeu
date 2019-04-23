@@ -1,6 +1,10 @@
-package essentiels;
+package com.objet;
 
 import javax.swing.JPanel;
+
+import com.zone.Bretelle;
+import com.zone.Rondpoint;
+
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -10,9 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Insets; 
 import java.util.Timer; 
-import java.util.TimerTask;
-import essentiels.elementsRoute.Bretelle;
-import essentiels.elementsRoute.Rondpoint; 
+import java.util.TimerTask; 
 
 
 // Paneau du feu intelligent
@@ -36,9 +38,9 @@ public class PaneauFeu extends JPanel {
 		// Changement de couleur du feu selon une valeur booléenne
 
 		if (etatFeu) {
-			feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/essentiels/images/feuvert.png")));
+			feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/com/images/feuvert.png")));
 		} else {
-			feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/essentiels/images/feurouge.png")));
+			feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/com/images/feurouge.png")));
 		}
 		feuRouge.setBounds(14, 0, 30, 65); 
 		add(feuRouge);
@@ -52,12 +54,12 @@ public class PaneauFeu extends JPanel {
 
 					if (etatFeu) {
 						etatFeu = false;
-						feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/essentiels/images/feurouge.png")));
+						feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/com/images/feurouge.png")));
 					}
 	
 					else {
 						etatFeu = true;
-						feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/essentiels/images/feuvert.png")));
+						feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/com/images/feuvert.png")));
 	
 					}
 				}
@@ -103,7 +105,7 @@ public class PaneauFeu extends JPanel {
 	} 
 	
 	public static void resetFeu() {
-		feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/essentiels/images/feuvert.png")));
+		feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/com/images/feuvert.png")));
 		feuTemps = 0;
 		timerStamp = 0;
 		
@@ -112,7 +114,7 @@ public class PaneauFeu extends JPanel {
 	public static void startVert() {
 		feuTemps = (int)(Bretelle.getVoituresSize()/2);
 		timerStamp = Chrono.getTimestamp();
-		feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/essentiels/images/feuvert.png")));
+		feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/com/images/feuvert.png")));
 		etatFeu = true;
 		System.out.println("Feu vert actif pour " + feuTemps + " secondes.");		
 	};
@@ -120,7 +122,7 @@ public class PaneauFeu extends JPanel {
 	public static void startRouge() {
 		feuTemps = (int)(Rondpoint.getVoituresSize()/2);
 		timerStamp = Chrono.getTimestamp();
-		feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/essentiels/images/feurouge.png")));
+		feuRouge.setIcon(new ImageIcon(PaneauFeu.class.getResource("/com/images/feurouge.png")));
 		etatFeu = false;
 		System.out.println("Feu rouge actif pour " + feuTemps + " secondes.");
 		

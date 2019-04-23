@@ -1,16 +1,17 @@
 // Classe PaneauMoyenne, version 1.5.2, 22 avril 2019
 
-package essentiels;
+package com.objet;
 
 import javax.swing.JPanel;
-
-import essentiels.elementsRoute.Bretelle;
-import essentiels.elementsRoute.Rondpoint;
-import essentiels.elementsRoute.Troncon1;
-import essentiels.elementsRoute.Troncon2;
-import essentiels.elementsRoute.Troncon3;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+
+import com.zone.Bretelle;
+import com.zone.Rondpoint;
+import com.zone.Troncon1;
+import com.zone.Troncon2;
+import com.zone.Troncon3;
+
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JButton;

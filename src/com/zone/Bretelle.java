@@ -1,6 +1,6 @@
 // Classe Bretelle, version 2.4.3, 22 avril 2019
 
-package essentiels.elementsRoute;
+package com.zone;
 
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
@@ -9,17 +9,17 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-import essentiels.ChoixVoitures;
-import essentiels.Chrono;
-import essentiels.ComboBoxTrafic;
-import essentiels.PaneauFeu;
-import essentiels.Voiture;
+import com.objet.ChoixVoitures;
+import com.objet.Chrono;
+import com.objet.ComboBoxTrafic;
+import com.objet.PaneauFeu;
+import com.objet.Voiture;
 
 import java.awt.Font;
 
 // Modélisation de la brettelle
 
-public class Bretelle extends JPanel implements Route {
+public class Bretelle extends JPanel implements ElementRoute {
 
 	// Objets voitures figurant sur la bretelle, ajustement du nombre de voitures sur la bretelle et JLabel qui affiche ce nombre de voitures
 

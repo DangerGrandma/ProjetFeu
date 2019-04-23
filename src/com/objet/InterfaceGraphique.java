@@ -1,6 +1,6 @@
 // Classe MainFrame, version 4.0.0, 22 avril 2019
 
-package essentiels;
+package com.objet;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -17,14 +17,15 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-import essentiels.elementsRoute.Bretelle;
-import essentiels.elementsRoute.Rondpoint;
-import essentiels.elementsRoute.Troncon1;
-import essentiels.elementsRoute.Troncon2;
-import essentiels.elementsRoute.Troncon3;
+import com.zone.Bretelle;
+import com.zone.Rondpoint;
+import com.zone.Troncon1;
+import com.zone.Troncon2;
+import com.zone.Troncon3;
+
 import javax.swing.JTextField;
 
-public class MainFrame extends JFrame {
+public class InterfaceGraphique extends JFrame {
 	private JTextField textField;
 	private JTextField jtRondpoint;
 	private JTextField jtBretelle;
@@ -34,7 +35,7 @@ public class MainFrame extends JFrame {
 
 	// Frame sur lequel toutes les composantes graphiques sont affichées pour l'application
 
-	public MainFrame() {
+	public InterfaceGraphique() {
 
 		// Titre de la fenêtre d'application et initialisation du frame
 
@@ -184,7 +185,7 @@ public class MainFrame extends JFrame {
 		JLabel imgRondPoint = new JLabel("");
 		imgRondPoint.setBounds(152, 115, 792, 556);
 		getContentPane().add(imgRondPoint);
-		ImageIcon imageIcon = new ImageIcon(MainFrame.class.getResource("/essentiels/images/Rondpoint.PNG"));
+		ImageIcon imageIcon = new ImageIcon(InterfaceGraphique.class.getResource("/com/images/Rondpoint.PNG"));
 		Image img = imageIcon.getImage();
 		Image newImg = img.getScaledInstance(imgRondPoint.getWidth(), imgRondPoint.getHeight(), Image.SCALE_SMOOTH);
 		ImageIcon finalImage = new ImageIcon(newImg);

@@ -1,10 +1,11 @@
 // Classe PaneauEtat, versions 2.1.3, 22 avril 2019
 
-package essentiels;
+package com.objet;
 
 import javax.swing.JPanel;
-import essentiels.elementsRoute.*;
-import essentiels.elementsRoute.Route;
+
+import com.zone.*;
+
 import java.util.Timer;
 import java.util.TimerTask;
 import java.awt.Color;
@@ -13,7 +14,7 @@ import javax.swing.ImageIcon;
 
 // Paneau de l'état de la congestion du rondpoint
 
-public class PaneauEtat extends JPanel implements Route {
+public class PaneauEtat extends Mecanisme {
 	
 	protected static JLabel labelneutre = new JLabel(""); // JLabel utilisé pour illustrer une image
 	
@@ -21,7 +22,7 @@ public class PaneauEtat extends JPanel implements Route {
 	
 	public PaneauEtat() {
 		setBackground(new Color(44, 44, 44));
-		labelneutre.setIcon(new ImageIcon(getClass().getResource("/essentiels/images/etat_eneqiulibre.png")));
+		labelneutre.setIcon(new ImageIcon(getClass().getResource("/com/images/etat_eneqiulibre.png")));
 		add(labelneutre);
 
 	}
@@ -32,11 +33,11 @@ public class PaneauEtat extends JPanel implements Route {
 			//print pour tester la fonction
 
 			if (Rondpoint.VtrRondpoint.size() >= 0 && Rondpoint.VtrRondpoint.size() < 10) {
-				labelneutre.setIcon(new ImageIcon(getClass().getResource("/essentiels/images/etat_eneqiulibre.png")));
+				labelneutre.setIcon(new ImageIcon(getClass().getResource("/com/images/etat_eneqiulibre.png")));
 			} else if (Rondpoint.VtrRondpoint.size() >= 10 && Rondpoint.VtrRondpoint.size() < 25) {
-				labelneutre.setIcon(new ImageIcon(getClass().getResource("/essentiels/images/etat_risque.png")));
+				labelneutre.setIcon(new ImageIcon(getClass().getResource("/com/images/etat_risque.png")));
 			} else {
-				labelneutre.setIcon(new ImageIcon(getClass().getResource("/essentiels/images/etat_congestion.png")));
+				labelneutre.setIcon(new ImageIcon(getClass().getResource("/com/images/etat_congestion.png")));
 			}
 		}
 

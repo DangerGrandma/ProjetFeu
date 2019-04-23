@@ -1,6 +1,6 @@
 // Classe CirculationApp, version 1.1.0, 20 avril 2019. L'application en tant que telle pour la simulation
 
-package essentiels;
+package com.objet;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -10,8 +10,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 
-import essentiels.elementsRoute.Rondpoint;
-import essentiels.elementsRoute.Route;
+import com.zone.ElementRoute;
+import com.zone.Rondpoint;
 
 import java.awt.GridBagLayout;
 import javax.swing.JButton;
@@ -28,14 +28,14 @@ import java.awt.Font;
 import javax.swing.Timer;
 import java.awt.Color;
 
-public class CirculationApp {
+public class ExecitionMain {
 
 // Lancement de l'application	
 	
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
-				new MainFrame();
+				new InterfaceGraphique();
 			}
 		});
 

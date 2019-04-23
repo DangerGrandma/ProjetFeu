@@ -1,13 +1,13 @@
-package essentiels;
+package com.objet;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import essentiels.elementsRoute.Bretelle;
-import essentiels.elementsRoute.Rondpoint;
-import essentiels.elementsRoute.Troncon1;
-import essentiels.elementsRoute.Troncon2;
-import essentiels.elementsRoute.Troncon3;
+import com.zone.Bretelle;
+import com.zone.Rondpoint;
+import com.zone.Troncon1;
+import com.zone.Troncon2;
+import com.zone.Troncon3;
 
 import java.awt.EventQueue;
 import java.awt.Font;
