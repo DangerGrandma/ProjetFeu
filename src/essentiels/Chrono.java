@@ -96,11 +96,11 @@ public class Chrono extends JPanel {
 
 					// Mise à jour du nombre de voiture sur les éléments de la route
 
-					Bretelle.MAJVoitures();
-					Rondpoint.MAJVoitures();
-					Troncon1.MAJVoitures();
-					Troncon2.MAJVoitures();
-					Troncon3.MAJVoitures();
+					Bretelle.majVoitures();
+					Rondpoint.majVoitures();
+					Troncon1.majVoitures();
+					Troncon2.majVoitures();
+					Troncon3.majVoitures();
 					
 				}
 				if (secondes >= 60) // Une minute écoulée

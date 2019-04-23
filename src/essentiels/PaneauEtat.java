@@ -10,14 +10,14 @@ import javax.swing.ImageIcon;
 
 public class PaneauEtat extends JPanel implements Route {
 	
-	protected static JLabel labelneutre = new JLabel("");
+	protected static JLabel labelNeutre = new JLabel("");
 	
 	public PaneauEtat() {
 		setBackground(new Color(44, 44, 44));
 
 	
-		labelneutre.setIcon(new ImageIcon(getClass().getResource("/essentiels/images/etat_eneqiulibre.png")));
-		add(labelneutre);
+		labelNeutre.setIcon(new ImageIcon(getClass().getResource("/essentiels/images/etat_eneqiulibre.png")));
+		add(labelNeutre);
 
 	}
 
@@ -26,12 +26,12 @@ public class PaneauEtat extends JPanel implements Route {
 		public void run() {
 			//print pour tester la fonction
 
-			if (Bretelle.VtrBretelle.size() >= 0 && Bretelle.VtrBretelle.size() < 10) {
-				labelneutre.setIcon(new ImageIcon(getClass().getResource("/essentiels/images/etat_eneqiulibre.png")));
-			} else if (Bretelle.VtrBretelle.size() >= 10 && Bretelle.VtrBretelle.size() < 25) {
-				labelneutre.setIcon(new ImageIcon(getClass().getResource("/essentiels/images/etat_risque.png")));
+			if (Bretelle.vtrBretelle.size() >= 0 && Bretelle.vtrBretelle.size() < 10) {
+				labelNeutre.setIcon(new ImageIcon(getClass().getResource("/essentiels/images/etat_eneqiulibre.png")));
+			} else if (Bretelle.vtrBretelle.size() >= 10 && Bretelle.vtrBretelle.size() < 25) {
+				labelNeutre.setIcon(new ImageIcon(getClass().getResource("/essentiels/images/etat_risque.png")));
 			} else {
-				labelneutre.setIcon(new ImageIcon(getClass().getResource("/essentiels/images/etat_congestion.png")));
+				labelNeutre.setIcon(new ImageIcon(getClass().getResource("/essentiels/images/etat_congestion.png")));
 			}
 		}
 

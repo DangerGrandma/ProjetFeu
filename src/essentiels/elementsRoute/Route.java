@@ -2,7 +2,7 @@ package essentiels.elementsRoute;
 
 public interface Route {
 	
-public static void MAJVoitures() {
+public static void majVoitures() {
 	
 	// Fonction de mise à jour des voitures sur l'autoroute
 	

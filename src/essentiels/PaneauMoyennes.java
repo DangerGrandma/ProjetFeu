@@ -33,107 +33,107 @@ public class PaneauMoyennes extends JPanel {
 		
 		// Création de boutons qui permettent d'ajouter et d'enlever des voitures des éléments de la route
 		
-		JButton PlusBret = new JButton("+");
-		PlusBret.addActionListener(new ActionListener() {
+		JButton plusBret = new JButton("+");
+		plusBret.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Bretelle.ajoutVoitures();
 			}
 		});
-		PlusBret.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		PlusBret.setBounds(20, 85, 41, 18);
-		add(PlusBret);
+		plusBret.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		plusBret.setBounds(20, 85, 41, 18);
+		add(plusBret);
 		
-		JButton MoinsBret = new JButton("-");
-		MoinsBret.addActionListener(new ActionListener() {
+		JButton moinsBret = new JButton("-");
+		moinsBret.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Bretelle.retraitVoiture();
 			}	
 		});
-		MoinsBret.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		MoinsBret.setBounds(69, 85, 41, 18);
-		add(MoinsBret);
+		moinsBret.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		moinsBret.setBounds(69, 85, 41, 18);
+		add(moinsBret);
 
 		
-		JButton PlusTron1 = new JButton("+");
-		PlusTron1.addActionListener(new ActionListener() {
+		JButton plusTron1 = new JButton("+");
+		plusTron1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Troncon1.ajoutVoitures();
 			}
 		});
-		PlusTron1.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		PlusTron1.setBounds(20, 141, 41, 18);
-		add(PlusTron1);
+		plusTron1.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		plusTron1.setBounds(20, 141, 41, 18);
+		add(plusTron1);
 		
-		JButton MoinsTron1 = new JButton("-");
-		MoinsTron1.addActionListener(new ActionListener() {
+		JButton moinsTron1 = new JButton("-");
+		moinsTron1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Troncon1.retraitVoiture();
 			}	
 		});
-		MoinsTron1.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		MoinsTron1.setBounds(69, 141, 41, 18);
-		add(MoinsTron1);
+		moinsTron1.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		moinsTron1.setBounds(69, 141, 41, 18);
+		add(moinsTron1);
 
 		
-		JButton PlusTron2 = new JButton("+");
-		PlusTron2.addActionListener(new ActionListener() {
+		JButton plusTron2 = new JButton("+");
+		plusTron2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Troncon2.ajoutVoitures();
 			}
 		});
-		PlusTron2.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		PlusTron2.setBounds(20, 197, 41, 18);
-		add(PlusTron2);
+		plusTron2.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		plusTron2.setBounds(20, 197, 41, 18);
+		add(plusTron2);
 		
-		JButton MoinsTron2 = new JButton("-");
-		MoinsTron2.addActionListener(new ActionListener() {
+		JButton moinsTron2 = new JButton("-");
+		moinsTron2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Troncon2.retraitVoiture();
 			}	
 		});
-		MoinsTron2.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		MoinsTron2.setBounds(69, 197, 41, 18);
-		add(MoinsTron2);
+		moinsTron2.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		moinsTron2.setBounds(69, 197, 41, 18);
+		add(moinsTron2);
 		
-		JButton PlusTron3 = new JButton("+");
-		PlusTron3.addActionListener(new ActionListener() {
+		JButton plusTron3 = new JButton("+");
+		plusTron3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Troncon3.ajoutVoitures();
 			}
 		});
-		PlusTron3.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		PlusTron3.setBounds(20, 253, 41, 18);
-		add(PlusTron3);
+		plusTron3.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		plusTron3.setBounds(20, 253, 41, 18);
+		add(plusTron3);
 		
-		JButton MoinsTron3 = new JButton("-");
-		MoinsTron3.addActionListener(new ActionListener() {
+		JButton moinsTron3 = new JButton("-");
+		moinsTron3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Troncon3.retraitVoiture();
 			}	
 		});
-		MoinsTron3.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		MoinsTron3.setBounds(69, 253, 41, 18);
-		add(MoinsTron3);
+		moinsTron3.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		moinsTron3.setBounds(69, 253, 41, 18);
+		add(moinsTron3);
 		
-		JButton PlusRP = new JButton("+");
-		PlusRP.addActionListener(new ActionListener() {
+		JButton plusRP = new JButton("+");
+		plusRP.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Rondpoint.ajoutVoitures();
 			}
 		});
-		PlusRP.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		PlusRP.setBounds(20, 309, 41, 18);
-		add(PlusRP);
+		plusRP.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		plusRP.setBounds(20, 309, 41, 18);
+		add(plusRP);
 		
-		JButton MoinsRP = new JButton("-");
-		MoinsRP.addActionListener(new ActionListener() {
+		JButton moinsRP = new JButton("-");
+		moinsRP.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Rondpoint.retraitVoiture();
 			}	
 		});
-		MoinsRP.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		MoinsRP.setBounds(69, 309, 41, 18);
-		add(MoinsRP);
+		moinsRP.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		moinsRP.setBounds(69, 309, 41, 18);
+		add(moinsRP);
 		
 
 		// Configuration des JLabels
@@ -172,19 +172,19 @@ public class PaneauMoyennes extends JPanel {
 	 * ainsi qu'un compteur également utiliser pour calculer les moyennes.
 	 */
 	
-	private static double MoyenneBretelle;
+	private static double moyenneBretelle;
 	private static double totalBretelle;
 	private static int compteurBretelle = 0;
-	private static double MoyenneTron1;
+	private static double moyenneTron1;
 	private static double totalTron1;
 	private static int compteurTron1 = 0;
-	private static double MoyenneTron2;
+	private static double moyenneTron2;
 	private static double totalTron2;
 	private static int compteurTron2 = 0;
-	private static double MoyenneTron3;
+	private static double moyenneTron3;
 	private static double totalTron3;
 	private static int compteurTron3 = 0;
-	private static double MoyenneRondpoint;
+	private static double moyenneRondpoint;
 	private static double totalRondpoint;
 	private static int compteurRondpoint = 0;
 
@@ -193,69 +193,69 @@ public class PaneauMoyennes extends JPanel {
 	public static void setMoyenneBretelle() {
 		compteurBretelle++;
 		totalBretelle = totalBretelle + Bretelle.getVoituresSize();
-		MoyenneBretelle = totalBretelle/compteurBretelle;
+		moyenneBretelle = totalBretelle/compteurBretelle;
 	};
 	
 	public static double getMoyenneBretelle() {
-		return (int) Math.round(MoyenneBretelle);
+		return (int) Math.round(moyenneBretelle);
 	};
 	
 	public static void setMoyenneTron1() {
 		compteurTron1++;
 		totalTron1 = totalTron1 + Troncon1.getVoituresSize();
-		MoyenneTron1 = totalTron1/compteurTron1;
+		moyenneTron1 = totalTron1/compteurTron1;
 	};
 	
 	public static double getMoyenneTron1() {
-		return (int) Math.round(MoyenneTron1);
+		return (int) Math.round(moyenneTron1);
 	};
 	
 	public static void setMoyenneTron2() {
 		compteurTron2++;
 		totalTron2 = totalTron2 + Troncon2.getVoituresSize();
-		MoyenneTron2 = totalTron2/compteurTron2;
+		moyenneTron2 = totalTron2/compteurTron2;
 	};
 	
 	public static double getMoyenneTron2() {
-		return (int) Math.round(MoyenneTron2);
+		return (int) Math.round(moyenneTron2);
 	};
 	
 	public static void setMoyenneTron3() {
 		compteurTron3++;
 		totalTron3 = totalTron3 + Troncon3.getVoituresSize();
-		MoyenneTron3 = totalTron3/compteurTron3;
+		moyenneTron3 = totalTron3/compteurTron3;
 	};
 	
 	public static double getMoyenneTron3() {
-		return (int) Math.round(MoyenneTron3);
+		return (int) Math.round(moyenneTron3);
 	};
 	
 	public static void setMoyenneRondpoint() {
 		compteurRondpoint++;
 		totalRondpoint = totalRondpoint + Rondpoint.getVoituresSize();
-		MoyenneRondpoint = totalRondpoint/compteurRondpoint;
+		moyenneRondpoint = totalRondpoint/compteurRondpoint;
 	};
 	
 	public static double getMoyenneRondpoint() {
-		return (int) Math.round(MoyenneRondpoint);
+		return (int) Math.round(moyenneRondpoint);
 	}
 	
 	// Méthode pour réinitialiser les valeurs des variables et des affichages
 	
 	public static void resetValeurs() {
-		MoyenneBretelle = 0;
+		moyenneBretelle = 0;
 		totalBretelle = 0;
 		compteurBretelle = 0;
-		MoyenneTron1 = 0;
+		moyenneTron1 = 0;
 		totalTron1 = 0;
 		compteurTron1 = 0;
-		MoyenneTron2 = 0;
+		moyenneTron2 = 0;
 		totalTron2 = 0;
 		compteurTron2 = 0;
-		MoyenneTron3 = 0;
+		moyenneTron3 = 0;
 		totalTron3 = 0;
 		compteurTron3 = 0;
-		MoyenneRondpoint = 0;
+		moyenneRondpoint = 0;
 		totalRondpoint = 0;
 		compteurRondpoint = 0;
 		

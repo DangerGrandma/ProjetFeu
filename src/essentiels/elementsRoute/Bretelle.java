@@ -20,91 +20,91 @@ public class Bretelle extends JPanel implements Route {
 
 	// Objets voitures figurant sur le Bretelle, ajustement du nombre de voitures sur le Bretelle et JLabel qui affiche ce nombre de voitures
 
-	private static int Voitures;
-	public static JLabel VtrsBretelle = new JLabel("Voitures sur la Bretelle : " + Voitures);
+	private static int voitures;
+	public static JLabel vtrsBretelle = new JLabel("voitures sur la Bretelle : " + voitures);
 	
-	// @param VtrBretelle sert à contenir les voitures situées dans la ligne d'attente de la bretelle.
+	// @param vtrBretelle sert à contenir les voitures situées dans la ligne d'attente de la bretelle.
 
-	public static ArrayList<Voiture> VtrBretelle = new ArrayList<Voiture>();
+	public static ArrayList<Voiture> vtrBretelle = new ArrayList<Voiture>();
 
 	// Initialisation de la représentation graphique
 
 	public Bretelle() {
 		setLayout(null);
-		VtrsBretelle.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		VtrsBretelle.setHorizontalAlignment(SwingConstants.CENTER);
-		VtrsBretelle.setBounds(11, 9, 140, 14);
-		add(VtrsBretelle);
+		vtrsBretelle.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		vtrsBretelle.setHorizontalAlignment(SwingConstants.CENTER);
+		vtrsBretelle.setBounds(11, 9, 140, 14);
+		add(vtrsBretelle);
 	}
 
 	// Génération des voitures, de leur destination et de leur empreinte de temps d'apparition
 	
 	public static void genVoitures() {
-		int voituresMin;
-		int voituresMax;
+		final int voitures_MIN;
+		final int voitures_MAX;
 		if (ChoixVoitures.getBretelleDebut() != 0) {
-			voituresMin = ChoixVoitures.getBretelleDebut();
-			voituresMax = ChoixVoitures.getBretelleDebut();
-			Voitures = ThreadLocalRandom.current().nextInt(voituresMin, voituresMax+1);
+			voitures_MIN = ChoixVoitures.getBretelleDebut();
+			voitures_MAX = ChoixVoitures.getBretelleDebut();
+			voitures = ThreadLocalRandom.current().nextInt(voitures_MIN, voitures_MAX+1);
 		}
 		else {
-			voituresMin = ComboBoxTrafic.getAutDebutMin();
-			voituresMax = ComboBoxTrafic.getAutDebutMax();
-			Voitures = ThreadLocalRandom.current().nextInt(voituresMin, voituresMax+1);
+			voitures_MIN = ComboBoxTrafic.getAutDebutMin();
+			voitures_MAX = ComboBoxTrafic.getAutDebutMax();
+			voitures = ThreadLocalRandom.current().nextInt(voitures_MIN, voitures_MAX+1);
 		}
-		for (int i = 1; i <= Voitures; i++) {
-			VtrBretelle.add(new Voiture());
+		for (int i = 1; i <= voitures; i++) {
+			vtrBretelle.add(new Voiture());
 		};
 	}
 	
 	// Fonction qui ajoute une voiture au array de voitures
 	
 	public static void ajoutVoitures() {
-		Bretelle.VtrBretelle.add(0, new Voiture());
-		Bretelle.VtrsBretelle.setText("Voitures sur la Bretelle : " + (VtrBretelle.size()));
+		Bretelle.vtrBretelle.add(0, new Voiture());
+		Bretelle.vtrsBretelle.setText("voitures sur la Bretelle : " + (vtrBretelle.size()));
 	};
 	
 	// Fonction qui retire une voiture du array de voitures, si il y en a au moins une
 	
 	public static void retraitVoiture() {
-		if(VtrBretelle.size() > 0) {
-		Bretelle.VtrBretelle.remove(0);
-		Bretelle.VtrsBretelle.setText("Voitures sur la Bretelle : " + (VtrBretelle.size()));
+		if(vtrBretelle.size() > 0) {
+		Bretelle.vtrBretelle.remove(0);
+		Bretelle.vtrsBretelle.setText("voitures sur la Bretelle : " + (vtrBretelle.size()));
 		}
 	};
 	
 	// Ré-initialisation des voitures
 	
 	public static void resetVoitures() {
-		VtrBretelle.clear();
-		Bretelle.VtrsBretelle.setText("Voitures sur la Bretelle : ");
+		vtrBretelle.clear();
+		Bretelle.vtrsBretelle.setText("voitures sur la Bretelle : ");
 	};
 	
 	// Fonction pour mettre à jour le nombre de voitures sur le Bretelle. Ajustement au hasard, selon l'heure du jour. 
 
-	public static void MAJVoitures() {
+	public static void majVoitures() {
 		
-		int nvlVoitures = ThreadLocalRandom.current().nextInt(ComboBoxTrafic.getMinAuto(), ComboBoxTrafic.getMaxAuto()+1);
-		if (nvlVoitures != 0) {
-		for (int i = 1; i <= nvlVoitures; i++) {
-			VtrBretelle.add(0,new Voiture());
+		int nvlvoitures = ThreadLocalRandom.current().nextInt(ComboBoxTrafic.getMinAuto(), ComboBoxTrafic.getMaxAuto()+1);
+		if (nvlvoitures != 0) {
+		for (int i = 1; i <= nvlvoitures; i++) {
+			vtrBretelle.add(0,new Voiture());
 
 		};
 		}
-		Bretelle.VtrsBretelle.setText("Voitures sur le Bretelle : " + (VtrBretelle.size()));
+		Bretelle.vtrsBretelle.setText("voitures sur le Bretelle : " + (vtrBretelle.size()));
 		checkRondpoint();
 	}	
 	
 	// Donne la grosseur de l'array de voitures
 	
 	public static int getVoituresSize() {
-		return VtrBretelle.size();	 
+		return vtrBretelle.size();	 
 	}
 
 	// Donne la destination en secondes d'une voiture désignée
 	
 	public static int getVoitureArray(int i) {	
-			return VtrBretelle.get(i).getDestination();
+			return vtrBretelle.get(i).getDestination();
 	};
 	
 	/* Vérifie si le rondpoint est assez libre (moins de 30 voitures), si le Troncon1 peu y transférer une de ses voitures. Si oui, le listArray pour Troncon1
@@ -112,11 +112,11 @@ public class Bretelle extends JPanel implements Route {
 	*/
 public static void checkRondpoint() {
 	int totalRondpoint = Rondpoint.getVoituresSize();
-	if(totalRondpoint < 30 && VtrBretelle.size() >= 1) {
+	if(totalRondpoint < 30 && vtrBretelle.size() >= 1) {
 		destroyVoiture();
-		Rondpoint.VtrRondpoint.add(0, new Voiture());
-		Rondpoint.VtrRondpoint.get(0).setDestination();
-		Rondpoint.VtrRondpoint.get(0).setTimeStamp();
+		Rondpoint.vtrRondpoint.add(0, new Voiture());
+		Rondpoint.vtrRondpoint.get(0).setDestination();
+		Rondpoint.vtrRondpoint.get(0).setTimeStamp();
 			
 		};
 	};
@@ -124,7 +124,7 @@ public static void checkRondpoint() {
 	// Application de la destruction de voitures.
 	
 	public static void destroyVoiture() {
-		VtrBretelle.remove(0);
+		vtrBretelle.remove(0);
 	
   }
 }
